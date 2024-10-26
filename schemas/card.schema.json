@@ -1,5 +1,5 @@
 {
-  "$comment": "Stacklands (v1.4.1.21)",
+  "$comment": "Stacklands (v1.4.1.22); stick_workshop (v0.2.1)",
   "type": "object",
   "allOf": [
     {
@@ -6210,6 +6210,370 @@
             "script"
           ]
         },
+        {
+          "if": {
+            "properties": {
+              "script": {
+                "const": "ZjaveWorkshopModNS.FoodChest"
+              }
+            },
+            "required": [
+              "script"
+            ]
+          },
+          "then": {
+            "properties": {
+              "_ResourceCount": {
+                "type": "integer"
+              },
+              "_HeldCardId": {
+                "type": "string"
+              },
+              "_ChestTerm": {
+                "type": "string"
+              },
+              "_MaxResourceCount": {
+                "type": "integer"
+              },
+              "_CustomName": {
+                "type": "string"
+              },
+              "_PickupSoundGroup": {
+                "$ref": "#/$defs/enum/PickupSoundGroup"
+              },
+              "_IsFoil": {
+                "type": "boolean"
+              },
+              "_IsShiny": {
+                "type": "boolean"
+              },
+              "_IsBuilding": {
+                "type": "boolean"
+              },
+              "_IsCookedFood": {
+                "type": "boolean"
+              },
+              "_CardUpdateType": {
+                "$ref": "#/$defs/enum/CardUpdateType"
+              },
+              "_HasUniquePalette": {
+                "type": "boolean"
+              },
+              "_MyPalette": {
+                "$ref": "#/$defs/typeCardPalette"
+              }
+            }
+          },
+          "required": [
+            "script"
+          ]
+        },
+        {
+          "if": {
+            "properties": {
+              "script": {
+                "const": "ZjaveWorkshopModNS.ZjaveWorkshop"
+              }
+            },
+            "required": [
+              "script"
+            ]
+          },
+          "then": {
+            "properties": {
+              "_CustomName": {
+                "type": "string"
+              },
+              "_PickupSoundGroup": {
+                "$ref": "#/$defs/enum/PickupSoundGroup"
+              },
+              "_IsFoil": {
+                "type": "boolean"
+              },
+              "_IsShiny": {
+                "type": "boolean"
+              },
+              "_IsBuilding": {
+                "type": "boolean"
+              },
+              "_IsCookedFood": {
+                "type": "boolean"
+              },
+              "_CardUpdateType": {
+                "$ref": "#/$defs/enum/CardUpdateType"
+              },
+              "_HasUniquePalette": {
+                "type": "boolean"
+              },
+              "_MyPalette": {
+                "$ref": "#/$defs/typeCardPalette"
+              }
+            }
+          },
+          "required": [
+            "script"
+          ]
+        },
+        {
+          "if": {
+            "properties": {
+              "script": {
+                "const": "ZjaveWorkshopModNS.StickWorkshop"
+              }
+            },
+            "required": [
+              "script"
+            ]
+          },
+          "then": {
+            "properties": {
+              "_cardId": {
+                "type": "string"
+              },
+              "_blueprintId": {
+                "type": "string"
+              },
+              "_CustomName": {
+                "type": "string"
+              },
+              "_PickupSoundGroup": {
+                "$ref": "#/$defs/enum/PickupSoundGroup"
+              },
+              "_IsFoil": {
+                "type": "boolean"
+              },
+              "_IsShiny": {
+                "type": "boolean"
+              },
+              "_IsBuilding": {
+                "type": "boolean"
+              },
+              "_IsCookedFood": {
+                "type": "boolean"
+              },
+              "_CardUpdateType": {
+                "$ref": "#/$defs/enum/CardUpdateType"
+              },
+              "_HasUniquePalette": {
+                "type": "boolean"
+              },
+              "_MyPalette": {
+                "$ref": "#/$defs/typeCardPalette"
+              }
+            }
+          },
+          "required": [
+            "script"
+          ]
+        },
+        {
+          "if": {
+            "properties": {
+              "script": {
+                "const": "ZjaveWorkshopModNS.FruitSaladWorkshop"
+              }
+            },
+            "required": [
+              "script"
+            ]
+          },
+          "then": {
+            "properties": {
+              "_cardId": {
+                "type": "string"
+              },
+              "_blueprintId": {
+                "type": "string"
+              },
+              "_CustomName": {
+                "type": "string"
+              },
+              "_PickupSoundGroup": {
+                "$ref": "#/$defs/enum/PickupSoundGroup"
+              },
+              "_IsFoil": {
+                "type": "boolean"
+              },
+              "_IsShiny": {
+                "type": "boolean"
+              },
+              "_IsBuilding": {
+                "type": "boolean"
+              },
+              "_IsCookedFood": {
+                "type": "boolean"
+              },
+              "_CardUpdateType": {
+                "$ref": "#/$defs/enum/CardUpdateType"
+              },
+              "_HasUniquePalette": {
+                "type": "boolean"
+              },
+              "_MyPalette": {
+                "$ref": "#/$defs/typeCardPalette"
+              }
+            }
+          },
+          "required": [
+            "script"
+          ]
+        },
+        {
+          "if": {
+            "properties": {
+              "script": {
+                "const": "ZjaveWorkshopModNS.ShedWorkshop"
+              }
+            },
+            "required": [
+              "script"
+            ]
+          },
+          "then": {
+            "properties": {
+              "_cardId": {
+                "type": "string"
+              },
+              "_blueprintId": {
+                "type": "string"
+              },
+              "_CustomName": {
+                "type": "string"
+              },
+              "_PickupSoundGroup": {
+                "$ref": "#/$defs/enum/PickupSoundGroup"
+              },
+              "_IsFoil": {
+                "type": "boolean"
+              },
+              "_IsShiny": {
+                "type": "boolean"
+              },
+              "_IsBuilding": {
+                "type": "boolean"
+              },
+              "_IsCookedFood": {
+                "type": "boolean"
+              },
+              "_CardUpdateType": {
+                "$ref": "#/$defs/enum/CardUpdateType"
+              },
+              "_HasUniquePalette": {
+                "type": "boolean"
+              },
+              "_MyPalette": {
+                "$ref": "#/$defs/typeCardPalette"
+              }
+            }
+          },
+          "required": [
+            "script"
+          ]
+        },
+        {
+          "if": {
+            "properties": {
+              "script": {
+                "const": "ZjaveWorkshopModNS.WarehouseWorkshop"
+              }
+            },
+            "required": [
+              "script"
+            ]
+          },
+          "then": {
+            "properties": {
+              "_cardId": {
+                "type": "string"
+              },
+              "_blueprintId": {
+                "type": "string"
+              },
+              "_CustomName": {
+                "type": "string"
+              },
+              "_PickupSoundGroup": {
+                "$ref": "#/$defs/enum/PickupSoundGroup"
+              },
+              "_IsFoil": {
+                "type": "boolean"
+              },
+              "_IsShiny": {
+                "type": "boolean"
+              },
+              "_IsBuilding": {
+                "type": "boolean"
+              },
+              "_IsCookedFood": {
+                "type": "boolean"
+              },
+              "_CardUpdateType": {
+                "$ref": "#/$defs/enum/CardUpdateType"
+              },
+              "_HasUniquePalette": {
+                "type": "boolean"
+              },
+              "_MyPalette": {
+                "$ref": "#/$defs/typeCardPalette"
+              }
+            }
+          },
+          "required": [
+            "script"
+          ]
+        },
+        {
+          "if": {
+            "properties": {
+              "script": {
+                "const": "ZjaveWorkshopModNS.MilkshakeWorkshop"
+              }
+            },
+            "required": [
+              "script"
+            ]
+          },
+          "then": {
+            "properties": {
+              "_cardId": {
+                "type": "string"
+              },
+              "_blueprintId": {
+                "type": "string"
+              },
+              "_CustomName": {
+                "type": "string"
+              },
+              "_PickupSoundGroup": {
+                "$ref": "#/$defs/enum/PickupSoundGroup"
+              },
+              "_IsFoil": {
+                "type": "boolean"
+              },
+              "_IsShiny": {
+                "type": "boolean"
+              },
+              "_IsBuilding": {
+                "type": "boolean"
+              },
+              "_IsCookedFood": {
+                "type": "boolean"
+              },
+              "_CardUpdateType": {
+                "$ref": "#/$defs/enum/CardUpdateType"
+              },
+              "_HasUniquePalette": {
+                "type": "boolean"
+              },
+              "_MyPalette": {
+                "$ref": "#/$defs/typeCardPalette"
+              }
+            }
+          },
+          "required": [
+            "script"
+          ]
+        },
         {}
       ]
     }
@@ -6862,7 +7226,19 @@
         "slaughter_house",
         "trash_can",
         "university",
-        "wishing_well"
+        "wishing_well",
+        "zjave_food_chest",
+        "zjave_fruit_salad_workshop",
+        "zjave_milkshake_workshop",
+        "zjave_shed_workshop",
+        "zjave_stick_workshop",
+        "zjave_warehouse_workshop",
+        "zjave_blueprint_food_chest",
+        "zjave_blueprint_fruit_salad_workshop",
+        "zjave_blueprint_milkshake_workshop",
+        "zjave_blueprint_shed_workshop",
+        "zjave_blueprint_stick_workshop",
+        "zjave_blueprint_warehouse_workshop"
       ]
     },
     "cardIdArray": {
@@ -7109,7 +7485,6 @@
         "label_cards_infobox_warning",
         "label_clear_save",
         "label_clear_save_confirm",
-        "label_click_this_pack",
         "label_coin_infobox_text",
         "label_coin_infobox_title",
         "label_combat_speed",
@@ -7283,7 +7658,6 @@
         "card_coconut_tree_status",
         "card_cod_name",
         "card_coin_chest_description",
-        "card_coin_chest_description_long",
         "card_coin_chest_name",
         "card_composter_description",
         "card_composter_name",
@@ -7402,7 +7776,6 @@
         "card_sheep_description",
         "card_sheep_name",
         "card_shell_chest_description",
-        "card_shell_chest_description_long",
         "card_shell_chest_name",
         "card_shell_description",
         "card_shell_name",
@@ -7878,6 +8251,7 @@
         "label_debug_end_moon",
         "label_debug_endless_moon",
         "label_debug_general",
+        "label_debug_start_cities_run",
         "label_debug_reset_run",
         "label_debug_scenario_demon",
         "label_debug_scenario_demon_lord",
@@ -7939,7 +8313,6 @@
         "label_not_enough_food_before_portal",
         "label_taking_portal_full",
         "label_taking_portal_title",
-        "label_toggle_inventory",
         "label_total_combatlevel",
         "quest_break_bottle_text",
         "quest_build_smithy_text",
@@ -8480,11 +8853,9 @@
         "label_happiness_warning",
         "label_island_update",
         "label_its_the_spirit",
-        "label_magic_description",
         "label_magic_lore",
         "label_magic_title",
         "label_main_game",
-        "label_melee_description",
         "label_melee_lore",
         "label_melee_title",
         "label_menu_spirit_title",
@@ -8501,7 +8872,6 @@
         "label_not_everyone_happy",
         "label_open_workshop",
         "label_random_name",
-        "label_ranged_description",
         "label_ranged_lore",
         "label_ranged_title",
         "label_return_from_spirit_world_text",
@@ -8743,22 +9113,35 @@
         "credits_betatesting",
         "quest_happiness_read_book_text",
         "label_music",
-        "card_carriage_name",
-        "card_carriage_description",
-        "card_carriage_status_0",
-        "card_carriage_status_1",
-        "cutscene_expedition_start_title",
-        "cutscene_expedition_start_text",
-        "cutscene_expedition_start_text_1",
-        "cutscene_expedition_start_text_2",
-        "cutscene_expedition_board_start_text",
-        "cutscene_expedition_board_start_text_1",
-        "cutscene_expedition_board_start_text_2",
-        "cutscene_expedition_board_start_title",
-        "pack_draw_pack_text",
-        "label_everyone_expedition_dead",
-        "label_everyone_expedition_dead_text",
-        "label_everyone_expedition_dead_text_retry"
+        "label_click_this_pack",
+        "card_coin_chest_description_long",
+        "card_shell_chest_description_long",
+        "label_toggle_inventory",
+        "label_magic_description",
+        "label_melee_description",
+        "label_ranged_description",
+        "label_different_mods",
+        "label_debug_need_villagers",
+        "label_restart_required",
+        "label_restart",
+        "zjave_card_food_chest_name",
+        "zjave_food_chest_name",
+        "zjave_food_chest_description",
+        "zjave_stick_workshop_name",
+        "zjave_stick_workshop_description",
+        "zjave_stick_workshop_status",
+        "zjave_fruit_salad_workshop_name",
+        "zjave_fruit_salad_workshop_description",
+        "zjave_fruit_salad_workshop_status",
+        "zjave_shed_workshop_name",
+        "zjave_shed_workshop_description",
+        "zjave_shed_workshop_status",
+        "zjave_warehouse_workshop_name",
+        "zjave_warehouse_workshop_description",
+        "zjave_warehouse_workshop_status",
+        "zjave_milkshake_workshop_name",
+        "zjave_milkshake_workshop_description",
+        "zjave_milkshake_workshop_status"
       ]
     },
     "enum": {

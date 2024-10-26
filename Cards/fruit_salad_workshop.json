@@ -1,0 +1,17 @@
+{
+    "$schema": "../schemas/card.schema.json",
+    "id": "zjave_fruit_salad_workshop",
+    "nameTerm": "zjave_fruit_salad_workshop_name",
+    "descriptionTerm": "zjave_fruit_salad_workshop_description",
+    "icon": "fruit_salad",
+    "value": 5,
+    "type": "Structures",
+    "script": "ZjaveWorkshopModNS.FruitSaladWorkshop",
+    "_IsBuilding": true,
+    "_HasUniquePalette": true,
+    "_MyPalette": {
+        "Color": "#FF5743",
+        "Color2": "#E35342",
+        "Icon": "#FFFFFF"
+    }
+}

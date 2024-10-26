@@ -1,0 +1,17 @@
+{
+    "$schema": "../schemas/card.schema.json",
+    "id": "zjave_shed_workshop",
+    "nameTerm": "zjave_shed_workshop_name",
+    "descriptionTerm": "zjave_shed_workshop_description",
+    "icon": "shed",
+    "value": 5,
+    "type": "Structures",
+    "script": "ZjaveWorkshopModNS.ShedWorkshop",
+    "_IsBuilding": true,
+    "_HasUniquePalette": true,
+    "_MyPalette": {
+        "Color": "#FF5743",
+        "Color2": "#E35342",
+        "Icon": "#FFFFFF"
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "$schema": "../schemas/card.schema.json",
+    "id": "zjave_warehouse_workshop",
+    "nameTerm": "zjave_warehouse_workshop_name",
+    "descriptionTerm": "zjave_warehouse_workshop_description",
+    "icon": "warehouse",
+    "value": 5,
+    "type": "Structures",
+    "script": "ZjaveWorkshopModNS.WarehouseWorkshop",
+    "_IsBuilding": true,
+    "_HasUniquePalette": true,
+    "_MyPalette": {
+        "Color": "#FF5743",
+        "Color2": "#E35342",
+        "Icon": "#FFFFFF"
+    }
+}

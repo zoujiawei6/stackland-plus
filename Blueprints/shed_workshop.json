@@ -1,0 +1,14 @@
+{
+    "$schema": "../schemas/blueprint.schema.json",
+    "id": "zjave_blueprint_shed_workshop",
+    "nameTerm": "zjave_shed_workshop_name",
+    "group": "Building",
+    "subprints": [
+        {
+            "RequiredCards": "wood, wood, stone, stone, villager, stone, stick, wood",
+            "ResultCard": "zjave_shed_workshop",
+            "Time": 30,
+            "StatusTerm": "zjave_shed_workshop_status"
+        }
+    ]
+}

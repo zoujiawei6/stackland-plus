@@ -1,0 +1,17 @@
+{
+    "$schema": "../schemas/card.schema.json",
+    "id": "zjave_stick_workshop",
+    "nameTerm": "zjave_stick_workshop_name",
+    "descriptionTerm": "zjave_stick_workshop_description",
+    "icon": "stick",
+    "value": 5,
+    "type": "Structures",
+    "script": "ZjaveWorkshopModNS.StickWorkshop",
+    "_IsBuilding": true,
+    "_HasUniquePalette": true,
+    "_MyPalette": {
+        "Color": "#FF5743",
+        "Color2": "#E35342",
+        "Icon": "#FFFFFF"
+    }
+}

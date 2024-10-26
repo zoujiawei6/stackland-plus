@@ -33,7 +33,7 @@ def sync_folder(src: Path, dst: Path):
 
 # build
 start_time = time.time()
-p = subprocess.Popen("dotnet build", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+p = subprocess.Popen("dotnet build Mod.csproj", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 stdout, stderr = p.communicate()
 if p.returncode != 0:
     print(stdout.decode())

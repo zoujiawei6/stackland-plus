@@ -1,0 +1,14 @@
+{
+    "$schema": "../schemas/blueprint.schema.json",
+    "id": "zjave_blueprint_milkshake_workshop",
+    "nameTerm": "zjave_milkshake_workshop_name",
+    "group": "Building",
+    "subprints": [
+        {
+            "RequiredCards": "wood, wood, stone, stone, villager, milk, berry",
+            "ResultCard": "zjave_milkshake_workshop",
+            "Time": 15,
+            "StatusTerm": "zjave_milkshake_workshop_status"
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "$schema": "../schemas/card.schema.json",
+    "id": "zjave_food_chest",
+    "nameTerm": "zjave_food_chest_name",
+    "descriptionTerm": "zjave_food_chest_description",
+    "icon": "resource_chest",
+    "value": 3,
+    "type": "Structures",
+    "script": "ZjaveWorkshopModNS.FoodChest",
+    "_IsBuilding": true
+}

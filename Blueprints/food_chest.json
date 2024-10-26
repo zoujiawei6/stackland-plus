@@ -1,0 +1,14 @@
+{
+    "$schema": "../schemas/blueprint.schema.json",
+    "id": "zjave_blueprint_food_chest",
+    "nameTerm": "zjave_food_chest_name",
+    "group": "Building",
+    "subprints": [
+        {
+            "RequiredCards": "plank, plank, iron_bar, flint, flint",
+            "ResultCard": "zjave_food_chest",
+            "Time": 10,
+            "StatusTerm": "zjave_food_chest_status"
+        }
+    ]
+}
