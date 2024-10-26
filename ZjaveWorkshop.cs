@@ -17,7 +17,7 @@ namespace ZjaveWorkshopModNS
       if (haveCards == null) return false;
 
       bool anyMatch = haveCards.Any(kvp => otherCard.Id == kvp.Key);
-      return anyMatch || otherCard.Id == CardType.Humans.ToString();
+      return anyMatch || otherCard.Id == Cards.villager;
     }
 
     public override void UpdateCard()
