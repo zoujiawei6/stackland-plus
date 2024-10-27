@@ -31,6 +31,7 @@ namespace ZjaveStacklandsPlus.Scripts
       bool hasWorker = ChildrenMatchingPredicateCount((CardData cd) => cd.Id == "zjave_worker") >= 1;
       if (allMatch && (hasVillager || hasWorker))
       {
+        // TODO 工人具有更高的熟练度，可以更快生产
           MyGameCard.StartTimer(working_time, CompleteMaking, SokLoc.Translate(card_status), GetActionId("CompleteMaking"));
       }
       else
