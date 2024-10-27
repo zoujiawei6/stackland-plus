@@ -1,5 +1,5 @@
 
-namespace ZjaveWorkshopModNS
+namespace ZjaveStacklandsPlus.Scripts
 {
   /// <summary>
   /// 工坊顶层类

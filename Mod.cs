@@ -1,12 +1,8 @@
 ﻿using HarmonyLib;
-using System;
-using System.Collections;
-using System.Linq;
 using System.Reflection;
+using ZjaveStacklandsPlus.Scripts;
 
-using UnityEngine;
-
-namespace ZjaveWorkshopModNS
+namespace ZjaveStacklandsPlus
 {
     public class StickWorkshopMod : Mod
     {
@@ -46,10 +42,10 @@ namespace ZjaveWorkshopModNS
             // 获取当前程序集中的所有类型
             var allTypes = Assembly.GetExecutingAssembly().GetTypes();
 
-            // 筛选出 ZjaveWorkshopModNS 命名空间下，继承自 ZjaveWorkshop 的类型
+            // 筛选出 ZjaveStacklandsPlus 命名空间下，继承自 ZjaveWorkshop 的类型
             var workshopTypes = allTypes.Where(t =>
                 t.IsClass &&                     // 需要是类
-                t.Namespace == "ZjaveWorkshopModNS" &&  // 限定在指定命名空间
+                t.Namespace == "ZjaveStacklandsPlus" &&  // 限定在指定命名空间
                 t.IsSubclassOf(typeof(ZjaveWorkshop))   // 继承自 ZjaveWorkshop
             );
 

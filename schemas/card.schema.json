@@ -6214,7 +6214,7 @@
           "if": {
             "properties": {
               "script": {
-                "const": "ZjaveWorkshopModNS.FoodChest"
+                "const": "ZjaveStacklandsPlus.Scripts.FoodChest"
               }
             },
             "required": [
@@ -6272,7 +6272,7 @@
           "if": {
             "properties": {
               "script": {
-                "const": "ZjaveWorkshopModNS.ZjaveWorkshop"
+                "const": "ZjaveStacklandsPlus.ZjaveWorkshop"
               }
             },
             "required": [
@@ -6318,59 +6318,7 @@
           "if": {
             "properties": {
               "script": {
-                "const": "ZjaveWorkshopModNS.StickWorkshop"
-              }
-            },
-            "required": [
-              "script"
-            ]
-          },
-          "then": {
-            "properties": {
-              "_cardId": {
-                "type": "string"
-              },
-              "_blueprintId": {
-                "type": "string"
-              },
-              "_CustomName": {
-                "type": "string"
-              },
-              "_PickupSoundGroup": {
-                "$ref": "#/$defs/enum/PickupSoundGroup"
-              },
-              "_IsFoil": {
-                "type": "boolean"
-              },
-              "_IsShiny": {
-                "type": "boolean"
-              },
-              "_IsBuilding": {
-                "type": "boolean"
-              },
-              "_IsCookedFood": {
-                "type": "boolean"
-              },
-              "_CardUpdateType": {
-                "$ref": "#/$defs/enum/CardUpdateType"
-              },
-              "_HasUniquePalette": {
-                "type": "boolean"
-              },
-              "_MyPalette": {
-                "$ref": "#/$defs/typeCardPalette"
-              }
-            }
-          },
-          "required": [
-            "script"
-          ]
-        },
-        {
-          "if": {
-            "properties": {
-              "script": {
-                "const": "ZjaveWorkshopModNS.FruitSaladWorkshop"
+                "const": "ZjaveStacklandsPlus.StickWorkshop"
               }
             },
             "required": [
@@ -6422,7 +6370,7 @@
           "if": {
             "properties": {
               "script": {
-                "const": "ZjaveWorkshopModNS.ShedWorkshop"
+                "const": "ZjaveStacklandsPlus.FruitSaladWorkshop"
               }
             },
             "required": [
@@ -6474,7 +6422,7 @@
           "if": {
             "properties": {
               "script": {
-                "const": "ZjaveWorkshopModNS.WarehouseWorkshop"
+                "const": "ZjaveStacklandsPlus.ShedWorkshop"
               }
             },
             "required": [
@@ -6526,7 +6474,59 @@
           "if": {
             "properties": {
               "script": {
-                "const": "ZjaveWorkshopModNS.MilkshakeWorkshop"
+                "const": "ZjaveStacklandsPlus.WarehouseWorkshop"
+              }
+            },
+            "required": [
+              "script"
+            ]
+          },
+          "then": {
+            "properties": {
+              "_cardId": {
+                "type": "string"
+              },
+              "_blueprintId": {
+                "type": "string"
+              },
+              "_CustomName": {
+                "type": "string"
+              },
+              "_PickupSoundGroup": {
+                "$ref": "#/$defs/enum/PickupSoundGroup"
+              },
+              "_IsFoil": {
+                "type": "boolean"
+              },
+              "_IsShiny": {
+                "type": "boolean"
+              },
+              "_IsBuilding": {
+                "type": "boolean"
+              },
+              "_IsCookedFood": {
+                "type": "boolean"
+              },
+              "_CardUpdateType": {
+                "$ref": "#/$defs/enum/CardUpdateType"
+              },
+              "_HasUniquePalette": {
+                "type": "boolean"
+              },
+              "_MyPalette": {
+                "$ref": "#/$defs/typeCardPalette"
+              }
+            }
+          },
+          "required": [
+            "script"
+          ]
+        },
+        {
+          "if": {
+            "properties": {
+              "script": {
+                "const": "ZjaveStacklandsPlus.MilkshakeWorkshop"
               }
             },
             "required": [

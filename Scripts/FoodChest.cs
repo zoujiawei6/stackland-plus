@@ -1,6 +1,4 @@
-using UnityEngine;
-
-namespace ZjaveWorkshopModNS
+namespace ZjaveStacklandsPlus.Scripts
 {
   class FoodChest : ResourceChest
   {
@@ -23,12 +21,7 @@ namespace ZjaveWorkshopModNS
     {
       base.UpdateCard();
 
-      if (!string.IsNullOrEmpty(HeldCardId))
-      {
-          nameOverride = SokLoc.Translate("card_resource_chest_name_override", LocParam.Create("resource", WorldManager.instance.GameDataLoader.GetCardFromId(HeldCardId).Name));
-          descriptionOverride = SokLoc.Translate(ChestTerm, LocParam.Create("resource", WorldManager.instance.GameDataLoader.GetCardFromId(HeldCardId).Name), LocParam.Create("amount", ResourceCount.ToString()));
-      }
-      else
+      if (string.IsNullOrEmpty(HeldCardId))
       {
           nameOverride = SokLoc.Translate("zjave_card_food_chest_name");
           descriptionOverride = null;

@@ -6,7 +6,7 @@
     "icon": "milkshake",
     "value": 5,
     "type": "Structures",
-    "script": "ZjaveWorkshopModNS.MilkshakeWorkshop",
+    "script": "ZjaveStacklandsPlus.Scripts.MilkshakeWorkshop",
     "_IsBuilding": true,
     "_HasUniquePalette": true,
     "_MyPalette": {

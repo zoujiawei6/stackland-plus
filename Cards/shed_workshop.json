@@ -6,7 +6,7 @@
     "icon": "shed",
     "value": 5,
     "type": "Structures",
-    "script": "ZjaveWorkshopModNS.ShedWorkshop",
+    "script": "ZjaveStacklandsPlus.Scripts.ShedWorkshop",
     "_IsBuilding": true,
     "_HasUniquePalette": true,
     "_MyPalette": {

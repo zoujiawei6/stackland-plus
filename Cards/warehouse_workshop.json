@@ -6,7 +6,7 @@
     "icon": "warehouse",
     "value": 5,
     "type": "Structures",
-    "script": "ZjaveWorkshopModNS.WarehouseWorkshop",
+    "script": "ZjaveStacklandsPlus.Scripts.WarehouseWorkshop",
     "_IsBuilding": true,
     "_HasUniquePalette": true,
     "_MyPalette": {

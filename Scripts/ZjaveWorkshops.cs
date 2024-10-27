@@ -1,4 +1,4 @@
-namespace ZjaveWorkshopModNS
+namespace ZjaveStacklandsPlus.Scripts
 {
   
   public class StickWorkshop : ZjaveWorkshop

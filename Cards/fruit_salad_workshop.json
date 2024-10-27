@@ -6,7 +6,7 @@
     "icon": "fruit_salad",
     "value": 5,
     "type": "Structures",
-    "script": "ZjaveWorkshopModNS.FruitSaladWorkshop",
+    "script": "ZjaveStacklandsPlus.Scripts.FruitSaladWorkshop",
     "_IsBuilding": true,
     "_HasUniquePalette": true,
     "_MyPalette": {

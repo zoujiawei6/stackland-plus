@@ -6,6 +6,6 @@
     "icon": "resource_chest",
     "value": 3,
     "type": "Structures",
-    "script": "ZjaveWorkshopModNS.FoodChest",
+    "script": "ZjaveStacklandsPlus.Scripts.FoodChest",
     "_IsBuilding": true
 }

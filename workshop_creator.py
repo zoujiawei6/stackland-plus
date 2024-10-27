@@ -65,7 +65,7 @@ class WorkshopCreator:
           "icon": icon,
           "value": value,
           "type": "Structures",
-          "script": f"ZjaveWorkshopModNS.{ingredient_cu}Workshop",
+          "script": f"ZjaveStacklandsPlus.Scripts.{ingredient_cu}Workshop",
           "_IsBuilding": True,
           "_HasUniquePalette": True,
           "_MyPalette": {

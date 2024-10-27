@@ -6,7 +6,7 @@
     "icon": "stick",
     "value": 5,
     "type": "Structures",
-    "script": "ZjaveWorkshopModNS.StickWorkshop",
+    "script": "ZjaveStacklandsPlus.Scripts.StickWorkshop",
     "_IsBuilding": true,
     "_HasUniquePalette": true,
     "_MyPalette": {
