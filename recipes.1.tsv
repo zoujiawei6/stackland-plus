@@ -1,6 +1,6 @@
-result_card	required_cards	have_cards	value	icon	time
-stick	stick, wood, wood, stone, stone, villager	wood	5	stick	15
-fruit_salad	apple, berry, wood, wood, stone, stone, villager	apple, berry	5	fruit_salad	15
-shed	wood, wood, stone, stone, villager, stone, stick, wood	stone, stick, wood	5	shed	30
-warehouse	wood, wood, stone, stone, villager, iron_bar, stone	iron_bar, stone	5	warehouse	30
-milkshake	wood, wood, stone, stone, villager, milk, berry	milk, berry	5	milkshake	15
+result_card	required_cards	have_cards	value	icon	time working_time
+stick	stick, wood, wood, stone, stone, villager	wood	5	stick	30	6
+fruit_salad	apple, berry, wood, wood, stone, stone, villager	apple, berry	5	fruit_salad	30	3
+shed	wood, wood, stone, stone, villager, stone, stick, wood	stone, stick, wood	5	shed	30	10
+warehouse	wood, wood, stone, stone, villager, iron_bar, stone	iron_bar, stone	5	warehouse	30	10
+milkshake	wood, wood, stone, stone, villager, milk, berry	milk, berry	5	milkshake	30	3

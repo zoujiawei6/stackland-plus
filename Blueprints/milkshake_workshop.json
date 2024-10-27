@@ -7,7 +7,7 @@
         {
             "RequiredCards": "wood, wood, stone, stone, villager, milk, berry",
             "ResultCard": "zjave_milkshake_workshop",
-            "Time": 15,
+            "Time": 30,
             "StatusTerm": "zjave_milkshake_workshop_status"
         }
     ]

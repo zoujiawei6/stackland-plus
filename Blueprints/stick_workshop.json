@@ -7,7 +7,7 @@
         {
             "RequiredCards": "stick, wood, wood, stone, stone, villager",
             "ResultCard": "zjave_stick_workshop",
-            "Time": 15,
+            "Time": 30,
             "StatusTerm": "zjave_stick_workshop_status"
         }
     ]

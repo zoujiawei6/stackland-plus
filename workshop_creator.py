@@ -77,7 +77,7 @@ class WorkshopCreator:
         filename = f"{self.card_json_path}/{ingredient}_workshop.json"
         FileUtils.write_to_json_file(card, filename)
 
-    def create_workshop_cs(self, result_card: str, have_cards: dict[str, int] = None, ):
+    def create_workshop_cs(self, result_card: str, have_cards: dict[str, int] = None, working_time: float = 10):
         """
         创建包含作坊脚本的 C# 文件。
 
@@ -94,7 +94,7 @@ class WorkshopCreator:
   {{
     public static string cardId = "zjave_{result_card}_workshop";
     public static string blueprintId = "zjave_blueprint_{result_card}_workshop";
-    public {result_card_cu}Workshop() : base("{result_card}", Cards.{result_card}, new Dictionary<string, int> {{
+    public {result_card_cu}Workshop() : base("{result_card}", Cards.{result_card}, {working_time}, new Dictionary<string, int> {{
       {make_cards_str}
     }})
     {{
@@ -104,7 +104,7 @@ class WorkshopCreator:
         filename = f"./ZjaveWorkshops.cs"
         FileUtils.insert_before_last_brace(cs, filename)
 
-    def simple_create(self, result_card: str, required_cards: str = None, have_cards: dict[str, int] = None, value: int = 5, icon: str = None, time: int = 3):
+    def simple_create(self, result_card: str, required_cards: str = None, have_cards: dict[str, int] = None, value: int = 5, icon: str = None, time: int = 3, working_time: int = 10):
         """
         创建包含作坊卡牌和蓝图的 JSON 文件。
 
@@ -117,7 +117,7 @@ class WorkshopCreator:
         """
         self.create_card_json(result_card, value, icon)
         self.create_blueprint_json(result_card, required_cards, time)
-        self.create_workshop_cs(result_card, have_cards)
+        self.create_workshop_cs(result_card, have_cards, working_time)
         self.append_to_localization(result_card)
 
     def append_to_localization(self, ingredient: str):
@@ -153,10 +153,11 @@ if __name__ == "__main__":
         value = row['value']
         icon = row['icon']
         time = row['time']
+        working_time = row['working_time']
             
         # 使用 Counter 计算 have_cards 中每个卡片的数量
         have_cards_list = [card.strip() for card in have_cards.split(',')]
         have_cards_count = dict(Counter(have_cards_list))
-        creator.simple_create(result_card, required_cards, have_cards_count, value, icon, time)
+        creator.simple_create(result_card, required_cards, have_cards_count, value, icon, time, working_time)
     
     print("\n\n若需生成schemas文件夹中的内容，请使用游戏中自带的Generating Schemas生成内容到schemas文件夹中")

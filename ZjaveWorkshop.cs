@@ -5,9 +5,10 @@ namespace ZjaveWorkshopModNS
   /// 工坊顶层类
   /// </summary>
   /// <param name="ingredient">工坊关键字，用于创建卡片id</param>
+  /// <param name="working_time">制作所需时间</param>
   /// <param name="resultCard">工坊制作出的卡片</param>
   /// <param name="haveCards">制作所需的材料卡片，及其所需数量列表</param>
-  public class ZjaveWorkshop(string ingredient, string resultCard, Dictionary<string, int> haveCards) : CardData
+  public class ZjaveWorkshop(string ingredient, string resultCard, float working_time, Dictionary<string, int> haveCards) : CardData
   {
     protected string card_id = string.Format("zjave_{0}_workshop", ingredient);
     protected string card_status = string.Format("zjave_{0}_workshop_status", ingredient);
@@ -27,7 +28,7 @@ namespace ZjaveWorkshopModNS
       );
       if (allMatch && ChildrenMatchingPredicateCount((CardData cd) => cd.Id == Cards.villager) >= 1)
       {
-        MyGameCard.StartTimer(10f, CompleteMaking, SokLoc.Translate(card_status), GetActionId("CompleteMaking"));
+        MyGameCard.StartTimer(working_time, CompleteMaking, SokLoc.Translate(card_status), GetActionId("CompleteMaking"));
       }
       else
       {
