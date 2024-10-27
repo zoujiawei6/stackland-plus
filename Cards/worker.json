@@ -1,0 +1,10 @@
+{
+    "$schema": "../schemas/card.schema.json",
+    "id": "zjave_worker",
+    "nameTerm": "zjave_worker_name",
+    "descriptionTerm": "zjave_worker_description",
+    "icon": "villager",
+    "value": -1,
+    "type": "Humans",
+    "script": "ZjaveStacklandsPlus.Scripts.Worker"
+}
