@@ -9,8 +9,8 @@ namespace ZjaveWorkshopModNS
     [HarmonyPostfix]
     public static void PostUpdateCard(ResourceChest __instance)
     {
-      UnityEngine.Debug.Log("ResourceCount2: " + __instance.ResourceCount);
-      UnityEngine.Debug.Log("SpecialIcon2: " + __instance.SpecialIcon);
+      // UnityEngine.Debug.Log("ResourceCount2: " + __instance.ResourceCount);
+      // UnityEngine.Debug.Log("SpecialIcon2: " + __instance.SpecialIcon);
       // 获取ZjaveWorkshopModNS下所以FoodChest类实例
       var foodChests = UnityEngine.Object.FindObjectsOfType<FoodChest>();
       foreach (var foodChest in foodChests)

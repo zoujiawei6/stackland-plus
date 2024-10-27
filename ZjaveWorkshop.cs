@@ -26,9 +26,26 @@ namespace ZjaveWorkshopModNS
       bool allMatch = haveCards != null && haveCards.All(kvp =>
           ChildrenMatchingPredicateCount((CardData cd) => cd.Id == kvp.Key) >= kvp.Value
       );
-      if (allMatch && ChildrenMatchingPredicateCount((CardData cd) => cd.Id == Cards.villager) >= 1)
+      bool hasVillager = ChildrenMatchingPredicateCount((CardData cd) => cd.Id == Cards.villager) >= 1;
+      if (haveCards != null && haveCards.ContainsKey("apple") && haveCards.ContainsKey("berry") && haveCards.ContainsKey("milk"))
       {
-        MyGameCard.StartTimer(working_time, CompleteMaking, SokLoc.Translate(card_status), GetActionId("CompleteMaking"));
+        hasVillager = false;
+      }
+
+      if (allMatch && haveCards != null)
+      {
+        // 如果包含apple, berry, milk则不用包含村民
+        // TODO 本意是所有作坊都需要村民才能生产，但食物类卡牌无法放置在村民卡牌上；
+        // TODO 为了避免修改原游戏的村民类，应该先制作工人卡牌，将村民转变为工人，然后修改工人的逻辑，让工人可以放置食物；而工人也是村民的一种
+        if (haveCards.ContainsKey("apple") || haveCards.ContainsKey("berry") || haveCards.ContainsKey("milk"))
+        {
+          MyGameCard.StartTimer(working_time, CompleteMaking, SokLoc.Translate(card_status), GetActionId("CompleteMaking"));
+        }
+        // 否则需要村民才能生产
+        else if (hasVillager)
+        {
+          MyGameCard.StartTimer(working_time, CompleteMaking, SokLoc.Translate(card_status), GetActionId("CompleteMaking"));
+        }
       }
       else
       {

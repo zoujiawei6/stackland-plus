@@ -1,8 +1,9 @@
+using UnityEngine;
+
 namespace ZjaveWorkshopModNS
 {
   class FoodChest : ResourceChest
   {
-
     protected override bool CanHaveCard(CardData otherCard)
     {
       if (!string.IsNullOrEmpty(HeldCardId) && otherCard.Id != HeldCardId)

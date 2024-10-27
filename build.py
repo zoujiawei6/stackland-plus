@@ -7,7 +7,7 @@ from pathlib import Path
 import json
 
 # ----- CONFIGURE THESE -----
-SYNC_FOLDERS = ["Blueprints", "Boosterpacks", "Cards", "Icons", "Sounds"] # folders to be synced, such as Cards, Blueprints, Icons, etc.
+SYNC_FOLDERS = ["Blueprints", "Boosterpacks", "Cards", "Icons", "Sounds", "Images"] # folders to be synced, such as Cards, Blueprints, Icons, etc.
 COPY_FILES = ["manifest.json", "localization.tsv"] # individual files to copy, such as manifest.json, localization.tsv, etc. (the mod dll is copied automatically)
 MODS_ROOT = Path(os.environ["userprofile"]) / Path("AppData/LocalLow/sokpop/Stacklands/Mods") # windows only, can be hardcoded with the below line instead
 # MODS_ROOT = Path("C:/Users/cyber/AppData/LocalLow/sokpop/Stacklands/Mods").resolve()
