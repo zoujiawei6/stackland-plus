@@ -1,7 +1,11 @@
+using UnityEngine;
+using ZjaveStacklandsPlus.Scripts.Common;
+
 namespace ZjaveStacklandsPlus.Scripts
 {
-  class Worker : Villager
+  class Worker : Villager, IWorkLevel
   {
+    private int workLevel = 1;
     protected override bool CanHaveCard(CardData otherCard)
     {
       if (otherCard is not BaseVillager
@@ -13,6 +17,17 @@ namespace ZjaveStacklandsPlus.Scripts
       }
 
       return true;
+    }
+
+    public int GetWorkLevel()
+    {
+      return workLevel;
+    }
+
+    public int SetWorkLevel(int newLevel)
+    {
+      workLevel = newLevel;
+      return workLevel;
     }
   }
 }

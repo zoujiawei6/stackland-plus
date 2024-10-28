@@ -32,6 +32,13 @@ python workshop_creator.py
 
 [调色工具](https://gradients.app/zh/colorpalette)
 
+## 测试
+
+对于使用`Visual Studio Code`的开发者，还需要安装：
+
+* [C#支持](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+* [调试工具](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)。
+
 ## 参考内容
 
 ### GameScripts类列表
