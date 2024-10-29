@@ -15,15 +15,34 @@ namespace ZjaveStacklandsPlus.Scripts
   {
     protected string card_status = string.Format("zjave_{0}_workshop_status", ingredient);
 
+    /// <summary>
+    /// 判断传入的卡片是否是村民
+    /// </summary>
+    /// <param name="otherCard"></param>
+    /// <returns></returns>
+    public virtual bool CanHaveVillager(CardData otherCard)
+    {
+      return otherCard.Id == Cards.villager || otherCard.Id == "zjave_worker";
+    }
+
+    /// <summary>
+    /// 能放置到当前卡片上的卡牌类型
+    /// </summary>
+    /// <param name="otherCard"></param>
+    /// <returns></returns>
     protected override bool CanHaveCard(CardData otherCard)
     {
       if (haveCards == null) return false;
 
       bool anyMatch = haveCards.Any(kvp => otherCard.Id == kvp.Key);
-      return anyMatch || otherCard.Id == Cards.villager || otherCard.Id == "zjave_worker";
+      return anyMatch || CanHaveVillager(otherCard);
     }
 
-    public override void UpdateCard()
+    /// <summary>
+    /// 判断卡片是否符合制作条件
+    /// </summary>
+    /// <returns></returns>
+    public virtual bool AccordWithMaking()
     {
       // haveCards是卡片需要哪些材料才能进行制作，此处进行判断
       bool allMatch = haveCards != null && haveCards.All(kvp =>
@@ -31,7 +50,11 @@ namespace ZjaveStacklandsPlus.Scripts
       );
       bool hasVillager = AnyChildMatchesPredicate((CardData cd) => cd.Id == Cards.villager);
       bool hasWorker = AnyChildMatchesPredicate((CardData cd) => cd.Id == "zjave_worker");
+      return allMatch && (hasVillager || hasWorker);
+    }
 
+    public override void UpdateCard()
+    {
       // 工人等级越高，效率越高，生产越快。
       CardData? workerCardData = CardUtils.GetFirstCardById(this, "zjave_worker");
       if (workerCardData != null && workerCardData is IWorkLevel workLevel)
@@ -40,7 +63,7 @@ namespace ZjaveStacklandsPlus.Scripts
         workingTime = WorkingTimeBonus(level, workingTime);
       }
 
-      if (allMatch && (hasVillager || hasWorker))
+      if (AccordWithMaking())
       {
         MyGameCard.StartTimer(workingTime, CompleteMaking, SokLoc.Translate(card_status), GetActionId("CompleteMaking"));
       }

@@ -18,4 +18,6 @@ zjave_milkshake_workshop_name		Milkshake Workshop	奶昔工坊	奶昔工坊
 zjave_milkshake_workshop_description		Use milk and berries or grapes to make a milkshake, The workshop needs one worker to produce	使用牛奶加上浆果或者葡萄来生产奶昔，作坊需要一位工人才能进行工作	使用牛奶加上漿果或者葡萄來生產奶昔，作坊需要一位工人才能進行工作
 zjave_milkshake_workshop_status		Working...	工作中...工人似乎想偷吃	工作中...
 zjave_worker_name		Worker	工人	工人
-zjave_worker_description		Workers trained from the talent market	从人才市场中培养出来的工人	從人才市場卡牌中培養出來的工人
+zjave_worker_description		Workers trained from the talent market	从人才市场中培养出来的工人	從人才市場卡牌中培養出來的工人zjave_worker_workshop_name		Worker Workshop	Worker作坊	Worker作坊
+zjave_worker_workshop_description		Synthetic Worker	合成Worker	合成Worker
+zjave_worker_workshop_status		Working	工作中...	工作中...
