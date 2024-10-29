@@ -32,17 +32,16 @@ namespace ZjaveStacklandsPlus.Scripts
       bool hasVillager = AnyChildMatchesPredicate((CardData cd) => cd.Id == Cards.villager);
       bool hasWorker = AnyChildMatchesPredicate((CardData cd) => cd.Id == "zjave_worker");
 
-      // 更高等级的工人能更快生产
+      // 工人等级越高，效率越高，生产越快。
       CardData? workerCardData = CardUtils.GetFirstCardById(this, "zjave_worker");
       if (workerCardData != null && workerCardData is IWorkLevel workLevel)
       {
-        int level = workLevel.GetWorkLevel();
+        int level = workLevel.WorkLevel;
         workingTime = WorkingTimeBonus(level, workingTime);
       }
-      
+
       if (allMatch && (hasVillager || hasWorker))
       {
-        // TODO 工人具有更高的熟练度，可以更快生产
         MyGameCard.StartTimer(workingTime, CompleteMaking, SokLoc.Translate(card_status), GetActionId("CompleteMaking"));
       }
       else
@@ -53,14 +52,15 @@ namespace ZjaveStacklandsPlus.Scripts
     }
 
     /// <summary>
-    /// 工作时间加成，熟练的工人具有更高的工作效率
+    /// 工作时间加成，熟练的工人具有更高的工作效率。最大加成是2倍效率。
+    /// 因为本游戏困难的是初期而非后期，因此采用反对数函数来增加初期的工作效率加成，前期升级加成可观，而对后期的加成不大。
     /// </summary>
     /// <param name="level">当前工作等级</param>
     /// <param name="workingTime">工作所需时间</param>
     /// <returns></returns>
     public virtual float WorkingTimeBonus(int level, float workingTime)
     {
-      return MathUtils.CalculateProductionTime(level, workingTime);
+      return MathUtils.CalculateProductionTime(level, workingTime, 0.5f);
     }
 
     public override bool CanHaveCardsWhileHasStatus()
