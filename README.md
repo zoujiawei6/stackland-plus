@@ -1,12 +1,10 @@
 # 改进Stacklands
 
-本Mod开源。
+[本Mod开源](https://github.com/zoujiawei6/stackland-plus)
 
-i18n：
+Language: English/语言:简体中文/語言：繁體中文
 
-* 本Mod支持语言：中文：简体
-* 本Mod支持語言：中文：繁體
-* This mod supports languages：English
+为Mod提供翻译：[点击链接](https://docs.google.com/spreadsheets/d/1y8gX4RXLmBSlPuslm2VQ52LOpDLZgcWI_LKRpxwh82k/edit?usp=sharing)
 
 ## news
 

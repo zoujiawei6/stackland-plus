@@ -66,7 +66,8 @@ namespace ZjaveStacklandsPlus.Scripts
     public static string cardId = "zjave_worker_workshop";
     public static string blueprintId = "zjave_blueprint_worker_workshop";
     public WorkerWorkshop() : base("worker", "worker", 10, new Dictionary<string, int> {
-      { "villager", 1 }
+      { "villager", 1 },
+      { "coin", 5 },
     })
     {}
   }

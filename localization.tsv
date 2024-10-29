@@ -1,23 +1,24 @@
 Term	Notes	English	Chinese (Simplified)	Chinese (Traditional)
 zjave_card_food_chest_name		Food Chest	食物箱	食物箱
 zjave_food_chest_name		Food Chest	食物箱	食物箱
-zjave_food_chest_description		Food storage	储存食物的箱子，便便也许是狗狗的食物，但它不能存储食物箱，应该存进资源箱	儲存食物的箱子
+zjave_food_chest_description		Food storage	储存食物的箱子，便便也许是狗狗的食物，但它不能存储食物箱，应该存进资源箱	儲存食物的箱子，便便也許是狗狗的食物，但它不能存儲食物箱，應該存進資源箱
 zjave_stick_workshop_name		Stick Workshop	木棍作坊	木棍作坊
-zjave_stick_workshop_description		Using wood to produce wooden strips, The workshop needs one worker to produce	使用木材来生产木棍，作坊需要一位工人才能进行生产	使用木材來生產木棍，作坊需要一位工人才能進行生產
-zjave_stick_workshop_status		Sawing wood	正在锯木...工人在庆幸自己并不讨厌锯木的声音	正在鋸木...
+zjave_stick_workshop_description		Using wood to produce wooden strips, The workshop needs one worker to produce	使用木材来生产木棍，需要一位村民或者工人才能进行生产	使用木材來生產木棍，需要一比特村民或者工人才能進行生產
+zjave_stick_workshop_status		Sawing wood	工人在庆幸自己并不讨厌锯木的声音	工人在慶倖自己並不討厭鋸木的聲音
 zjave_fruit_salad_workshop_name		Fruit Salad Workshop	水果沙拉作坊	水果沙拉作坊
-zjave_fruit_salad_workshop_description		Use apples and berries or grapes to make a fruit salad, The workshop needs one worker to produce	使用苹果加上浆果或者葡萄来生产水果沙拉，作坊需要一位工人才能进行生产	使用蘋果加上漿果或者葡萄來生產水果沙拉，作坊需要一位工人才能進行生產
-zjave_fruit_salad_workshop_status		Godly knife skills	刀法如神...工人觉得自己是厨神	刀法如神...
+zjave_fruit_salad_workshop_description		Use apples and berries or grapes to make a fruit salad, The workshop needs one worker to produce	使用苹果加上浆果或者葡萄来生产水果沙拉，需要一位工人才能进行生产	使用蘋果加上漿果或者葡萄來生產水果沙拉，需要一比特工人才能進行生產
+zjave_fruit_salad_workshop_status		Godly knife skills	刀法如神...工人觉得自己是厨神	刀法如神… 工人覺得自己是廚神
 zjave_shed_workshop_name		Shed Workshop	棚屋工坊	棚屋工坊
-zjave_shed_workshop_description		Use stone, wood, and sticks to build a shed, The workshop needs one worker to produce	使用石头、木材、木棍来建造棚屋，作坊需要一位工人才能进行工作	使用石頭、木材、木棍來建造棚屋，作坊需要一位工人才能進行工作
-zjave_shed_workshop_status		Working...	工作中...工人埋怨自己被安排干重活	工作中...
+zjave_shed_workshop_description		Use stone, wood, and sticks to build a shed, The workshop needs one worker to produce	使用石头、木材、木棍来建造棚屋，需要一位村民或者工人才能进行工作	使用石頭、木材、木棍來建造棚屋，需要一比特村民或者工人才能進行工作
+zjave_shed_workshop_status		Working...	工人埋怨自己被安排干重活	工人埋怨自己被安排幹重活
 zjave_warehouse_workshop_name		Warehouse Workshop	仓库工坊	倉庫工坊
-zjave_warehouse_workshop_description		Use iron blocks and stones to build warehouses, The workshop needs one worker to produce	使用铁块、石头来建造仓库，作坊需要一位工人才能进行工作	使用鐵塊、石頭來建造倉庫，作坊需要一位工人才能進行工作
-zjave_warehouse_workshop_status		Working...	工作中...工人埋怨自己被安排干重活	工作中...
+zjave_warehouse_workshop_description		Use iron blocks and stones to build warehouses, The workshop needs one worker to produce	使用铁块、石头来建造仓库，需要一位村民或者工人才能进行工作	使用鐵塊、石頭來建造倉庫，需要一比特村民或者工人才能進行工作
+zjave_warehouse_workshop_status		Working...	工人埋怨自己被安排干重活	工人埋怨自己被安排幹重活
 zjave_milkshake_workshop_name		Milkshake Workshop	奶昔工坊	奶昔工坊
-zjave_milkshake_workshop_description		Use milk and berries or grapes to make a milkshake, The workshop needs one worker to produce	使用牛奶加上浆果或者葡萄来生产奶昔，作坊需要一位工人才能进行工作	使用牛奶加上漿果或者葡萄來生產奶昔，作坊需要一位工人才能進行工作
-zjave_milkshake_workshop_status		Working...	工作中...工人似乎想偷吃	工作中...
+zjave_milkshake_workshop_description		Use milk and berries or grapes to make a milkshake, The workshop needs one worker to produce	使用牛奶加上浆果或者葡萄来生产奶昔，需要一位工人才能进行工作	使用牛奶加上漿果或者葡萄來生產奶昔，需要一比特工人才能進行工作
+zjave_milkshake_workshop_status		Working...	工作中...工人似乎想偷吃	工作中… 工人似乎想偷吃
 zjave_worker_name		Worker	工人	工人
-zjave_worker_description		Workers trained from the talent market	从人才市场中培养出来的工人	從人才市場卡牌中培養出來的工人zjave_worker_workshop_name		Worker Workshop	Worker作坊	Worker作坊
-zjave_worker_workshop_description		Synthetic Worker	合成Worker	合成Worker
-zjave_worker_workshop_status		Working	工作中...	工作中...
+zjave_worker_description		In the Talent Market card, villagers can be trained into workers. The higher the worker level, the faster the work efficiency. The highest level is 6, and the work efficiency is doubled.	人才市场卡牌中可以将村民培养成工人，工人等级越高工作效率越快，最高6级、工作效率翻倍	人才市場卡牌中可以將村民培養成工人，工人等級越高工作效率越快，最高6級、工作效率翻倍
+zjave_worker_workshop_name		Build a talent market using 4 wooden sticks, 2 pieces of wood, and 1 flint, which are used to create a podium and ignite the spark of wisdom. The talent market can use gold coins to train villagers into workers, and gold coins can also be used to upgrade workers, with the cost increasing by 5 coins for each level.	使用4木棍、2木头、1火石建造人才市场，分别用来制造讲桌和点燃智慧的火花。人才市场可以用金币将村民培训成工人，也可使用金币将工人升级，每升一级所需金币数量翻倍	使用4木棍、2木頭、1火石建造人才市場，分別用來製造講桌和點燃智慧的火花。人才市場可以用金幣將村民培訓成工人，也可使用金幣將工人陞級，每昇一級所需金幣數量翻倍“
+zjave_worker_workshop_description		Synthetic Talent Market	合成人才市场	合成人才市場
+zjave_worker_workshop_status		In training	培训中...	培訓中…
