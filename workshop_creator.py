@@ -101,7 +101,7 @@ class WorkshopCreator:
     }}
   }}
 """
-        filename = f"./ZjaveWorkshops.cs"
+        filename = f"./Scripts/ZjaveWorkshops.cs"
         FileUtils.insert_before_last_brace(cs, filename)
 
     def simple_create(self, result_card: str, required_cards: str = None, have_cards: dict[str, int] = None, value: int = 5, icon: str = None, time: int = 3, working_time: int = 10):
