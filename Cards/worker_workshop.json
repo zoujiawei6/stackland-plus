@@ -6,7 +6,7 @@
     "icon": "university",
     "value": 5,
     "type": "Structures",
-    "script": "ZjaveStacklandsPlus.Scripts.WorkerWorkshop",
+    "script": "ZjaveStacklandsPlus.Scripts.Workshop.WorkerWorkshop",
     "_IsBuilding": true,
     "_HasUniquePalette": true,
     "_MyPalette": {

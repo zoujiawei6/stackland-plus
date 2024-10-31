@@ -13,7 +13,12 @@ namespace ZjaveStacklandsPlus.Scripts
   /// <param name="haveCards">制作所需的材料卡片，及其所需数量列表</param>
   public class ZjaveWorkshop(string ingredient, string resultCard, float workingTime, Dictionary<string, int> haveCards) : CardData
   {
-    protected string card_status = string.Format("zjave_{0}_workshop_status", ingredient);
+    protected string cardStatus = string.Format("zjave_{0}_workshop_status", ingredient);
+    protected IWorkLevel? workLevel = null;
+    public string ingredient = ingredient;
+    public string resultCard = resultCard;
+    public float workingTime = workingTime;
+    protected Dictionary<string, int> haveCards = haveCards;
 
     /// <summary>
     /// 判断传入的卡片是否是村民
@@ -58,8 +63,8 @@ namespace ZjaveStacklandsPlus.Scripts
       if (AccordWithMaking())
       {
         workingTime = WorkingTimeBonus(workingTime, out IWorkLevel? workLevel);
-        MyGameCard.StartTimer(workingTime, CompleteMaking, SokLoc.Translate(card_status), GetActionId("CompleteMaking"));
-        workLevel?.AddWorkingTime(workingTime);
+        MyGameCard.StartTimer(workingTime, CompleteMaking, SokLoc.Translate(cardStatus), GetActionId("CompleteMaking"));
+        workLevel?.PlusWorkingTime(workingTime);
       }
       else
       {
@@ -81,6 +86,7 @@ namespace ZjaveStacklandsPlus.Scripts
       CardData? workerCardData = CardUtils.GetFirstCardById(this, "zjave_worker");
       if (workerCardData != null && workerCardData is IWorkLevel workLevel)
       {
+        this.workLevel = workLevel;
         int level = workLevel.WorkLevel;
         outWorkLevel = workLevel;
         return MathUtils.CalculateProductionTime(level, workingTime, 0.5f);
@@ -100,12 +106,9 @@ namespace ZjaveStacklandsPlus.Scripts
     [TimedAction("complete_making")]
     public virtual void CompleteMaking()
     {
-      if (haveCards != null)
+      foreach (var kvp in haveCards)
       {
-        foreach (var kvp in haveCards)
-        {
-          MyGameCard.GetRootCard().CardData.DestroyChildrenMatchingPredicateAndRestack((CardData c) => c.Id == kvp.Key, kvp.Value);
-        }
+        MyGameCard.GetRootCard().CardData.DestroyChildrenMatchingPredicateAndRestack((CardData c) => c.Id == kvp.Key, kvp.Value);
       }
 
       CardData cardData = WorldManager.instance.CreateCard(transform.position, resultCard, faceUp: false, checkAddToStack: false);

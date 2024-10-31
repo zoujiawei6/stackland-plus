@@ -22,6 +22,12 @@ namespace ZjaveStacklandsPlus.Scripts.Common
     /// </summary>
     /// <param name="time"></param>
     /// <returns></returns>
-    float AddWorkingTime(float time);
+    float PlusWorkingTime(float time);
+
+    /// <summary>
+    /// 提升工人等级
+    /// </summary>
+    /// <returns></returns>
+    int LevelUp();
   }
 }
