@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+using UnityEngine;
 using ZjaveStacklandsPlus.Scripts.Common;
 using ZjaveStacklandsPlus.Scripts.Utils;
 
@@ -9,9 +11,9 @@ namespace ZjaveStacklandsPlus.Scripts.Workshop
     public static string cardId = "zjave_worker_workshop";
     public static string blueprintId = "zjave_blueprint_worker_workshop";
     public WorkerWorkshop() : base("worker", "worker", 20, new Dictionary<string, int> {
-      { "villager", 1 },
-      { "worker", 1 },
-      { "coin", 5 },
+      { Cards.villager, 1 },
+      { "zjave_worker", 1 },
+      { Cards.gold, 5 },
     })
     {}
 
@@ -30,8 +32,21 @@ namespace ZjaveStacklandsPlus.Scripts.Workshop
 
       if (haveCards == null) return false;
 
-      bool anyMatch = haveCards.Any(kvp => otherCard.Id == kvp.Key);
+      bool anyMatch = haveCards.Any(kvp => string.Equals(otherCard.Id, kvp.Key));
       return anyMatch;
+    }
+
+    /// <summary>
+    /// 判断卡片是否符合制作条件
+    /// </summary>
+    /// <returns></returns>
+    public override bool AccordWithMaking()
+    {
+      // haveCards是卡片需要哪些材料才能进行制作，此处进行判断
+      bool allMatch = haveCards != null && haveCards.All(kvp =>
+          ChildrenMatchingPredicateCount((CardData cd) => cd.Id == kvp.Key) >= kvp.Value
+      );
+      return allMatch;
     }
 
     /// <summary>
@@ -61,15 +76,16 @@ namespace ZjaveStacklandsPlus.Scripts.Workshop
     {
       foreach (var kvp in haveCards)
       {
-        if (kvp.Key == "coin")
+        if (kvp.Key == "gold")
         {
           // 工人每升一级所需金币数是：当前等级*5
           int level = workLevel?.WorkLevel ?? 1;
+          Debug.unityLogger.Log(LogType.Log, "kvp.Value * level = " + kvp.Value * level);
           MyGameCard.GetRootCard().CardData.DestroyChildrenMatchingPredicateAndRestack((CardData c) => c.Id == kvp.Key, kvp.Value * level);
         }
         else if (kvp.Key == "worker")
         {
-          //
+          // 不删除工人，而是升级工人
           continue;
         }
         else
@@ -79,7 +95,8 @@ namespace ZjaveStacklandsPlus.Scripts.Workshop
       }
 
       CardData cardData = CreateWorkerCard();
-      WorldManager.instance.StackSend(cardData.MyGameCard, MyGameCard);
+      Debug.unityLogger.Log(LogType.Log, "cardData = " + cardData.Id);
+      WorldManager.instance.StackSendCheckTarget(MyGameCard, cardData.MyGameCard, OutputDir, MyGameCard);
     }
 
     private CardData CreateWorkerCard()
@@ -87,6 +104,7 @@ namespace ZjaveStacklandsPlus.Scripts.Workshop
       if (workLevel is CardData cardData)
       {
         workLevel.LevelUp();
+        Debug.unityLogger.Log(LogType.Log, "workLevel = " + workLevel.WorkLevel);
         return cardData;
       }
       else
