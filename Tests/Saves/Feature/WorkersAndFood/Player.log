@@ -1,0 +1,193 @@
+Mono path[0] = 'E:/Program Files/Steam/steamapps/common/Stacklands/Stacklands_Data/Managed'
+Mono config path = 'E:/Program Files/Steam/steamapps/common/Stacklands/MonoBleedingEdge/etc'
+Initialize engine version: 2022.3.4f1 (35713cd46cd7)
+[Subsystems] Discovering subsystems at path E:/Program Files/Steam/steamapps/common/Stacklands/Stacklands_Data/UnitySubsystems
+GfxDevice: creating device client; threaded=1; jobified=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 2080 Ti (ID=0x1e07)
+    Vendor:   NVIDIA
+    VRAM:     11027 MB
+    Driver:   32.0.15.6094
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.136 seconds
+- Finished resetting the current domain, in  0.001 seconds
+<RI> Initializing input.
+New input system (experimental) initialized
+Using Windows.Gaming.Input
+<RI> Initialized touch support.
+UnloadTime: 0.707200 ms
+Odin Serializer ArchitectureInfo initialization with defaults (all unaligned read/writes disabled).
+Odin Serializer detected whitelisted runtime platform WindowsPlayer and memory read test succeeded; enabling all unaligned memory read/writes.
+Setting up 8 worker threads for Enlighten.
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 5.848100 ms
+Current save directory is: 'C:/Users/zoujiawei/AppData/LocalLow/sokpop/Stacklands'
+found 9 mods
+Already loaded a mod with id stacklands_plus; skipping!
+Found valid mod load order: stacklands_plus, larger_hotpot_id, GolemAutomation, IdleVillager, biggercapacity_bySuperComic, packsplosion, com.maxsch.stacklands.cardzones, StackFurther
+loading mod :) Stacklands Plus (stacklands_plus) v0.5.0
+Fallback handler could not load library E:/Program Files/Steam/steamapps/common/Stacklands/Stacklands_Data/MonoBleedingEdge/data-0000024FD0CC7090.dll
+loading mod :) LargerHotpot(By JJN) (larger_hotpot_id) v0.0.1
+loading mod :) Golem Automation (GolemAutomation) v1.3.5
+loading mod :) Show Idle Villager (IdleVillager) v2.2.1
+loading mod :) Bigger Capacity (by SuperComic) (biggercapacity_bySuperComic) v1.0.0
+loading mod :) PACKSPLOSION!!! (packsplosion) v1.0.0
+loading mod :) Card Zones (com.maxsch.stacklands.cardzones) v0.3.0
+ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <605bf8b31fcb444b85176da963870aa7>:0 
+  at HarmonyLib.CodeMatcher.get_Operand () [0x0000c] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at CardZones.CodeMatcherExtensions.GetOperand (HarmonyLib.CodeMatcher codeMatcher, System.Object& operand) [0x00001] in <579ca07c4f1d450fbcfdd034a22dcc63>:0 
+  at CardZones.Patches.HideCoinIcon (System.Collections.Generic.IEnumerable`1[T] instructions, System.Reflection.Emit.ILGenerator generator) [0x00092] in <579ca07c4f1d450fbcfdd034a22dcc63>:0 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <605bf8b31fcb444b85176da963870aa7>:0 
+Rethrow as TargetInvocationException: Exception has been thrown by the target of an invocation.
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00083] in <605bf8b31fcb444b85176da963870aa7>:0 
+  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <605bf8b31fcb444b85176da963870aa7>:0 
+  at HarmonyLib.Internal.Patching.ILManipulator.ApplyTranspilers (System.Reflection.Emit.ILGenerator il, System.Reflection.MethodBase original, System.Func`2[T,TResult] getLocal, System.Func`1[TResult] defineLabel) [0x00093] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at HarmonyLib.Internal.Patching.ILManipulator.WriteTo (Mono.Cecil.Cil.MethodBody body, System.Reflection.MethodBase original) [0x00066] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.WriteTranspilers () [0x00084] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () [0x00031] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+  at HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () [0x00382] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) [0x00042] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) [0x00006] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) [0x00007] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) [0x00012] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) [0x00087] in <92bbbc5a09fc417ca7426fbdd31824c2>:0 
+  at MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) [0x00012] in <925d74c1e4e3467a888e7df55b8370c5>:0 
+  at (wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+  at (wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?99702168(object)
+  at HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) [0x00000] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at MonoMod.RuntimeDetour.ILHook.Apply () [0x00059] in <925d74c1e4e3467a888e7df55b8370c5>:0 
+  at HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) [0x00047] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+  at HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) [0x0005f] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) [0x00033] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+  at HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) [0x00045] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at HarmonyLib.PatchClassProcessor.Patch () [0x00093] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) [0x00007] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) [0x00014] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) [0x00006] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at HarmonyLib.Harmony.PatchAll () [0x0001b] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at CardZones.CardZonesMod.Awake () [0x00047] in <579ca07c4f1d450fbcfdd034a22dcc63>:0 
+UnityEngine.GameObject:SetActive(GameObject, Boolean)
+ModManager:LoadModFromDir(DirectoryInfo)
+ModManager:Awake()
+UnityEngine.Object:Internal_CloneSingle(Object)
+UnityEngine.Object:Instantiate(GameObject)
+SceneBootstrapper:Awake()
+
+loading mod :) Stack Further (StackFurther) v2.0.3
+loading modded card: zjave_food_chest
+Missing or invalid PickupSound for zjave_food_chest!
+loading modded card: zjave_fruit_salad_workshop
+Missing or invalid PickupSound for zjave_fruit_salad_workshop!
+loading modded card: zjave_milkshake_workshop
+Missing or invalid PickupSound for zjave_milkshake_workshop!
+loading modded card: zjave_shed_workshop
+Missing or invalid PickupSound for zjave_shed_workshop!
+loading modded card: zjave_stick_workshop
+Missing or invalid PickupSound for zjave_stick_workshop!
+loading modded card: zjave_warehouse_workshop
+Missing or invalid PickupSound for zjave_warehouse_workshop!
+loading modded card: largerhotpot_id
+Missing or invalid PickupSound for largerhotpot_id!
+loading modded blueprint: zjave_blueprint_food_chest
+loading modded blueprint: zjave_blueprint_fruit_salad_workshop
+loading modded blueprint: zjave_blueprint_milkshake_workshop
+loading modded blueprint: zjave_blueprint_shed_workshop
+loading modded blueprint: zjave_blueprint_stick_workshop
+loading modded blueprint: zjave_blueprint_warehouse_workshop
+loading modded blueprint: blueprint_large_hotpot_id
+Loaded 479 rows
+217 Quests Found!
+Loaded resolution 3840x2160
+Reset resolutions
+(ModManager) readying up mods
+Parsed 18 rows
+[21:18:04] [Log : stacklands_plus] Ready!
+Parsed 5 rows
+[21:18:04] [Log : larger_hotpot_id] Ready!
+Parsed 6 rows
+ArgumentOutOfRangeException: Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+  at System.Collections.Generic.List`1[T].get_Item (System.Int32 index) [0x00009] in <605bf8b31fcb444b85176da963870aa7>:0 
+  at HarmonyLib.CodeMatcher.get_Operand () [0x0000c] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at CardZones.CodeMatcherExtensions.GetOperand (HarmonyLib.CodeMatcher codeMatcher, System.Object& operand) [0x00001] in <579ca07c4f1d450fbcfdd034a22dcc63>:0 
+  at CardZones.Patches.HideCoinIcon (System.Collections.Generic.IEnumerable`1[T] instructions, System.Reflection.Emit.ILGenerator generator) [0x00092] in <579ca07c4f1d450fbcfdd034a22dcc63>:0 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <605bf8b31fcb444b85176da963870aa7>:0 
+Rethrow as TargetInvocationException: Exception has been thrown by the target of an invocation.
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00083] in <605bf8b31fcb444b85176da963870aa7>:0 
+  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <605bf8b31fcb444b85176da963870aa7>:0 
+  at HarmonyLib.Internal.Patching.ILManipulator.ApplyTranspilers (System.Reflection.Emit.ILGenerator il, System.Reflection.MethodBase original, System.Func`2[T,TResult] getLocal, System.Func`1[TResult] defineLabel) [0x00093] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at HarmonyLib.Internal.Patching.ILManipulator.WriteTo (Mono.Cecil.Cil.MethodBody body, System.Reflection.MethodBase original) [0x00066] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.WriteTranspilers () [0x00084] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () [0x00031] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+  at HarmonyLib.Public.Patching.HarmonyManipulator.WriteImpl () [0x00382] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.Process (MonoMod.Cil.ILContext ilContext, System.Reflection.MethodBase originalMethod) [0x00042] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo, MonoMod.Cil.ILContext ctx) [0x00006] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at HarmonyLib.Public.Patching.HarmonyManipulator.Manipulate (System.Reflection.MethodBase original, MonoMod.Cil.ILContext ctx) [0x00007] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at HarmonyLib.Public.Patching.ManagedMethodPatcher.Manipulator (MonoMod.Cil.ILContext ctx) [0x00012] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at MonoMod.Cil.ILContext.Invoke (MonoMod.Cil.ILContext+Manipulator manip) [0x00087] in <92bbbc5a09fc417ca7426fbdd31824c2>:0 
+  at MonoMod.RuntimeDetour.ILHook+Context.InvokeManipulator (Mono.Cecil.MethodDefinition def, MonoMod.Cil.ILContext+Manipulator cb) [0x00012] in <925d74c1e4e3467a888e7df55b8370c5>:0 
+  at (wrapper dynamic-method) MonoMod.RuntimeDetour.ILHook+Context.DMD<MonoMod.RuntimeDetour.ILHook+Context::Refresh>(MonoMod.RuntimeDetour.ILHook/Context)
+  at (wrapper dynamic-method) MonoMod.Utils.DynamicMethodDefinition.Trampoline<MonoMod.RuntimeDetour.ILHook+Context::Refresh>?99702168(object)
+  at HarmonyLib.Internal.RuntimeFixes.StackTraceFixes.OnILChainRefresh (System.Object self) [0x00000] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at MonoMod.RuntimeDetour.ILHook.Apply () [0x00059] in <925d74c1e4e3467a888e7df55b8370c5>:0 
+  at HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) [0x00047] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+  at HarmonyLib.Public.Patching.ManagedMethodPatcher.DetourTo (System.Reflection.MethodBase replacement) [0x0005f] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at HarmonyLib.PatchFunctions.UpdateWrapper (System.Reflection.MethodBase original, HarmonyLib.PatchInfo patchInfo) [0x00033] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+Rethrow as HarmonyException: IL Compile Error (unknown location)
+  at HarmonyLib.PatchClassProcessor.ReportException (System.Exception exception, System.Reflection.MethodBase original) [0x00045] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at HarmonyLib.PatchClassProcessor.Patch () [0x00093] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at HarmonyLib.Harmony.<PatchAll>b__11_0 (System.Type type) [0x00007] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at HarmonyLib.CollectionExtensions.Do[T] (System.Collections.Generic.IEnumerable`1[T] sequence, System.Action`1[T] action) [0x00014] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at HarmonyLib.Harmony.PatchAll (System.Reflection.Assembly assembly) [0x00006] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at HarmonyLib.Harmony.PatchAll () [0x0001b] in <4a2409e6eb214388b8d6ab81d407350d>:0 
+  at IdleVillager.PlugIn.Ready () [0x00046] in <8a9663ea9b644c4cb47fc7670219a141>:0 
+  at ModManager.ReadyUpMods () [0x000a5] in <6e3fd604b4864e488d9fc607bcba0cf5>:0 
+UnityEngine.DebugLogHandler:Internal_LogException(Exception, Object)
+UnityEngine.DebugLogHandler:LogException(Exception, Object)
+UnityEngine.Logger:LogException(Exception, Object)
+UnityEngine.Debug:LogException(Exception)
+ModManager:ReadyUpMods()
+SceneBootstrapper:Awake()
+
+Parsed 4 rows
+No column exists for Chinese (Simplified)
+[21:18:04] [Log : biggercapacity_bySuperComic] BiggerCapacity MOD Loading... by 'SuperComic (ekfvoddl3535@naver.com)'
+[21:18:04] [Log : biggercapacity_bySuperComic] Load options...
+Parsed 4 rows
+The provided string is not available in the current language. Attempting to substitute in English...
+The provided string is not available in the current language. Attempting to substitute in English...
+[21:18:04] [Log : biggercapacity_bySuperComic] Done! Apply values...
+[21:18:04] [Log : biggercapacity_bySuperComic] Done! Apply patches...
+[21:18:04] [Log : biggercapacity_bySuperComic] BiggerCapacity MOD Loaded!
+Fallback handler could not load library E:/Program Files/Steam/steamapps/common/Stacklands/Stacklands_Data/MonoBleedingEdge/data-0000024FD156B060.dll
+Unloading 59 unused Assets to reduce memory usage. Loaded Objects now: 70841.
+Total: 19.231500 ms (FindLiveObjects: 3.805800 ms CreateObjectMapping: 1.935600 ms MarkObjects: 13.013800 ms  DeleteObjects: 0.476000 ms)
+
+Loading localization.tsv for stacklands_plus
+Parsed 18 rows
+Loading localization.tsv for larger_hotpot_id
+Parsed 5 rows
+Loading localization.tsv for IdleVillager
+Parsed 6 rows
+Loading localization.tsv for biggercapacity_bySuperComic
+Parsed 4 rows
+No column exists for Chinese (Simplified)
+Loaded resolution 3840x2160
+NullReferenceException: Object reference not set to an instance of an object
+  at QuestManager.RemainingQuestCountToComplete (BoosterpackData p) [0x0000b] in <6e3fd604b4864e488d9fc607bcba0cf5>:0 
+  at QuestManager.BoosterIsUnlocked (BoosterpackData p, System.Boolean allowDebug) [0x00018] in <6e3fd604b4864e488d9fc607bcba0cf5>:0 
+  at QuestManager.CheckPacksUnlocked () [0x00058] in <6e3fd604b4864e488d9fc607bcba0cf5>:0 
+  at WorldManager.Play () [0x00021] in <6e3fd604b4864e488d9fc607bcba0cf5>:0 
+  at MainMenu+<>c.<Awake>b__14_9 () [0x0000a] in <6e3fd604b4864e488d9fc607bcba0cf5>:0 
+  at TransitionScreen.Update () [0x000a8] in <6e3fd604b4864e488d9fc607bcba0cf5>:0 
+

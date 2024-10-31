@@ -109,7 +109,7 @@ namespace ZjaveStacklandsPlus.Scripts
       }
 
       CardData cardData = WorldManager.instance.CreateCard(transform.position, resultCard, faceUp: false, checkAddToStack: false);
-      WorldManager.instance.StackSend(cardData.MyGameCard, MyGameCard);
+      WorldManager.instance.StackSendCheckTarget(MyGameCard, cardData.MyGameCard, OutputDir, MyGameCard);
     }
   }
 }
