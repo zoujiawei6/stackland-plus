@@ -4,6 +4,8 @@ namespace ZjaveStacklandsPlus.Scripts
 {
   class Worker : BaseWorkLevel
   {
+    public static string cardId = "zjave_worker";
+
     /// <summary>
     /// 相比Villager的CanHaveCard，当前函数允许将食物放置到村民上
     /// </summary>
@@ -20,6 +22,13 @@ namespace ZjaveStacklandsPlus.Scripts
       }
 
       return true;
+    }
+
+    public override void UpdateCardText()
+    {
+      base.UpdateCardText();
+      
+      nameOverride = SokLoc.Translate("zjave_worker_name", LocParam.Create("level", WorkLevel.ToString()));
     }
   }
 }

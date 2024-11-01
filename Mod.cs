@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using System.Reflection;
+using UnityEngine;
 using ZjaveStacklandsPlus.Scripts;
 
 namespace ZjaveStacklandsPlus
@@ -16,6 +17,8 @@ namespace ZjaveStacklandsPlus
          */
         public void Awake()
         {
+            // TODO 发布时设为false
+            Debug.unityLogger.logEnabled = true;
             Harmony.PatchAll(typeof(Patches));
         }
 
