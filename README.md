@@ -6,6 +6,12 @@
 
 为Mod提供翻译：[点击链接前往](https://docs.google.com/spreadsheets/d/1y8gX4RXLmBSlPuslm2VQ52LOpDLZgcWI_LKRpxwh82k/edit?usp=sharing)
 
+本Mod旨在解放游戏中过度重复的工作，后续会上线一些创新卡牌。
+
+## 介绍
+
+你也许需要木棍工坊、棚屋工坊、仓库工坊，这些需要放置一位村民才能生产资源；本Mod还提供了奶昔工坊、水果沙拉工坊和存储食物用的食物箱。
+
 ## 新增卡牌
 
 ### 人类
