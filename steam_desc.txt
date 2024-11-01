@@ -1,0 +1,44 @@
+你也许需要木棍工坊、棚屋工坊、仓库工坊，这些需要放置一位村民才能生产资源；本Mod还提供了奶昔工坊、水果沙拉工坊和存储食物用的食物箱。
+
+你也許需要木棍工坊、棚屋工坊、倉庫工坊，這些需要放置一比特村民才能生產資源； 本Mod還提供了奶昔工坊、水果沙拉工坊和存儲食物用的食物箱。
+
+You might need a Stick Workshop, a Shed Workshop, and a Warehouse Workshop, which require placing a villager to produce resources; this mod also provides a Milkshake Workshop, a Fruit Salad Workshop, and Food Boxes for storing food.
+
+Je hebt misschien een Stokkenwerkplaats, een Schuurwerkplaats en een Magazijnwerkplaats nodig, die een dorpsbewoner vereisen om middelen te produceren; deze mod biedt ook een Milkshake-werkplaats, een Fruitsalade-werkplaats en Voedselboxen voor het opslaan van voedsel.
+
+Vous aurez peut-être besoin d'un Atelier de Bâtons, d'un Atelier de Cabane et d'un Atelier d'Entrepôt, qui nécessitent de placer un villageois pour produire des ressources ; ce mod propose également un Atelier de Milkshake, un Atelier de Salade de Fruits et des Boîtes Alimentaires pour stocker la nourriture.
+
+Potresti avere bisogno di un Laboratorio dei Bastoni, di un Laboratorio dei Capanni e di un Laboratorio dei Magazzini, che richiedono di posizionare un abitante per produrre risorse; questo mod offre anche un Laboratorio di Milkshake, un Laboratorio di Insalata di Frutta e Scatole Alimentari per conservare il cibo.
+
+Du könntest eine Stockwerkstatt, eine Schuppenwerkstatt und eine Lagerwerkstatt benötigen, die einen Dorfbewohner erfordern, um Ressourcen zu produzieren; dieses Mod bietet auch eine Milchshake-Werkstatt, eine Obstsalat-Werkstatt und Lebensmittelboxen zur Lagerung von Lebensmitteln an.
+
+Es posible que necesites un Taller de Palos, un Taller de Cobertizos y un Taller de Almacén, que requieren colocar a un aldeano para producir recursos; este mod también proporciona un Taller de Batidos, un Taller de Ensalada de Frutas y Cajas de Alimentos para almacenar comida.
+
+Você pode precisar de uma Oficina de Bastões, uma Oficina de Galpão e uma Oficina de Armazém, que requerem a colocação de um aldeão para produzir recursos; este mod também oferece uma Oficina de Milkshake, uma Oficina de Salada de Frutas e Caixas de Alimentos para armazenar comida.
+
+Możesz potrzebować Warsztatu Patyków, Warsztatu Szałasów i Warsztatu Magazynowego, które wymagają umieszczenia wieśniaka do produkcji zasobów; ten mod oferuje również Warsztat Shake, Warsztat Sałatki Owocowej oraz Pojemniki na Jedzenie do przechowywania jedzenia.
+
+木の棒工房、棚小屋工房、倉庫工房が必要かもしれません。これらは資源を生産するために村人を配置する必要があります。このModにはミルクシェイク工房、フルーツサラダ工房、食べ物を保存するための食品ボックスも提供されています。
+
+막대기 작업장, 쉼터 작업장, 창고 작업장이 필요할 수 있습니다. 이러한 작업장은 자원을 생산하기 위해 마을 주민을 배치해야 합니다. 이 모드는 또한 밀크셰이크 작업장, 과일 샐러드 작업장, 음식 저장용 음식 상자를 제공합니다.
+
+Вам могут понадобиться Мастерская Палок, Мастерская Сараев и Мастерская Складов, которые требуют размещения жителя для производства ресурсов; этот мод также предлагает Мастерскую Молочных коктейлей, Мастерскую Фруктового салата и Картонные коробки для хранения пищи.
+
+### 贡献语言翻译
+
+* Contribution Text Translation
+* 贡献文本翻译
+* 貢獻文本翻譯
+* Bijdrage Tekstvertaling
+* Traduction de Texte de Contribution
+* Traduzione del Testo di Contributo
+* Beitragstextübersetzung
+* Traducción de Texto de Contribución
+* Tradução de Texto de Contribuição
+* Tłumaczenie Tekstu Wkładu
+* 貢献テキストの翻訳
+* 기여 텍스트 번역
+* Переклад тексту внеску
+* Перевод текста вклада
+
+https://docs.google.com/spreadsheets/d/1y8gX4RXLmBSlPuslm2VQ52LOpDLZgcWI_LKRpxwh82k/edit

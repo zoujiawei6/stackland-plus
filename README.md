@@ -1,32 +1,14 @@
 # 改进Stacklands
 
-本Mod开源。
+[Mod开源地址](https://fanyi.baidu.com/mtpe-individual/multimodal?query=Well%20Fed%20Effect&lang=zh2cht)
 
-i18n：
+本Mod旨在解放游戏中过度重复的工作，后续会上线一些创新卡牌。
 
-* 本Mod支持语言：中文：简体
-* 本Mod支持語言：中文：繁體
-* This mod supports languages：English
+## 介绍
 
-## news
+你也许需要木棍工坊、棚屋工坊、仓库工坊，这些需要放置一位村民才能生产资源；本Mod还提供了奶昔工坊、水果沙拉工坊和存储食物用的食物箱。
 
-### Workshop cards
-
-| workshop             | result_card | required_cards                                         | have_cards         | value | icon        | time |
-| -------------------- | ----------- | ------------------------------------------------------ | ------------------ | ----- | ----------- | ---- |
-| Stick Workshop       | stick       | stick, wood, wood, stone, stone, villager              | wood               | 5     | stick       | 15   |
-| Fruit Salad Workshop | fruit_salad | apple, berry, wood, wood, stone, stone, villager       | apple, berry       | 5     | fruit_salad | 15   |
-| Shed Workshop        | shed        | wood, wood, stone, stone, villager, stone, stick, wood | stone, stick, wood | 5     | shed        | 30   |
-| Warehouse Workshop   | warehouse   | wood, wood, stone, stone, villager, iron_bar, stone    | iron_bar, stone    | 5     | warehouse   | 30   |
-| Milkshake Workshop   | milkshake   | wood, wood, stone, stone, villager, milk, berry        | milk, berry        | 5     | milkshake   | 15   |
-
-Tips: A workshop must have a villager to produce resources
-
-### Other cards
-
-| result_card | required_cards                       |
-| ----------- | ------------------------------------ |
-| food_chest  | plank, plank, iron_bar, flint, flint |
+支持语言: English/简体中文/繁體中文。
 
 ## 新增卡牌
 
