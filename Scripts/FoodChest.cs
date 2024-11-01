@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace ZjaveStacklandsPlus.Scripts
 {
   class FoodChest : ResourceChest
@@ -7,24 +9,26 @@ namespace ZjaveStacklandsPlus.Scripts
       // if代码或许有先后顺序的问题，因此重写方法也保证这个顺序
       if (!string.IsNullOrEmpty(HeldCardId) && otherCard.Id != HeldCardId)
       {
-          return false;
-      }
-
-      if (otherCard is Food food && food.FoodValue <= 0 && WorldManager.instance.CurrentBoard.Id == "cities")
-      {
-          return true;
+        return false;
       }
 
       if (otherCard.MyCardType != CardType.Food || otherCard.Id == "gold" || otherCard.Id == "shell")
       {
         return false;
       }
-      return base.CanHaveCard(otherCard);
+      return true;
+    }
+
+    public virtual Sprite GetSpecialIcon()
+    {
+      SpecialIcon ??= SpriteManager.instance.FootFightIcon;
+      return SpecialIcon;
     }
 
     public override void UpdateCard()
     {
       base.UpdateCard();
+      MyGameCard.SpecialIcon.sprite = GetSpecialIcon();
 
       if (string.IsNullOrEmpty(HeldCardId))
       {
@@ -32,6 +36,5 @@ namespace ZjaveStacklandsPlus.Scripts
           descriptionOverride = null;
       }
     }
-
   }
 }
