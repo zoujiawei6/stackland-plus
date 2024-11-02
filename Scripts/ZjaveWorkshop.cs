@@ -1,4 +1,5 @@
 
+using UnityEngine;
 using ZjaveStacklandsPlus.Scripts.Common;
 using ZjaveStacklandsPlus.Scripts.Utils;
 
@@ -63,8 +64,14 @@ namespace ZjaveStacklandsPlus.Scripts
       if (AccordWithMaking())
       {
         workingTime = WorkingTimeBonus(workingTime, out IWorkLevel? workLevel);
+        Debug.LogFormat("本次生产耗时 = {0}", workingTime);
         MyGameCard.StartTimer(workingTime, CompleteMaking, SokLoc.Translate(cardStatus), GetActionId("CompleteMaking"));
-        workLevel?.PlusWorkingTime(workingTime);
+        if (workLevel != null)
+        {
+          Debug.LogFormat("总工作时间 统计前 = {0}", workLevel?.WorkingTime);
+          workLevel?.CountWorkingTime(workingTime);
+          Debug.LogFormat("总工作时间 统计后 = {0}", workLevel?.WorkingTime);
+        }
       }
       else
       {
@@ -83,7 +90,7 @@ namespace ZjaveStacklandsPlus.Scripts
     public virtual float WorkingTimeBonus(float workingTime, out IWorkLevel? outWorkLevel)
     {
       // 工人等级越高，效率越高，生产越快。
-      CardData? workerCardData = CardUtils.GetFirstCardById(this, "zjave_worker");
+      CardData? workerCardData = CardUtils.GetFirstCardById(this, Worker.cardId);
       if (workerCardData != null && workerCardData is IWorkLevel workLevel)
       {
         this.workLevel = workLevel;
@@ -108,11 +115,16 @@ namespace ZjaveStacklandsPlus.Scripts
     {
       foreach (var kvp in haveCards)
       {
-        MyGameCard.GetRootCard().CardData.DestroyChildrenMatchingPredicateAndRestack((CardData c) => c.Id == kvp.Key, kvp.Value);
+        DestroyCardByIdFormWorkshop(kvp.Key, kvp.Value);
       }
 
       CardData cardData = WorldManager.instance.CreateCard(transform.position, resultCard, faceUp: false, checkAddToStack: false);
       WorldManager.instance.StackSendCheckTarget(MyGameCard, cardData.MyGameCard, OutputDir, MyGameCard);
+    }
+
+    public virtual void DestroyCardByIdFormWorkshop(string cardId, int count)
+    {
+      MyGameCard.GetRootCard().CardData.DestroyChildrenMatchingPredicateAndRestack((CardData c) => c.Id == cardId, count);
     }
   }
 }

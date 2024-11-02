@@ -44,11 +44,24 @@ namespace ZjaveStacklandsPlus.Scripts.Workshop
     /// <returns></returns>
     public override bool AccordWithMaking()
     {
+      if (!haveCards.TryGetValue(Cards.villager, out int villagerTotal)
+      || !haveCards.TryGetValue(Worker.cardId, out int workerTotal)
+      || !haveCards.TryGetValue(Cards.gold, out int goldTotal))
+      {
+        return false;
+      }
+
+      CardData? workerCardData = CardUtils.GetFirstCardById(this, Worker.cardId);
+      IWorkLevel? workLevel = workerCardData as IWorkLevel;
+
+      // 工人每升一级所需金币数是：当前等级*5
+      int level = workLevel?.WorkLevel ?? 1;
+      int upLevelGold = Mathf.Max(5, level * goldTotal);
       // haveCards是卡片需要哪些材料才能进行制作，此处进行判断
       bool allMatch = haveCards != null
-        && ChildrenMatchingPredicateCount((CardData cd) => cd.Id == Cards.gold) >= 5
-        && (AnyChildMatchesPredicate((CardData cd) => cd.Id == Cards.villager)
-        || AnyChildMatchesPredicate((CardData cd) => cd.Id == Worker.cardId));
+        && ChildrenMatchingPredicateCount((CardData cd) => cd.Id == Cards.gold) >= upLevelGold
+        && (ChildrenMatchingPredicateCount((CardData cd) => cd.Id == Cards.villager) >= villagerTotal
+        || ChildrenMatchingPredicateCount((CardData cd) => cd.Id == Worker.cardId) >= workerTotal);
       Debug.LogFormat("AccordWithMaking = {0}", allMatch);
       return allMatch;
     }
@@ -61,63 +74,47 @@ namespace ZjaveStacklandsPlus.Scripts.Workshop
     /// <returns></returns>
     public override float WorkingTimeBonus(float workingTime, out IWorkLevel? outWorkLevel)
     {
-      CardData? workerCardData = CardUtils.GetFirstCardById(this, Worker.cardId);
-      if (workerCardData != null && workerCardData is IWorkLevel workLevel)
-      {
-        this.workLevel = workLevel;
-        outWorkLevel = workLevel;
-        return workingTime;
-      }
-      else
-      {
-        outWorkLevel = null;
-        return workingTime;
-      }
+      outWorkLevel = null;
+      return workingTime;
     }
 
     [TimedAction("complete_making")]
     public override void CompleteMaking()
     {
-      foreach (var kvp in haveCards)
+      if (!haveCards.TryGetValue(Cards.villager, out int villagerTotal)
+      || !haveCards.TryGetValue(Worker.cardId, out int workerTotal)
+      || !haveCards.TryGetValue(Cards.gold, out int goldTotal))
       {
-        if (kvp.Key == Cards.gold)
-        {
-          // 工人每升一级所需金币数是：当前等级*5
-          int level = workLevel?.WorkLevel ?? 1;
-          Debug.unityLogger.Log(LogType.Log, "kvp.Value * level = " + kvp.Value * level);
-          MyGameCard.GetRootCard().CardData.DestroyChildrenMatchingPredicateAndRestack((CardData c) => c.Id == kvp.Key, kvp.Value * level);
-
-          CardData cardData = CreateWorkerCard();
-          Debug.unityLogger.Log(LogType.Log, "cardData = " + cardData.Id);
-          WorldManager.instance.StackSendCheckTarget(MyGameCard, cardData.MyGameCard, OutputDir, MyGameCard);
-          return;
-        }
-        else if (kvp.Key == "zjave_worker")
-        {
-          // 不删除工人，而是升级工人
-          continue;
-        }
-        else
-        {
-          MyGameCard.GetRootCard().CardData.DestroyChildrenMatchingPredicateAndRestack((CardData c) => c.Id == kvp.Key, kvp.Value);
-        }
-
-        CardData cardData2 = WorldManager.instance.CreateCard(transform.position, resultCard, faceUp: false, checkAddToStack: false);
-        WorldManager.instance.StackSendCheckTarget(MyGameCard, cardData2.MyGameCard, OutputDir, MyGameCard);
+        return;
       }
-    }
 
-    private CardData CreateWorkerCard()
-    {
-      if (workLevel is CardData cardData)
+      CardData? workerCardData = CardUtils.GetFirstCardById(this, Worker.cardId);
+      IWorkLevel? workLevel = workerCardData as IWorkLevel;
+
+      // 工人每升一级所需金币数是：当前等级*5
+      int level = workLevel?.WorkLevel ?? 1;
+      int upLevelGold = Mathf.Max(5, level * goldTotal);
+      Debug.LogFormat("Destroy gold -> {0}", upLevelGold);
+      DestroyCardByIdFormWorkshop(Cards.gold, upLevelGold);
+      
+      if (workerCardData != null && workLevel != null)
       {
+        // 不Destroy工人，而是升级工人
+        Debug.LogFormat("Before LevelUp, workLevel = {0}", workLevel.WorkLevel);
         workLevel.LevelUp();
-        Debug.unityLogger.Log(LogType.Log, "workLevel = " + workLevel.WorkLevel);
-        return cardData;
-      }
-      else
-      {
-        return WorldManager.instance.CreateCard(transform.position, resultCard, faceUp: false, checkAddToStack: false);
+        Debug.LogFormat("After LevelUp, workLevel = {0}", workLevel.WorkLevel);
+        WorldManager.instance.Restack(workerCardData.MyGameCard.AsList());
+        // WorldManager.instance.StackSendCheckTarget(MyGameCard, workerCardData.MyGameCard, OutputDir, MyGameCard);
+        // workerCardData.MyGameCard.SendDirection(Vector3.right);
+        return;
+      } else {
+        // 销毁村民，创建工人卡牌
+        DestroyCardByIdFormWorkshop(Cards.villager, villagerTotal);
+        
+		    // List<Equipable> allEquipables = combatable.GetAllEquipables();
+        CardData cardData = WorldManager.instance.CreateCard(transform.position, resultCard, faceUp: false, checkAddToStack: false);
+        WorldManager.instance.StackSendCheckTarget(MyGameCard, cardData.MyGameCard, OutputDir, MyGameCard);
+        return;
       }
     }
   }

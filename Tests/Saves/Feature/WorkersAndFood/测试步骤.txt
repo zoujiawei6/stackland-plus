@@ -1,0 +1,9 @@
+1. Synthetic-合成人才市场测试
+2.1 UplevelExperience-测试工人能否通过经验升级
+2.2 UplevelExperience-经验升级最高六级
+3.1. UplevelGold-测试村民能否在人才市场通过金币升级成工人
+3.2. UplevelGold-测试工人能否在人才市场通过金币升级等级
+3.3. UplevelGold-测试工人携带装备升级后，装备不会丢失
+3.4. UplevelGold-测试工人名字栏能否正确显示等级、描述栏能显示升级到下一级所需金币
+3.5. UplevelGold-金币升级最高六级
+4. WorkingBonus-测试工人卡片能在所有工坊中有效率加成，且每个工坊都要测试1-6级工人加成后的生产速度

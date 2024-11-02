@@ -21,7 +21,7 @@ namespace ZjaveStacklandsPlus.Scripts.Common
     [ExtraData("WorkingTime")]
     public float workingTime = 0;
 
-    public float PlusWorkingTime(float time)
+    public float CountWorkingTime(float time)
     {
       float total = WorkingTime + time;
       WorkingTime = total;
