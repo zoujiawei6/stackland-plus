@@ -29,6 +29,11 @@ namespace ZjaveStacklandsPlus.Scripts
       base.UpdateCardText();
       
       nameOverride = SokLoc.Translate("zjave_worker_name", LocParam.Create("level", WorkLevel.ToString()));
+      if (WorkLevel < IWorkLevel.MaxWorkLevel)
+      {
+        string levelInfo = SokLoc.Translate("zjave_work_level_description", LocParam.Create("total", ((int)WorkingTime).ToString()), LocParam.Create("next", ((int)GetNextLevelTime()).ToString()));
+        descriptionOverride = $"{descriptionOverride}\n{levelInfo}";
+      }
     }
   }
 }

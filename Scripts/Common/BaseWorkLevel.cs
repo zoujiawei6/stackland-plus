@@ -31,7 +31,18 @@ namespace ZjaveStacklandsPlus.Scripts.Common
     public int LevelUp()
     {
       WorkLevel = Mathf.Min(workLevel + 1, IWorkLevel.MaxWorkLevel);
+      workingTime = WorldManager.instance.MonthTime * 2 * WorkLevel;
       return WorkLevel;
+    }
+
+    public float GetNextLevelTime()
+    {
+      return WorldManager.instance.MonthTime * 2 * WorkLevel - WorkingTime;
+    }
+
+    public float GetMaxLevelTime()
+    {
+      return WorldManager.instance.MonthTime * 2 * MaxWorkLevel;
     }
 
     public int WorkLevel
@@ -50,7 +61,8 @@ namespace ZjaveStacklandsPlus.Scripts.Common
       {
         workingTime = Mathf.Max(0, value);
         // 每工作两个月亮年，升一级
-        WorkLevel = (int)Mathf.Floor(workingTime / WorldManager.instance.MonthTime / 2.0f);
+        float workerLevel = Mathf.Floor(workingTime / WorldManager.instance.MonthTime / 2.0f) + 1;
+        WorkLevel = Mathf.Min(Mathf.Max(1, (int)workerLevel), IWorkLevel.MaxWorkLevel);
       }
     }
   }

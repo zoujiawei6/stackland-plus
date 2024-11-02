@@ -29,5 +29,17 @@ namespace ZjaveStacklandsPlus.Scripts.Common
     /// </summary>
     /// <returns></returns>
     int LevelUp();
+
+    /// <summary>
+    /// 获取升到下一级需要的工作时长
+    /// </summary>
+    /// <returns></returns>
+    float GetNextLevelTime();
+
+    /// <summary>
+    /// 满级所需的总工作时长
+    /// </summary>
+    /// <returns></returns>
+    float GetMaxLevelTime();
   }
 }

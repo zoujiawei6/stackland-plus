@@ -19,6 +19,7 @@ namespace ZjaveStacklandsPlus.Scripts
     public string ingredient = ingredient;
     public string resultCard = resultCard;
     public float workingTime = workingTime;
+    private float bonusWorkingTime = 0;
     protected Dictionary<string, int> haveCards = haveCards;
 
     /// <summary>
@@ -63,15 +64,8 @@ namespace ZjaveStacklandsPlus.Scripts
     {
       if (AccordWithMaking())
       {
-        workingTime = WorkingTimeBonus(workingTime, out IWorkLevel? workLevel);
-        Debug.LogFormat("本次生产耗时 = {0}", workingTime);
-        MyGameCard.StartTimer(workingTime, CompleteMaking, SokLoc.Translate(cardStatus), GetActionId("CompleteMaking"));
-        if (workLevel != null)
-        {
-          Debug.LogFormat("总工作时间 统计前 = {0}", workLevel?.WorkingTime);
-          workLevel?.CountWorkingTime(workingTime);
-          Debug.LogFormat("总工作时间 统计后 = {0}", workLevel?.WorkingTime);
-        }
+        bonusWorkingTime = WorkingTimeBonus(workingTime, out IWorkLevel? workLevel);
+        MyGameCard.StartTimer(bonusWorkingTime, CompleteMaking, SokLoc.Translate(cardStatus), GetActionId("CompleteMaking"));
       }
       else
       {
@@ -120,6 +114,14 @@ namespace ZjaveStacklandsPlus.Scripts
 
       CardData cardData = WorldManager.instance.CreateCard(transform.position, resultCard, faceUp: false, checkAddToStack: false);
       WorldManager.instance.StackSendCheckTarget(MyGameCard, cardData.MyGameCard, OutputDir, MyGameCard);
+
+      Debug.LogFormat("本次生产耗时 = {0}", bonusWorkingTime);
+      if (workLevel != null)
+      {
+        Debug.LogFormat("总工作时间 统计前 = {0}", workLevel?.WorkingTime);
+        workLevel?.CountWorkingTime(bonusWorkingTime);
+        Debug.LogFormat("总工作时间 统计后 = {0}", workLevel?.WorkingTime);
+      }
     }
 
     public virtual void DestroyCardByIdFormWorkshop(string cardId, int count)

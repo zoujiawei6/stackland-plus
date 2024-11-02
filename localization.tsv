@@ -22,3 +22,4 @@ zjave_worker_description		In the talent market card game, villagers can be train
 zjave_worker_workshop_name		Talent Market	人才市场	人才市場
 zjave_worker_workshop_description		Build a talent market using 4 wooden sticks, 2 pieces of wood, and 1 flint, which are used to create a podium and ignite the spark of wisdom. The talent market can use gold coins to train villagers into workers, and gold coins can also be used to upgrade workers, with the cost increasing by 5 coins for each level.	使用4木棍、2木头、1火石建造人才市场，分别用来制造讲桌和点燃智慧的火花。人才市场可以用金币将村民培训成工人，也可使用金币将工人升级，每升一级所需金币数量翻倍	使用4木棍、2木頭、1火石建造人才市場，分別用來製造講桌和點燃智慧的火花。人才市場可以用金幣將村民培訓成工人，也可使用金幣將工人陞級，每昇一級所需金幣數量翻倍“
 zjave_worker_workshop_status		In training	培训中...	培訓中…
+zjave_work_level_description		Total working hours: [total]. To advance to the next level, you need to: [next]	总工作时长：[total]。升到下一级还需：[next]	總工作時長：[total]。昇到下一級還需：[next]
