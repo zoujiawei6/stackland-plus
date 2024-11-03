@@ -26,10 +26,10 @@ namespace ZjaveStacklandsPlus.Scripts
       bool allMatch = haveCards != null && haveCards.All(kvp =>
           ChildrenMatchingPredicateCount((CardData cd) => cd.Id == kvp.Key) >= kvp.Value
       );
-      bool hasVillager = ChildrenMatchingPredicateCount((CardData cd) => cd.Id == Cards.villager) >= 1;
+      bool hasHumans = ChildrenMatchingPredicateCount((CardData cd) => cd.MyCardType == CardType.Humans) >= 1;
       if (haveCards != null && haveCards.ContainsKey("apple") && haveCards.ContainsKey("berry") && haveCards.ContainsKey("milk"))
       {
-        hasVillager = false;
+        hasHumans = false;
       }
 
       if (allMatch && haveCards != null)
@@ -42,7 +42,7 @@ namespace ZjaveStacklandsPlus.Scripts
           MyGameCard.StartTimer(working_time, CompleteMaking, SokLoc.Translate(card_status), GetActionId("CompleteMaking"));
         }
         // 否则需要村民才能生产
-        else if (hasVillager)
+        else if (hasHumans)
         {
           MyGameCard.StartTimer(working_time, CompleteMaking, SokLoc.Translate(card_status), GetActionId("CompleteMaking"));
         }
