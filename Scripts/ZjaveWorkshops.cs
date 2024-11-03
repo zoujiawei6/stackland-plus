@@ -6,7 +6,7 @@ namespace ZjaveStacklandsPlus.Scripts
     public static string cardId = "zjave_stick_workshop";
     public static string blueprintId = "zjave_blueprint_stick_workshop";
     // 木棍所需原材料少，因此不能参照官方的“在工坊里制作时间缩短3倍”的逻辑。否则经济不再是难题
-    public StickWorkshop() : base("stick", Cards.stick, 10, new Dictionary<string, int> {
+    public StickWorkshop() : base("stick", Cards.stick, 6, new Dictionary<string, int> {
       { "wood", 1 }
     })
     {

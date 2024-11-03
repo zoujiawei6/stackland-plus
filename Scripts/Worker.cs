@@ -34,6 +34,11 @@ namespace ZjaveStacklandsPlus.Scripts
         string levelInfo = SokLoc.Translate("zjave_work_level_description", LocParam.Create("total", ((int)WorkingTime).ToString()), LocParam.Create("next", ((int)GetNextLevelTime()).ToString()));
         descriptionOverride = $"{descriptionOverride}\n{levelInfo}";
       }
+      else if (WorkLevel == IWorkLevel.MaxWorkLevel)
+      {
+        string maxLevelInfo = SokLoc.Translate("zjave_max_work_level_description");
+        descriptionOverride = $"{descriptionOverride}\n{maxLevelInfo}";
+      }
     }
   }
 }

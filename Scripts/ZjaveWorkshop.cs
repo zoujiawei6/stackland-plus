@@ -90,7 +90,9 @@ namespace ZjaveStacklandsPlus.Scripts
         this.workLevel = workLevel;
         int level = workLevel.WorkLevel;
         outWorkLevel = workLevel;
-        return MathUtils.CalculateProductionTime(level, workingTime, 0.5f);
+
+        // 木棍所需原材料少，固定为6秒。否则经济不再是难题
+        return this is StickWorkshop ? workingTime : MathUtils.CalculateProductionTime(level, workingTime, 0.5f);
       }
       else
       {
