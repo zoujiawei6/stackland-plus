@@ -1,3 +1,4 @@
+using ZjaveStacklandsPlus.Scripts.Utils;
 
 namespace ZjaveStacklandsPlus.Scripts
 {
@@ -5,47 +6,60 @@ namespace ZjaveStacklandsPlus.Scripts
   /// 工坊顶层类
   /// </summary>
   /// <param name="ingredient">工坊关键字，用于创建卡片id</param>
-  /// <param name="working_time">制作所需时间</param>
+  /// <param name="workingTime">制作所需时间</param>
   /// <param name="resultCard">工坊制作出的卡片</param>
   /// <param name="haveCards">制作所需的材料卡片，及其所需数量列表</param>
-  public class ZjaveWorkshop(string ingredient, string resultCard, float working_time, Dictionary<string, int> haveCards) : CardData
+  public class ZjaveWorkshop(string ingredient, string resultCard, float workingTime, Dictionary<string, int> haveCards) : CardData
   {
-    protected string card_id = string.Format("zjave_{0}_workshop", ingredient);
-    protected string card_status = string.Format("zjave_{0}_workshop_status", ingredient);
+    protected string cardStatus = string.Format("zjave_{0}_workshop_status", ingredient);
+    public string ingredient = ingredient;
+    public string resultCard = resultCard;
+    public float workingTime = workingTime;
+    protected Dictionary<string, int> haveCards = haveCards;
 
+    /// <summary>
+    /// 判断传入的卡片是否是人类
+    /// </summary>
+    /// <param name="otherCard"></param>
+    /// <returns></returns>
+    public virtual bool CanHaveHuman(CardData otherCard)
+    {
+      return otherCard.MyCardType == CardType.Humans;
+    }
+
+    /// <summary>
+    /// 能放置到当前卡片上的卡牌类型
+    /// </summary>
+    /// <param name="otherCard"></param>
+    /// <returns></returns>
     protected override bool CanHaveCard(CardData otherCard)
     {
       if (haveCards == null) return false;
 
       bool anyMatch = haveCards.Any(kvp => otherCard.Id == kvp.Key);
-      return anyMatch || otherCard.Id == Cards.villager;
+      return anyMatch || CanHaveHuman(otherCard);
+    }
+
+    /// <summary>
+    /// 判断卡片是否符合制作条件
+    /// </summary>
+    /// <returns></returns>
+    public virtual bool AccordWithMaking()
+    {
+      // haveCards是卡片需要哪些材料才能进行制作，此处进行判断
+      bool allMatch = haveCards != null && haveCards.All(kvp =>
+          ChildrenMatchingPredicateCount((CardData cd) => cd.Id == kvp.Key) >= kvp.Value
+      );
+      bool hasVillager = AnyChildMatchesPredicate((CardData cd) => cd.Id == Cards.villager);
+      // 食物类作坊不需要村民，其它类型作坊需要
+      return allMatch && (hasVillager || CardUtils.IsFoodById(resultCard));
     }
 
     public override void UpdateCard()
     {
-      bool allMatch = haveCards != null && haveCards.All(kvp =>
-          ChildrenMatchingPredicateCount((CardData cd) => cd.Id == kvp.Key) >= kvp.Value
-      );
-      bool hasHumans = ChildrenMatchingPredicateCount((CardData cd) => cd.MyCardType == CardType.Humans) >= 1;
-      if (haveCards != null && haveCards.ContainsKey("apple") && haveCards.ContainsKey("berry") && haveCards.ContainsKey("milk"))
+      if (AccordWithMaking())
       {
-        hasHumans = false;
-      }
-
-      if (allMatch && haveCards != null)
-      {
-        // 如果包含apple, berry, milk则不用包含村民
-        // TODO 本意是所有作坊都需要村民才能生产，但食物类卡牌无法放置在村民卡牌上；
-        // TODO 为了避免修改原游戏的村民类，应该先制作工人卡牌，将村民转变为工人，然后修改工人的逻辑，让工人可以放置食物；而工人也是村民的一种
-        if (haveCards.ContainsKey("apple") || haveCards.ContainsKey("berry") || haveCards.ContainsKey("milk"))
-        {
-          MyGameCard.StartTimer(working_time, CompleteMaking, SokLoc.Translate(card_status), GetActionId("CompleteMaking"));
-        }
-        // 否则需要村民才能生产
-        else if (hasHumans)
-        {
-          MyGameCard.StartTimer(working_time, CompleteMaking, SokLoc.Translate(card_status), GetActionId("CompleteMaking"));
-        }
+        MyGameCard.StartTimer(workingTime, CompleteMaking, SokLoc.Translate(cardStatus), GetActionId("CompleteMaking"));
       }
       else
       {
@@ -62,16 +76,18 @@ namespace ZjaveStacklandsPlus.Scripts
     [TimedAction("complete_making")]
     public virtual void CompleteMaking()
     {
-      if (haveCards != null)
+      foreach (var kvp in haveCards)
       {
-        foreach (var kvp in haveCards)
-        {
-          MyGameCard.GetRootCard().CardData.DestroyChildrenMatchingPredicateAndRestack((CardData c) => c.Id == kvp.Key, kvp.Value);
-        }
+        DestroyCardByIdFormWorkshop(kvp.Key, kvp.Value);
       }
 
       CardData cardData = WorldManager.instance.CreateCard(transform.position, resultCard, faceUp: false, checkAddToStack: false);
       WorldManager.instance.StackSendCheckTarget(MyGameCard, cardData.MyGameCard, OutputDir, MyGameCard);
+    }
+
+    public virtual void DestroyCardByIdFormWorkshop(string cardId, int count)
+    {
+      MyGameCard.GetRootCard().CardData.DestroyChildrenMatchingPredicateAndRestack((CardData c) => c.Id == cardId, count);
     }
   }
 }

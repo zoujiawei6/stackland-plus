@@ -32,6 +32,49 @@ python workshop_creator.py
 
 [调色工具](https://gradients.app/zh/colorpalette)
 
+## 测试
+
+对于使用`Visual Studio Code`的开发者，还需要安装：
+
+* [C#支持](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+* [调试工具](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)。
+
+## 持久化存储
+
+### 持久化原理
+
+官方代码中自定义了一个属性类`ExtraDataAttribute`。
+
+然后在`CardData`的`GetExtraCardData`函数中有读取`[ExtraData("XXX")]`属性修饰的字段，但它没有通过反射去读取`private`修饰的字段，因此`ExtraData`只能修饰`public`类型的字段。
+
+最后`GameCard`的`ToSavedCard`函数中调用了这个函数，逐层向上至`SaveManager`的`Save`函数。
+
+### 持久化最佳实践
+
+不封装字段的话就难以知道这个字段状态变化，这为扩展`Mod`造成了较大的难度。因此建议的最佳实践是开放且提供封装字段：
+
+```c#
+using UnityEngine;
+using ZjaveStacklandsPlus.Scripts.Common;
+
+namespace ZjaveStacklandsPlus.Scripts
+{
+  class Worker : Villager, IWorkLevel
+  {
+    [ExtraData("WorkLevel")]
+    public int workLevel = 1;
+
+    public int WorkLevel
+    {
+      get => workLevel;
+      set => workLevel = value;
+    }
+  }
+}
+```
+
+而你在代码中应当使用`instance.WorkLevel = 2`，而不是`instance.workLevel = 2`。
+
 ## 参考内容
 
 ### GameScripts类列表

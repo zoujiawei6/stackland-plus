@@ -2,3 +2,6 @@ bin/
 obj/
 __pycache__/
 GameScripts/
+Backup/
+.vs/
+UpgradeLog.htm

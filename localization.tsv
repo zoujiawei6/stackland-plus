@@ -1,19 +1,20 @@
 Term	Notes	English	Chinese (Simplified)	Chinese (Traditional)
 zjave_card_food_chest_name		Food Chest	食物箱	食物箱
 zjave_food_chest_name		Food Chest	食物箱	食物箱
-zjave_food_chest_description		Food storage	储存食物的箱子，狗狗把粑粑当食物，但粑粑不能存储食物箱，应该存进资源箱	儲存食物的箱子
+zjave_food_chest_description		Food storage	储存食物的箱子，便便也许是狗狗的食物，但它不能存储食物箱，应该存进资源箱	儲存食物的箱子，便便也許是狗狗的食物，但它不能存儲食物箱，應該存進資源箱
 zjave_stick_workshop_name		Stick Workshop	木棍作坊	木棍作坊
-zjave_stick_workshop_description		Using wood to produce wooden strips, The workshop needs one worker to produce	使用木材来生产木棍，作坊需要一位工人才能进行生产	使用木材來生產木棍，作坊需要一位工人才能進行生產
-zjave_stick_workshop_status		Sawing wood	正在锯木...工人在庆幸自己并不讨厌锯木的声音	正在鋸木...
+zjave_stick_workshop_description		Using wood to produce wooden strips, The workshop needs one worker to produce. This workshop cannot benefit from the work efficiency bonus of workers.	使用木材来生产木棍，需要一位村民或者工人才能进行生产。本作坊无法受工人的工作效率加成。	使用木材来生产木棍，需要一位村民或者工人才能进行生产。本作坊无法受工人的工作效率加成。
+zjave_stick_workshop_status		Sawing wood	工人在庆幸自己并不讨厌锯木的声音	工人在慶倖自己並不討厭鋸木的聲音
 zjave_fruit_salad_workshop_name		Fruit Salad Workshop	水果沙拉作坊	水果沙拉作坊
-zjave_fruit_salad_workshop_description		Use apples and berries or grapes to make a fruit salad, The workshop needs one worker to produce	使用苹果加上浆果或者葡萄来生产水果沙拉，作坊需要一位工人才能进行生产	使用蘋果加上漿果或者葡萄來生產水果沙拉，作坊需要一位工人才能進行生產
-zjave_fruit_salad_workshop_status		Godly knife skills	刀法如神...工人觉得自己是厨神	刀法如神...
+zjave_fruit_salad_workshop_description		Use apples and berries or grapes to make a fruit salad, The workshop needs one worker to produce	使用苹果加上浆果或者葡萄来生产水果沙拉，需要一位工人才能进行生产	使用蘋果加上漿果或者葡萄來生產水果沙拉，需要一比特工人才能進行生產
+zjave_fruit_salad_workshop_status		Godly knife skills	刀法如神，工人觉得自己是厨神	刀法如神，工人覺得自己是廚神
 zjave_shed_workshop_name		Shed Workshop	棚屋工坊	棚屋工坊
-zjave_shed_workshop_description		Use stone, wood, and sticks to build a shed, The workshop needs one worker to produce	使用石头、木材、木棍来建造棚屋，作坊需要一位工人才能进行工作	使用石頭、木材、木棍來建造棚屋，作坊需要一位工人才能進行工作
-zjave_shed_workshop_status		Working...	工作中...工人埋怨自己被安排干重活	工作中...
+zjave_shed_workshop_description		Use stone, wood, and sticks to build a shed, The workshop needs one worker to produce	使用石头、木材、木棍来建造棚屋，需要一位村民或者工人才能进行工作	使用石頭、木材、木棍來建造棚屋，需要一比特村民或者工人才能進行工作
+zjave_shed_workshop_status		Working...	工人埋怨自己被安排干重活	工人埋怨自己被安排幹重活
 zjave_warehouse_workshop_name		Warehouse Workshop	仓库工坊	倉庫工坊
-zjave_warehouse_workshop_description		Use iron blocks and stones to build warehouses, The workshop needs one worker to produce	使用铁块、石头来建造仓库，作坊需要一位工人才能进行工作	使用鐵塊、石頭來建造倉庫，作坊需要一位工人才能進行工作
-zjave_warehouse_workshop_status		Working...	工作中...工人埋怨自己被安排干重活	工作中...
+zjave_warehouse_workshop_description		Use iron blocks and stones to build warehouses, The workshop needs one worker to produce	使用铁块、石头来建造仓库，需要一位村民或者工人才能进行工作	使用鐵塊、石頭來建造倉庫，需要一比特村民或者工人才能進行工作
+zjave_warehouse_workshop_status		Working...	工人埋怨自己被安排干重活	工人埋怨自己被安排幹重活
 zjave_milkshake_workshop_name		Milkshake Workshop	奶昔工坊	奶昔工坊
-zjave_milkshake_workshop_description		Use milk and berries or grapes to make a milkshake, The workshop needs one worker to produce	使用牛奶加上浆果或者葡萄来生产奶昔，作坊需要一位工人才能进行工作	使用牛奶加上漿果或者葡萄來生產奶昔，作坊需要一位工人才能進行工作
-zjave_milkshake_workshop_status		Working...	工作中...工人似乎想偷吃	工作中...
+zjave_milkshake_workshop_description		Use milk and berries or grapes to make a milkshake, The workshop needs one worker to produce	使用牛奶加上浆果或者葡萄来生产奶昔，需要一位工人才能进行工作	使用牛奶加上漿果或者葡萄來生產奶昔，需要一比特工人才能進行工作
+zjave_milkshake_workshop_status		Working...	工人似乎想偷吃...	工人似乎想偷吃… 
+zjave_work_level_description		Total working hours: [total]. To advance to the next level, you need to: [next]	总工作时长：[total]。升到下一级还需：[next]	總工作時長：[total]。昇到下一級還需：[next]
