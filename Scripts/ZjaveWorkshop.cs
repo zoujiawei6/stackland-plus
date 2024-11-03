@@ -1,8 +1,3 @@
-
-using UnityEngine;
-using ZjaveStacklandsPlus.Scripts.Common;
-using ZjaveStacklandsPlus.Scripts.Utils;
-
 namespace ZjaveStacklandsPlus.Scripts
 {
   /// <summary>
@@ -15,7 +10,6 @@ namespace ZjaveStacklandsPlus.Scripts
   public class ZjaveWorkshop(string ingredient, string resultCard, float workingTime, Dictionary<string, int> haveCards) : CardData
   {
     protected string cardStatus = string.Format("zjave_{0}_workshop_status", ingredient);
-    protected IWorkLevel? workLevel = null;
     public string ingredient = ingredient;
     public string resultCard = resultCard;
     public float workingTime = workingTime;
@@ -29,7 +23,7 @@ namespace ZjaveStacklandsPlus.Scripts
     /// <returns></returns>
     public virtual bool CanHaveVillager(CardData otherCard)
     {
-      return otherCard.Id == Cards.villager || otherCard.Id == "zjave_worker";
+      return otherCard.MyCardType == CardType.Humans || otherCard.Id == Cards.villager;
     }
 
     /// <summary>
@@ -56,49 +50,20 @@ namespace ZjaveStacklandsPlus.Scripts
           ChildrenMatchingPredicateCount((CardData cd) => cd.Id == kvp.Key) >= kvp.Value
       );
       bool hasVillager = AnyChildMatchesPredicate((CardData cd) => cd.Id == Cards.villager);
-      bool hasWorker = AnyChildMatchesPredicate((CardData cd) => cd.Id == "zjave_worker");
-      return allMatch && (hasVillager || hasWorker);
+      return allMatch && hasVillager;
     }
 
     public override void UpdateCard()
     {
       if (AccordWithMaking())
       {
-        bonusWorkingTime = WorkingTimeBonus(workingTime, out IWorkLevel? workLevel);
-        MyGameCard.StartTimer(bonusWorkingTime, CompleteMaking, SokLoc.Translate(cardStatus), GetActionId("CompleteMaking"));
+        MyGameCard.StartTimer(workingTime, CompleteMaking, SokLoc.Translate(cardStatus), GetActionId("CompleteMaking"));
       }
       else
       {
         MyGameCard.CancelTimer(GetActionId("CompleteMaking"));
       }
       base.UpdateCard();
-    }
-
-    /// <summary>
-    /// 工作时间加成，熟练的工人具有更高的工作效率。最大加成是2倍效率。
-    /// 因为本游戏困难的是初期而非后期，因此采用反对数函数来增加初期的工作效率加成，前期升级加成可观，而对后期的加成不大。
-    /// </summary>
-    /// <param name="workingTime">工作所需时间</param>
-    /// <param name="outWorkLevel">抛出取得的工作等级卡牌</param>
-    /// <returns></returns>
-    public virtual float WorkingTimeBonus(float workingTime, out IWorkLevel? outWorkLevel)
-    {
-      // 工人等级越高，效率越高，生产越快。
-      CardData? workerCardData = CardUtils.GetFirstCardById(this, Worker.cardId);
-      if (workerCardData != null && workerCardData is IWorkLevel workLevel)
-      {
-        this.workLevel = workLevel;
-        int level = workLevel.WorkLevel;
-        outWorkLevel = workLevel;
-
-        // 木棍所需原材料少，固定为6秒。否则经济不再是难题
-        return this is StickWorkshop ? workingTime : MathUtils.CalculateProductionTime(level, workingTime, 0.5f);
-      }
-      else
-      {
-        outWorkLevel = null;
-        return workingTime;
-      }
     }
 
     public override bool CanHaveCardsWhileHasStatus()
@@ -116,14 +81,6 @@ namespace ZjaveStacklandsPlus.Scripts
 
       CardData cardData = WorldManager.instance.CreateCard(transform.position, resultCard, faceUp: false, checkAddToStack: false);
       WorldManager.instance.StackSendCheckTarget(MyGameCard, cardData.MyGameCard, OutputDir, MyGameCard);
-
-      Debug.LogFormat("本次生产耗时 = {0}", bonusWorkingTime);
-      if (workLevel != null)
-      {
-        Debug.LogFormat("总工作时间 统计前 = {0}", workLevel?.WorkingTime);
-        workLevel?.CountWorkingTime(bonusWorkingTime);
-        Debug.LogFormat("总工作时间 统计后 = {0}", workLevel?.WorkingTime);
-      }
     }
 
     public virtual void DestroyCardByIdFormWorkshop(string cardId, int count)

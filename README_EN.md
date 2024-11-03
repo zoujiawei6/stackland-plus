@@ -8,21 +8,16 @@ Provide translation for the Mod: [Click Here](https://docs.google.com/spreadshee
 
 ## New Cards
 
-### Human
-
-* Worker: In the Talent Market card, villagers can be trained into workers. Workers will gain work experience while working and level up. The higher the worker's level, the more efficient they become. They can reach up to level 6, doubling their efficiency.
-
 ### Structures
 
 * Food Box: A new type of box that can store food.
-* Talent Market: A place to train villagers into workers using coins. Food workshops need workers to function.
 
 #### Workshops
 
 | Workshop     | Crafting Materials                    |
 | ------------ | ------------------------------------- |
-| Fruit Salad Workshop | Wood x2, Stone x2, Worker, Apple, Berry |
-| Milkshake Workshop    | Wood x2, Stone x2, Worker, Milk, Berry |
+| Fruit Salad Workshop | Wood x2, Stone x2, Apple, Berry |
+| Milkshake Workshop    | Wood x2, Stone x2, Milk, Berry |
 | Stick Workshop       | Wood x2, Stone x2, Villager, Stick       |
 | Shed Workshop        | Wood x3, Stone x2, Villager, Stone, Stick |
 | Warehouse Workshop   | Wood x2, Stone x3, Villager, Iron Block   |

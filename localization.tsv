@@ -17,10 +17,4 @@ zjave_warehouse_workshop_status		Working...	工人埋怨自己被安排干重活
 zjave_milkshake_workshop_name		Milkshake Workshop	奶昔工坊	奶昔工坊
 zjave_milkshake_workshop_description		Use milk and berries or grapes to make a milkshake, The workshop needs one worker to produce	使用牛奶加上浆果或者葡萄来生产奶昔，需要一位工人才能进行工作	使用牛奶加上漿果或者葡萄來生產奶昔，需要一比特工人才能進行工作
 zjave_milkshake_workshop_status		Working...	工人似乎想偷吃...	工人似乎想偷吃… 
-zjave_worker_name		Worker Level [level]	工人 等级 [level]	工人 等級 [level]
-zjave_worker_description		In the talent market card game, villagers can be trained to become workers. Workers accumulate work experience and level up as they work. The higher the worker's level, the faster their work efficiency, with a maximum level of 6, where work efficiency doubles. The training time in the talent market is not affected by efficiency bonuses.	人才市场卡牌中可以将村民培养成工人，工人在工作中会积累工作经验提升等级。等级越高工作效率越快，最高6级时工作效率翻倍。	人才市場卡牌中可以將村民培養成工人，工人在工作中會積累工作經驗提升等級，工人等級越高工作效率越快，最高6級、工作效率翻倍。人才市場的培訓時間不受效率加成
-zjave_worker_workshop_name		Talent Market	人才市场	人才市場
-zjave_worker_workshop_description		Using 4 wooden sticks, 2 pieces of wood, and 1 flint, build a talent market. The talent market can train villagers into workers for 5 gold coins, and it can also upgrade workers, with each level upgrade costing an additional 5 gold coins. The training time for the talent market is not affected by the work efficiency bonuses of the workers.	使用4木棍、2木头、1火石建造人才市场。人才市场可以用5枚金币将村民培训成工人，也可升级工人，每升一级所需金币增加5枚。人才市场的培训时间不受工人工作效率加成。	使用4木棍、2木頭、1火石建造人才市場。 人才市場可以用5枚金幣將村民培訓成工人，也可升級工人，每昇一級所需金幣新增5枚。 人才市場的培訓時間不受工人工作效率加成。
-zjave_worker_workshop_status		In training	培训中...	培訓中…
 zjave_work_level_description		Total working hours: [total]. To advance to the next level, you need to: [next]	总工作时长：[total]。升到下一级还需：[next]	總工作時長：[total]。昇到下一級還需：[next]
-zjave_max_work_level_description		Worker level has reached the maximum level	工人等级已满级	工人等級已滿級
