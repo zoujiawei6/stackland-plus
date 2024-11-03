@@ -1,0 +1,14 @@
+{
+    "$schema": "../schemas/blueprint.schema.json",
+    "id": "zjave_blueprint_super_farm_workshop",
+    "nameTerm": "zjave_super_farm_workshop_name",
+    "group": "Building",
+    "subprints": [
+        {
+            "RequiredCards": "farm, farm, farm, farm, farm, stick, stick, stick, stick, stick",
+            "ResultCard": "zjave_super_farm_workshop",
+            "Time": 40,
+            "StatusTerm": "zjave_super_farm_workshop_status"
+        }
+    ]
+}
