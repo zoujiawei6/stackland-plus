@@ -32,7 +32,7 @@ namespace ZjaveStacklandsPlus.Scripts
 
       if (string.IsNullOrEmpty(HeldCardId))
       {
-          nameOverride = SokLoc.Translate("zjave_card_food_chest_name");
+          nameOverride = SokLoc.Translate("zjave_food_chest_name");
           descriptionOverride = null;
       }
     }

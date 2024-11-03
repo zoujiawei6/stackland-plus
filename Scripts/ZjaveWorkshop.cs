@@ -50,9 +50,9 @@ namespace ZjaveStacklandsPlus.Scripts
       bool allMatch = haveCards != null && haveCards.All(kvp =>
           ChildrenMatchingPredicateCount((CardData cd) => cd.Id == kvp.Key) >= kvp.Value
       );
-      bool hasVillager = AnyChildMatchesPredicate((CardData cd) => cd.Id == Cards.villager);
+      bool hasHuman = AnyChildMatchesPredicate(CanHaveHuman);
       // 食物类作坊不需要村民，其它类型作坊需要
-      return allMatch && (hasVillager || CardUtils.IsFoodById(resultCard));
+      return allMatch && (hasHuman || CardUtils.IsFoodById(resultCard));
     }
 
     public override void UpdateCard()
