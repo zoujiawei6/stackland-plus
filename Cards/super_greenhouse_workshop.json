@@ -1,0 +1,17 @@
+{
+    "$schema": "../schemas/card.schema.json",
+    "id": "zjave_super_greenhouse_workshop",
+    "nameTerm": "zjave_super_greenhouse_workshop_name",
+    "descriptionTerm": "zjave_super_greenhouse_workshop_description",
+    "icon": "greenhouse",
+    "value": 30,
+    "type": "Structures",
+    "script": "ZjaveStacklandsPlus.Scripts.Workshops.SuperGreenhouseWorkshop",
+    "_IsBuilding": true,
+    "_HasUniquePalette": true,
+    "_MyPalette": {
+        "Color": "#FF5743",
+        "Color2": "#E35342",
+        "Icon": "#FFFFFF"
+    }
+}
