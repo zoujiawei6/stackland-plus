@@ -9,7 +9,11 @@ namespace ZjaveStacklandsPlus
     public class StickWorkshopMod : Mod
     {
         // 集合所有超级农场等等生长型作坊的cardId，目前而言官方可生长类型卡牌只有5个
-        public static string[] superGrowMethods = new string[5];
+        public static string[] superGrowMethods = [
+            SuperGardenWorkshop.cardId,
+            SuperFarmWorkshop.cardId,
+            SuperGreenhouseWorkshop.cardId,
+        ];
         /**
          * Awake 是 Unity 引擎中的生命周期方法之一，在游戏对象被实例化时调用。
          * 
@@ -36,10 +40,12 @@ namespace ZjaveStacklandsPlus
         {
             Logger.Log("Ready!");
 
+            // AddCardToSetCardBag(SetCardBagType.BasicBuildingIdea, "zjave_blueprint_food_chest", 1);
             AddCardToSetCardBag(SetCardBagType.BasicBuildingIdea, "zjave_blueprint_food_chest", 1);
             // 获取当前程序集中的所有类型
             Type[] allTypes = Assembly.GetExecutingAssembly().GetTypes();
             AddCardsToSetBasicBuildingIdeaCardBag(allTypes);
+            // GetAllGrowableCardIds(allTypes);
         }
 
         /// <summary>
@@ -64,7 +70,7 @@ namespace ZjaveStacklandsPlus
                     try
                     {
                         var blueprintId = fieldInfo.GetValue(null) as string; // 静态字段，无需实例化类，传递 null
-                        WorldManager.instance.GameDataLoader.AddCardToSetCardBag(SetCardBagType.BasicBuildingIdea, blueprintId, 1);
+                        AddCardToSetCardBag(SetCardBagType.BasicBuildingIdea, blueprintId, 1);
                     } catch (Exception e) {
                         Logger.Log(e.ToString());
                     }
@@ -105,7 +111,7 @@ namespace ZjaveStacklandsPlus
             }
         }
 
-        private void AddCardToSetCardBag(SetCardBagType setCardBagType, string cardId, int chance)
+        private void AddCardToSetCardBag(SetCardBagType setCardBagType, string? cardId, int chance)
         {
             WorldManager.instance.GameDataLoader.AddCardToSetCardBag(setCardBagType, cardId, chance);
         }
