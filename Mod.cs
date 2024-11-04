@@ -2,11 +2,14 @@
 using System.Reflection;
 using UnityEngine;
 using ZjaveStacklandsPlus.Scripts;
+using ZjaveStacklandsPlus.Scripts.Workshops;
 
 namespace ZjaveStacklandsPlus
 {
     public class StickWorkshopMod : Mod
     {
+        // 集合所有超级农场等等生长型作坊的cardId，目前而言官方可生长类型卡牌只有5个
+        public static string[] superGrowMethods = new string[5];
         /**
          * Awake 是 Unity 引擎中的生命周期方法之一，在游戏对象被实例化时调用。
          * 
@@ -34,17 +37,16 @@ namespace ZjaveStacklandsPlus
             Logger.Log("Ready!");
 
             AddCardToSetCardBag(SetCardBagType.BasicBuildingIdea, "zjave_blueprint_food_chest", 1);
-            AddCardsToSetBasicBuildingIdeaCardBag();
+            // 获取当前程序集中的所有类型
+            Type[] allTypes = Assembly.GetExecutingAssembly().GetTypes();
+            AddCardsToSetBasicBuildingIdeaCardBag(allTypes);
         }
 
         /// <summary>
         /// 获取命名空间中的所有继承了ZjaveWorkshop的类，并通过反射获取静态字段 blueprintId，
         /// 将其通过 AddCardToSetCardBag 方法添加到 CardBag
         /// </summary>
-        private void AddCardsToSetBasicBuildingIdeaCardBag() {
-            // 获取当前程序集中的所有类型
-            var allTypes = Assembly.GetExecutingAssembly().GetTypes();
-
+        private void AddCardsToSetBasicBuildingIdeaCardBag(Type[] allTypes) {
             // 筛选出 ZjaveStacklandsPlus 命名空间下，继承自 ZjaveWorkshop 的类型
             var workshopTypes = allTypes.Where(t =>
                 t.IsClass &&                     // 需要是类
@@ -53,10 +55,10 @@ namespace ZjaveStacklandsPlus
             );
 
             // 遍历所有找到的类型，获取静态字段 blueprintId
-            foreach (var type in workshopTypes)
+            foreach (Type type in workshopTypes)
             {
                 // 获取 blueprintId 静态字段
-                var fieldInfo = type.GetField("blueprintId", BindingFlags.Static | BindingFlags.Public);
+                FieldInfo fieldInfo = type.GetField("blueprintId", BindingFlags.Static | BindingFlags.Public);
                 if (fieldInfo != null)
                 {
                     try
@@ -65,6 +67,39 @@ namespace ZjaveStacklandsPlus
                         WorldManager.instance.GameDataLoader.AddCardToSetCardBag(SetCardBagType.BasicBuildingIdea, blueprintId, 1);
                     } catch (Exception e) {
                         Logger.Log(e.ToString());
+                    }
+                }
+            }
+        }
+
+        public static void GetAllGrowableCardIds(Type[] allTypes)
+        {
+            int index = 0;
+            // 遍历程序集中的所有类型
+            foreach (Type type in allTypes)
+            {
+                if (index >= superGrowMethods.Length)
+                {
+                    break;
+                }
+                // 检查是否在目标命名空间中并且是否继承自 ZjaveGreenhouse
+                if (type.Namespace == "ZjaveStacklandsPlus.Scripts.Workshops"
+                    && type.IsSubclassOf(typeof(ZjaveGreenhouse)))
+                {
+                    // 尝试获取静态字段 cardId
+                    FieldInfo fieldInfo = type.GetField("cardId", BindingFlags.Public | BindingFlags.Static);
+                    
+                    if (fieldInfo != null && fieldInfo.FieldType == typeof(string))
+                    {
+                        // 获取 cardId 的值
+                        string? cardIdValue = fieldInfo.GetValue(null) as string;
+
+                        // 确保 cardId 不为空或 null
+                        if (!string.IsNullOrEmpty(cardIdValue))
+                        {
+                            superGrowMethods[index] = cardIdValue;
+                            index++;
+                        }
                     }
                 }
             }

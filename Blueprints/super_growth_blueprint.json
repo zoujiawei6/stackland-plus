@@ -1,0 +1,5 @@
+{
+  "$schema": "../schemas/blueprint.schema.json",
+  "id": "zjave_blueprint_super_farm_workshop",
+  "Script": "ZjaveStacklandsPlus.Scripts.Blueprints.SuperBlueprintGrowth"
+}
