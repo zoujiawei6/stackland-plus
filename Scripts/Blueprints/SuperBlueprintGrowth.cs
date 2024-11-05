@@ -7,9 +7,9 @@ namespace ZjaveStacklandsPlus.Scripts.Blueprints
   {
     // 集合所有超级农场等等生长型作坊的cardId，目前而言官方可生长类型卡牌只有5个
     public readonly static string[] SuperGrowMethods = [
-        SuperGardenWorkshop.cardId,
-        SuperFarmWorkshop.cardId,
-        SuperGreenhouseWorkshop.cardId,
+        SuperGarden.cardId,
+        SuperFarm.cardId,
+        SuperGreenhouse.cardId,
     ];
 
     public override void Init(GameDataLoader loader)
@@ -26,9 +26,9 @@ namespace ZjaveStacklandsPlus.Scripts.Blueprints
           continue;
         }
 
-        ToSuperRequiredCard(subprint, Cards.garden, SuperGardenWorkshop.cardId);
-        ToSuperRequiredCard(subprint, Cards.farm, SuperFarmWorkshop.cardId);
-        ToSuperRequiredCard(subprint, Cards.greenhouse, SuperGreenhouseWorkshop.cardId);
+        ToSuperRequiredCard(subprint, Cards.garden, SuperGarden.cardId);
+        ToSuperRequiredCard(subprint, Cards.farm, SuperFarm.cardId);
+        ToSuperRequiredCard(subprint, Cards.greenhouse, SuperGreenhouse.cardId);
         Subprints.Add(subprint);
       }
     }

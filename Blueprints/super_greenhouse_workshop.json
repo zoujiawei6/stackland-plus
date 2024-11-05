@@ -1,14 +1,14 @@
 {
     "$schema": "../schemas/blueprint.schema.json",
-    "id": "zjave_blueprint_super_greenhouse_workshop",
-    "nameTerm": "zjave_super_greenhouse_workshop_name",
+    "id": "zjave_blueprint_super_greenhouse",
+    "nameTerm": "zjave_super_greenhouse_name",
     "group": "Building",
     "subprints": [
         {
             "RequiredCards": "greenhouse, greenhouse, greenhouse, greenhouse, greenhouse, stick, stick, stick, stick, stick",
-            "ResultCard": "zjave_super_greenhouse_workshop",
+            "ResultCard": "zjave_super_greenhouse",
             "Time": 40,
-            "StatusTerm": "zjave_super_greenhouse_workshop_status"
+            "StatusTerm": "zjave_super_greenhouse_status"
         }
     ]
 }

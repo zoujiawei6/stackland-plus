@@ -1,0 +1,14 @@
+{
+    "$schema": "../schemas/blueprint.schema.json",
+    "id": "zjave_blueprint_technical_research_center",
+    "nameTerm": "zjave_technical_research_center_name",
+    "group": "Building",
+    "subprints": [
+        {
+            "RequiredCards": "wood, wood, stone, stone, brick, brick, plank, plank, iron_bar, iron_bar, villager",
+            "ResultCard": "zjave_technical_research_center",
+            "Time": 90,
+            "StatusTerm": "zjave_technical_research_center_status"
+        }
+    ]
+}

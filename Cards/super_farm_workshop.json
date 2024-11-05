@@ -1,12 +1,12 @@
 {
     "$schema": "../schemas/card.schema.json",
-    "id": "zjave_super_farm_workshop",
-    "nameTerm": "zjave_super_farm_workshop_name",
-    "descriptionTerm": "zjave_super_farm_workshop_description",
+    "id": "zjave_super_farm",
+    "nameTerm": "zjave_super_farm_name",
+    "descriptionTerm": "zjave_super_farm_description",
     "icon": "farm",
     "value": 50,
     "type": "Structures",
-    "script": "ZjaveStacklandsPlus.Scripts.Workshops.SuperFarmWorkshop",
+    "script": "ZjaveStacklandsPlus.Scripts.Workshops.SuperFarm",
     "_IsBuilding": true,
     "_HasUniquePalette": true,
     "_MyPalette": {
