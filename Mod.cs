@@ -2,18 +2,11 @@
 using System.Reflection;
 using UnityEngine;
 using ZjaveStacklandsPlus.Scripts;
-using ZjaveStacklandsPlus.Scripts.Workshops;
 
 namespace ZjaveStacklandsPlus
 {
     public class StickWorkshopMod : Mod
     {
-        // 集合所有超级农场等等生长型作坊的cardId，目前而言官方可生长类型卡牌只有5个
-        public static string[] superGrowMethods = [
-            SuperGardenWorkshop.cardId,
-            SuperFarmWorkshop.cardId,
-            SuperGreenhouseWorkshop.cardId,
-        ];
         /**
          * Awake 是 Unity 引擎中的生命周期方法之一，在游戏对象被实例化时调用。
          * 
@@ -40,12 +33,10 @@ namespace ZjaveStacklandsPlus
         {
             Logger.Log("Ready!");
 
-            // AddCardToSetCardBag(SetCardBagType.BasicBuildingIdea, "zjave_blueprint_food_chest", 1);
             AddCardToSetCardBag(SetCardBagType.BasicBuildingIdea, "zjave_blueprint_food_chest", 1);
             // 获取当前程序集中的所有类型
             Type[] allTypes = Assembly.GetExecutingAssembly().GetTypes();
             AddCardsToSetBasicBuildingIdeaCardBag(allTypes);
-            // GetAllGrowableCardIds(allTypes);
         }
 
         /// <summary>
@@ -77,40 +68,7 @@ namespace ZjaveStacklandsPlus
                 }
             }
         }
-
-        public static void GetAllGrowableCardIds(Type[] allTypes)
-        {
-            int index = 0;
-            // 遍历程序集中的所有类型
-            foreach (Type type in allTypes)
-            {
-                if (index >= superGrowMethods.Length)
-                {
-                    break;
-                }
-                // 检查是否在目标命名空间中并且是否继承自 ZjaveGreenhouse
-                if (type.Namespace == "ZjaveStacklandsPlus.Scripts.Workshops"
-                    && type.IsSubclassOf(typeof(ZjaveGreenhouse)))
-                {
-                    // 尝试获取静态字段 cardId
-                    FieldInfo fieldInfo = type.GetField("cardId", BindingFlags.Public | BindingFlags.Static);
-                    
-                    if (fieldInfo != null && fieldInfo.FieldType == typeof(string))
-                    {
-                        // 获取 cardId 的值
-                        string? cardIdValue = fieldInfo.GetValue(null) as string;
-
-                        // 确保 cardId 不为空或 null
-                        if (!string.IsNullOrEmpty(cardIdValue))
-                        {
-                            superGrowMethods[index] = cardIdValue;
-                            index++;
-                        }
-                    }
-                }
-            }
-        }
-
+        
         private void AddCardToSetCardBag(SetCardBagType setCardBagType, string? cardId, int chance)
         {
             WorldManager.instance.GameDataLoader.AddCardToSetCardBag(setCardBagType, cardId, chance);
