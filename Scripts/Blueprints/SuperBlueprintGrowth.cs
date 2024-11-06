@@ -5,13 +5,6 @@ namespace ZjaveStacklandsPlus.Scripts.Blueprints
 {
   public class SuperBlueprintGrowth : BlueprintGrowth
   {
-    // 集合所有超级农场等等生长型作坊的cardId，目前而言官方可生长类型卡牌只有5个
-    public readonly static string[] SuperGrowMethods = [
-        SuperGarden.cardId,
-        SuperFarm.cardId,
-        SuperGreenhouse.cardId,
-    ];
-
     public override void Init(GameDataLoader loader)
     {
       base.Init(loader);
@@ -48,32 +41,25 @@ namespace ZjaveStacklandsPlus.Scripts.Blueprints
       string RequiredCard2 = print.RequiredCards[1];
       if (RequiredCard1 == cardId)
       {
-        RequiredCard1 = superCardId;
-        string[] RequiredCards = [
-          RequiredCard2,
-          RequiredCard1,
-          RequiredCard2,
-          RequiredCard2,
-          RequiredCard2,
-          RequiredCard2,
-          RequiredCard2,
-        ];
-        print.RequiredCards = RequiredCards;
+        RequiredCard1 = RequiredCard2;
+        RequiredCard2 = superCardId;
       }
       else if (RequiredCard2 == cardId)
       {
         RequiredCard2 = superCardId;
-        string[] RequiredCards = [
-          RequiredCard1,
-          RequiredCard2,
-          RequiredCard1,
-          RequiredCard1,
-          RequiredCard1,
-          RequiredCard1,
-          RequiredCard1,
-        ];
-        print.RequiredCards = RequiredCards;
       }
+      Debug.LogFormat("RequiredCards = {0}", string.Join(", ", print.RequiredCards));
+      string[] RequiredCards = [
+        RequiredCard1,
+        RequiredCard2,
+        RequiredCard1,
+        RequiredCard1,
+        RequiredCard1,
+        RequiredCard1,
+        RequiredCard1,
+      ];
+      print.RequiredCards = RequiredCards;
+      Debug.LogFormat("print.RequiredCards = {0}", string.Join(", ", print.RequiredCards));
     }
   }
 }

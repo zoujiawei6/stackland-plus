@@ -1,4 +1,6 @@
 
+using UnityEngine;
+
 namespace ZjaveStacklandsPlus.Scripts.Workshops
 {
   /// <summary>
@@ -17,6 +19,7 @@ namespace ZjaveStacklandsPlus.Scripts.Workshops
     public static Dictionary<string, int> superGardenHaveCards = new() { { Cards.garden, 1 } };
     public static Dictionary<string, int> superFarmHaveCards = new() { { Cards.farm, 1 } };
     public static Dictionary<string, int> superGreenhouseHaveCards = new() { { Cards.greenhouse, 1 } };
+
     [ExtraData("DestroyGardenCount")]
     public int destroyGardenCount = 0;
     [ExtraData("DestroyFarmCount")]
@@ -91,11 +94,28 @@ namespace ZjaveStacklandsPlus.Scripts.Workshops
       base.UpdateCard();
     }
 
+    public virtual int getRemainingRequiredCardsById(string cardId)
+    {
+      if (cardId == Cards.garden)
+      {
+        return 6 - (destroyGardenCount % 6);
+      }
+      else if (cardId == Cards.farm)
+      {
+        return 6 - (destroyFarmCount % 6);
+      }
+      else if (cardId == Cards.greenhouse)
+      {
+        return 6 - (destroyGreenhouseCount % 6);
+      }
+      return 0;
+    }
+
     public override void UpdateCardText()
     {
-      string countGardenInfo = SokLoc.Translate("zjave_destory_garden_total", LocParam.Create("count", (6 - destroyGardenCount).ToString()));
-      string countFarmInfo = SokLoc.Translate("zjave_destory_farm_total", LocParam.Create("count", (6 - destroyFarmCount).ToString()));
-      string countGreenhouseInfo = SokLoc.Translate("zjave_destory_greenhouse_total", LocParam.Create("count", (6 - destroyGreenhouseCount).ToString()));
+      string countGardenInfo = SokLoc.Translate("zjave_destory_garden_total", LocParam.Create("count", getRemainingRequiredCardsById(Cards.garden).ToString()));
+      string countFarmInfo = SokLoc.Translate("zjave_destory_farm_total", LocParam.Create("count", getRemainingRequiredCardsById(Cards.farm).ToString()));
+      string countGreenhouseInfo = SokLoc.Translate("zjave_destory_greenhouse_total", LocParam.Create("count", getRemainingRequiredCardsById(Cards.greenhouse).ToString()));
       descriptionOverride = $"{countGardenInfo}\n{countFarmInfo}\n{countGreenhouseInfo}";
     }
 
@@ -107,44 +127,40 @@ namespace ZjaveStacklandsPlus.Scripts.Workshops
     [TimedAction("complete_making")]
     public virtual void CompleteMaking()
     {
-      if (AllChildrenMatchingPredicateCount(superGardenHaveCards))
-      {
-        CompleteSuperMaking(superGardenHaveCards, Cards.garden);
-      }
-
-      if (AllChildrenMatchingPredicateCount(superFarmHaveCards))
-      {
-        CompleteSuperMaking(superFarmHaveCards, Cards.farm);
-      }
-
-      if (AllChildrenMatchingPredicateCount(superGreenhouseHaveCards))
-      {
-        CompleteSuperMaking(superGreenhouseHaveCards, Cards.greenhouse);
-      }
+      CompleteSuperMaking(superGardenHaveCards, SuperGarden.cardId);
+      CompleteSuperMaking(superFarmHaveCards, SuperFarm.cardId);
+      CompleteSuperMaking(superGreenhouseHaveCards, SuperGreenhouse.cardId);
     }
 
     private void CompleteSuperMaking(Dictionary<string, int> haveCards, string resultCard)
     {
+      if (!AllChildrenMatchingPredicateCount(haveCards))
+      {
+        return;
+      }
+      Debug.LogFormat("CompleteSuperMaking {0}", resultCard);
       foreach (var kvp in haveCards)
       {
+        Debug.LogFormat("Destroy {0} -> {1}", kvp.Key, kvp.Value);
         DestroyCardByIdFormWorkshop(kvp.Key, kvp.Value);
         DestroyCount(kvp.Key, kvp.Value);
       }
 
-      if (resultCard == SuperGarden.cardId && destroyGardenCount != 0 && destroyGardenCount % 6 != 0)
+      CompleteSuperMaking(resultCard, SuperGarden.cardId, destroyGardenCount);
+      CompleteSuperMaking(resultCard, SuperFarm.cardId, destroyFarmCount);
+      CompleteSuperMaking(resultCard, SuperGreenhouse.cardId, destroyGreenhouseCount);
+    }
+
+    private void CompleteSuperMaking(string resultCard, string equalResultCard, int count)
+    {
+      
+      if (resultCard == equalResultCard && count != 0 && count % 6 == 0)
       {
+        Debug.LogFormat("resultCard -> {0}, equalResultCard -> {1}, count % 6 -> {2}", resultCard, equalResultCard, count);
+        CardData cardData = WorldManager.instance.CreateCard(transform.position, resultCard, faceUp: false, checkAddToStack: false);
+        WorldManager.instance.StackSendCheckTarget(MyGameCard, cardData.MyGameCard, OutputDir, MyGameCard);
         return;
       }
-      if (resultCard == SuperFarm.cardId && destroyGardenCount != 0 && destroyGardenCount % 6 != 0)
-      {
-        return;
-      }
-      if (resultCard == SuperGreenhouse.cardId && destroyGardenCount != 0 && destroyGardenCount % 6 != 0)
-      {
-        return;
-      }
-      CardData cardData = WorldManager.instance.CreateCard(transform.position, resultCard, faceUp: false, checkAddToStack: false);
-      WorldManager.instance.StackSendCheckTarget(MyGameCard, cardData.MyGameCard, OutputDir, MyGameCard);
     }
 
     public virtual void DestroyCardByIdFormWorkshop(string cardId, int count)

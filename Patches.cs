@@ -1,5 +1,5 @@
 using HarmonyLib;
-using ZjaveStacklandsPlus.Scripts;
+using UnityEngine;
 
 namespace ZjaveStacklandsPlus
 {
@@ -15,7 +15,13 @@ namespace ZjaveStacklandsPlus
     //   {
     //     foodChest.SpecialIcon = __instance.SpecialIcon;
     //   }
-      
+    // }
+
+    // [HarmonyPatch(typeof(CardData), nameof(CardData.FinishBlueprint))]
+    // [HarmonyPostfix]
+    // public static void PostUpdateCard(CardData __instance)
+    // {
+    //   Debug.LogFormat("222 finish blueprint {0}", __instance.MyGameCard.TimerBlueprintId);
     // }
 
   }
