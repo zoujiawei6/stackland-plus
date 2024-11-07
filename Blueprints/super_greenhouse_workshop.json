@@ -5,7 +5,7 @@
     "group": "Building",
     "subprints": [
         {
-            "RequiredCards": "greenhouse, greenhouse, greenhouse, greenhouse, greenhouse, stick, stick, stick, stick, stick",
+            "RequiredCards": "zjave_technical_research_center, greenhouse, greenhouse, greenhouse, greenhouse, greenhouse, greenhouse",
             "ResultCard": "zjave_super_greenhouse",
             "Time": 40,
             "StatusTerm": "zjave_super_greenhouse_status"

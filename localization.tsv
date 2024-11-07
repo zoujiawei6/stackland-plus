@@ -32,8 +32,8 @@ zjave_technical_research_center_status		In development...In an experimental mish
 zjave_destory_garden_total		You still need to add [count] garden cards to research the Super Garden.	还需添加 [count] 张花园卡牌才能研发出超级花园	還需添加 [count] 張花園卡牌才能研發出超級花園
 zjave_destory_farm_total		You still need to add [count] farm cards to research the Super Farm.	还需添加 [count] 张农场卡牌才能研发出超级农场	還需添加 [count] 張農場卡牌才能研發出超級農場
 zjave_destory_greenhouse_total		You still need to add [count] greenhouse cards to research the Super Greenhouse.	还需添加 [count] 张温室卡牌才能研发出超级温室	還需添加 [count] 張溫室卡牌才能研發出超級溫室
-zjave_blueprint_garden_upgrade_name		Upgrade Super Garden	超级花园升级科技	超級花園陞級科技
+zjave_blueprint_garden_upgrade_name		Upgrade Super Garden	超级花园升级	超級花園陞級
 zjave_blueprint_garden_upgrade_description		Using 12 iron bars and 12 glass blocks, you can upgrade a Super Garden into a Super Farm	使用12跟铁条和12块玻璃可以将超级花园升级成超级农场	使用12跟鐵條和12塊玻璃可以將超級花園陞級成超級農場
-zjave_blueprint_farm_upgrade_name		Upgrade Super Farm	超级农场升级科技	超級农场陞級科技
+zjave_blueprint_farm_upgrade_name		Upgrade Super Farm	超级农场升级	超級农场陞級
 zjave_blueprint_farm_upgrade_description		Using 12 iron bars and 12 glass blocks, you can upgrade a Super Farm into a Super Greenhouse.	使用12跟铁条和12块玻璃可以将超级农场升级成超级温室	使用12跟鐵條和12塊玻璃可以將超級農場陞級成超級溫室
 zjave_updating_status		Updating...	升级中...	陞級中…

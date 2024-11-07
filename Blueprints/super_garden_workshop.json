@@ -5,7 +5,7 @@
     "group": "Building",
     "subprints": [
         {
-            "RequiredCards": "garden, garden, garden, garden, garden, stick, stick, stick, stick, stick",
+            "RequiredCards": "zjave_technical_research_center, garden, garden, garden, garden, garden, garden",
             "ResultCard": "zjave_super_garden",
             "Time": 40,
             "StatusTerm": "zjave_super_garden_status"
