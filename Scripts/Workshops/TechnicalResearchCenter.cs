@@ -15,10 +15,10 @@ namespace ZjaveStacklandsPlus.Scripts.Workshops
     public static string cardId = "zjave_technical_research_center";
     public static string statusId = "zjave_technical_research_center_status";
     public static string blueprintId = "zjave_blueprint_technical_research_center";
-    public float workingTime = 10;
-    public static Dictionary<string, int> superGardenHaveCards = new() { { Cards.garden, 1 } };
-    public static Dictionary<string, int> superFarmHaveCards = new() { { Cards.farm, 1 } };
-    public static Dictionary<string, int> superGreenhouseHaveCards = new() { { Cards.greenhouse, 1 } };
+    public static float workingTime = 10;
+    // 从超级花园升级超级农场和从超级农场升级超级温室所需时间
+    public static float upgradeTime = 30;
+    public static int synthesisQuantity = 6;
 
     [ExtraData("DestroyGardenCount")]
     public int destroyGardenCount = 0;
@@ -39,9 +39,13 @@ namespace ZjaveStacklandsPlus.Scripts.Workshops
     /// <returns></returns>
     protected override bool CanHaveCard(CardData otherCard)
     {
-      return superGardenHaveCards.Any(kvp => otherCard.Id == kvp.Key)
-        || superFarmHaveCards.Any(kvp => otherCard.Id == kvp.Key)
-        || superGreenhouseHaveCards.Any(kvp => otherCard.Id == kvp.Key);
+      return otherCard.Id == Cards.garden
+        || otherCard.Id == Cards.farm
+        || otherCard.Id == Cards.greenhouse
+        || otherCard.Id == SuperGarden.cardId
+        || otherCard.Id == SuperFarm.cardId
+        || otherCard.Id == Cards.iron_bar
+        || otherCard.Id == Cards.glass;
     }
 
     /// <summary>
@@ -71,18 +75,26 @@ namespace ZjaveStacklandsPlus.Scripts.Workshops
     /// <returns></returns>
     public virtual bool AccordWithMaking()
     {
-      return AllChildrenMatchingPredicateCount(superGardenHaveCards)
-        || AllChildrenMatchingPredicateCount(superFarmHaveCards)
-        || AllChildrenMatchingPredicateCount(superGreenhouseHaveCards);
+      return AnyChildMatchesPredicate((CardData cd) => cd.Id == Cards.garden)
+        || AnyChildMatchesPredicate((CardData cd) => cd.Id == Cards.farm)
+        || AnyChildMatchesPredicate((CardData cd) => cd.Id == Cards.greenhouse)
+        || ChildrenMatchingPredicateCount((CardData cd) => cd.Id == Cards.iron_bar) >= 2 * synthesisQuantity
+        || ChildrenMatchingPredicateCount((CardData cd) => cd.Id == Cards.glass) >= 2 * synthesisQuantity;
     }
 
-    protected virtual bool AllChildrenMatchingPredicateCount(Dictionary<string, int> haveCards)
+    public virtual bool AccordUpgrade()
     {
-      return haveCards.All(kvp => ChildrenMatchingPredicateCount((CardData cd) => cd.Id == kvp.Key) >= kvp.Value);
+      return AnyChildMatchesPredicate((CardData cd) => cd.Id == SuperGarden.cardId)
+        || AnyChildMatchesPredicate((CardData cd) => cd.Id == SuperFarm.cardId);
     }
 
     public override void UpdateCard()
     {
+      
+      if (AccordUpgrade())
+      {
+        MyGameCard.StartTimer(upgradeTime, CompleteMaking, SokLoc.Translate(statusId), GetActionId("CompleteMaking"));
+      }
       if (AccordWithMaking())
       {
         MyGameCard.StartTimer(workingTime, CompleteMaking, SokLoc.Translate(statusId), GetActionId("CompleteMaking"));
@@ -98,15 +110,15 @@ namespace ZjaveStacklandsPlus.Scripts.Workshops
     {
       if (cardId == Cards.garden)
       {
-        return 6 - (destroyGardenCount % 6);
+        return synthesisQuantity - (destroyGardenCount % synthesisQuantity);
       }
       else if (cardId == Cards.farm)
       {
-        return 6 - (destroyFarmCount % 6);
+        return synthesisQuantity - (destroyFarmCount % synthesisQuantity);
       }
       else if (cardId == Cards.greenhouse)
       {
-        return 6 - (destroyGreenhouseCount % 6);
+        return synthesisQuantity - (destroyGreenhouseCount % synthesisQuantity);
       }
       return 0;
     }
@@ -127,40 +139,53 @@ namespace ZjaveStacklandsPlus.Scripts.Workshops
     [TimedAction("complete_making")]
     public virtual void CompleteMaking()
     {
-      CompleteSuperMaking(superGardenHaveCards, SuperGarden.cardId);
-      CompleteSuperMaking(superFarmHaveCards, SuperFarm.cardId);
-      CompleteSuperMaking(superGreenhouseHaveCards, SuperGreenhouse.cardId);
+      CompleteSuperMaking(Cards.garden, SuperGarden.cardId);
+      CompleteSuperMaking(Cards.farm, SuperFarm.cardId);
+      CompleteSuperMaking(Cards.greenhouse, SuperGreenhouse.cardId);
+      CompleteUpgrade(SuperGarden.cardId, SuperFarm.cardId);
+      CompleteUpgrade(SuperFarm.cardId, SuperGreenhouse.cardId);
     }
 
-    private void CompleteSuperMaking(Dictionary<string, int> haveCards, string resultCard)
+    private void CompleteSuperMaking(string haveCard, string resultCard)
     {
-      if (!AllChildrenMatchingPredicateCount(haveCards))
+      if (!AnyChildMatchesPredicate((CardData cd) => cd.Id == haveCard))
       {
         return;
       }
-      Debug.LogFormat("CompleteSuperMaking {0}", resultCard);
-      foreach (var kvp in haveCards)
-      {
-        Debug.LogFormat("Destroy {0} -> {1}", kvp.Key, kvp.Value);
-        DestroyCardByIdFormWorkshop(kvp.Key, kvp.Value);
-        DestroyCount(kvp.Key, kvp.Value);
-      }
+      DestroyCardByIdFormWorkshop(haveCard, 1);
+      DestroyCount(haveCard, 1);
 
       CompleteSuperMaking(resultCard, SuperGarden.cardId, destroyGardenCount);
       CompleteSuperMaking(resultCard, SuperFarm.cardId, destroyFarmCount);
       CompleteSuperMaking(resultCard, SuperGreenhouse.cardId, destroyGreenhouseCount);
     }
 
-    private void CompleteSuperMaking(string resultCard, string equalResultCard, int count)
+    private void CompleteUpgrade(string haveCard, string resultCard)
     {
-      
-      if (resultCard == equalResultCard && count != 0 && count % 6 == 0)
+      int total = 2 * synthesisQuantity;
+      if (ChildrenMatchingPredicateCount((CardData cd) => cd.Id == Cards.iron_bar) < total
+        || ChildrenMatchingPredicateCount((CardData cd) => cd.Id == Cards.glass) < total)
       {
-        Debug.LogFormat("resultCard -> {0}, equalResultCard -> {1}, count % 6 -> {2}", resultCard, equalResultCard, count);
-        CardData cardData = WorldManager.instance.CreateCard(transform.position, resultCard, faceUp: false, checkAddToStack: false);
-        WorldManager.instance.StackSendCheckTarget(MyGameCard, cardData.MyGameCard, OutputDir, MyGameCard);
         return;
       }
+      DestroyCardByIdFormWorkshop(haveCard, total);
+      DestroyCount(haveCard, total);
+      Complete(resultCard);
+    }
+
+    private void CompleteSuperMaking(string resultCard, string equalResultCard, int count)
+    {
+      if (resultCard == equalResultCard && count != 0 && count % synthesisQuantity == 0)
+      {
+        Complete(resultCard);
+        return;
+      }
+    }
+
+    private void Complete(string resultCard)
+    {
+      CardData cardData = WorldManager.instance.CreateCard(transform.position, resultCard, faceUp: false, checkAddToStack: false);
+      WorldManager.instance.StackSendCheckTarget(MyGameCard, cardData.MyGameCard, OutputDir, MyGameCard);
     }
 
     public virtual void DestroyCardByIdFormWorkshop(string cardId, int count)
