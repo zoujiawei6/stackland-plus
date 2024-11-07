@@ -1,8 +1,4 @@
-using System.Diagnostics;
-using UnityEngine;
-using ZjaveStacklandsPlus.Scripts.Utils;
 using ZjaveStacklandsPlus.Scripts.Workshops;
-using Debug = UnityEngine.Debug;
 
 namespace ZjaveStacklandsPlus.Scripts.Blueprints
 {
@@ -12,7 +8,6 @@ namespace ZjaveStacklandsPlus.Scripts.Blueprints
     {
       base.Init(loader);
 
-      DebugUtils.LogSubprints(Subprints);
       List<Subprint> newSubprints = [.. Subprints];
       Subprints.Clear();
       for (int i = 0; i < newSubprints.Count; i++)

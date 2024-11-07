@@ -1,5 +1,5 @@
 {
-  "$comment": "Stacklands (v1.4.1.22); stick_workshop (v0.2.1)",
+  "$comment": "Stacklands (v1.5.0.23); stacklands_plus (v0.6.0)",
   "type": "object",
   "allOf": [
     {
@@ -82,17 +82,38 @@
           },
           "then": {
             "properties": {
+              "_IsLandmark": {
+                "type": "boolean"
+              },
               "_OverrideResultDescription": {
                 "type": "boolean"
               },
+              "_HasMaxAmountOnBoard": {
+                "type": "boolean"
+              },
+              "_CombineResultCards": {
+                "type": "boolean"
+              },
+              "_MaxAmountOnBoard": {
+                "type": "integer"
+              },
               "_ResultDescriptionTerm": {
                 "type": "string"
+              },
+              "_IgnoreEnergyWorkerDemand": {
+                "type": "boolean"
               },
               "_CustomName": {
                 "type": "string"
               },
               "_PickupSoundGroup": {
                 "$ref": "#/$defs/enum/PickupSoundGroup"
+              },
+              "_WorkerHolderUniqueId": {
+                "type": "string"
+              },
+              "_WorkerIndex": {
+                "type": "integer"
               },
               "_IsFoil": {
                 "type": "boolean"
@@ -114,6 +135,24 @@
               },
               "_MyPalette": {
                 "$ref": "#/$defs/typeCardPalette"
+              },
+              "_CitiesValue": {
+                "type": "integer"
+              },
+              "_WorkerAmount": {
+                "type": "integer"
+              },
+              "_EducatedWorkers": {
+                "type": "boolean"
+              },
+              "_IsDamaged": {
+                "type": "boolean"
+              },
+              "_DamageType": {
+                "$ref": "#/$defs/enum/CardDamageType"
+              },
+              "_IsOn": {
+                "type": "boolean"
               }
             }
           },
@@ -134,17 +173,38 @@
           },
           "then": {
             "properties": {
+              "_IsLandmark": {
+                "type": "boolean"
+              },
               "_OverrideResultDescription": {
                 "type": "boolean"
               },
+              "_HasMaxAmountOnBoard": {
+                "type": "boolean"
+              },
+              "_CombineResultCards": {
+                "type": "boolean"
+              },
+              "_MaxAmountOnBoard": {
+                "type": "integer"
+              },
               "_ResultDescriptionTerm": {
                 "type": "string"
+              },
+              "_IgnoreEnergyWorkerDemand": {
+                "type": "boolean"
               },
               "_CustomName": {
                 "type": "string"
               },
               "_PickupSoundGroup": {
                 "$ref": "#/$defs/enum/PickupSoundGroup"
+              },
+              "_WorkerHolderUniqueId": {
+                "type": "string"
+              },
+              "_WorkerIndex": {
+                "type": "integer"
               },
               "_IsFoil": {
                 "type": "boolean"
@@ -166,6 +226,24 @@
               },
               "_MyPalette": {
                 "$ref": "#/$defs/typeCardPalette"
+              },
+              "_CitiesValue": {
+                "type": "integer"
+              },
+              "_WorkerAmount": {
+                "type": "integer"
+              },
+              "_EducatedWorkers": {
+                "type": "boolean"
+              },
+              "_IsDamaged": {
+                "type": "boolean"
+              },
+              "_DamageType": {
+                "$ref": "#/$defs/enum/CardDamageType"
+              },
+              "_IsOn": {
+                "type": "boolean"
               }
             }
           },
@@ -186,17 +264,38 @@
           },
           "then": {
             "properties": {
+              "_IsLandmark": {
+                "type": "boolean"
+              },
               "_OverrideResultDescription": {
                 "type": "boolean"
               },
+              "_HasMaxAmountOnBoard": {
+                "type": "boolean"
+              },
+              "_CombineResultCards": {
+                "type": "boolean"
+              },
+              "_MaxAmountOnBoard": {
+                "type": "integer"
+              },
               "_ResultDescriptionTerm": {
                 "type": "string"
+              },
+              "_IgnoreEnergyWorkerDemand": {
+                "type": "boolean"
               },
               "_CustomName": {
                 "type": "string"
               },
               "_PickupSoundGroup": {
                 "$ref": "#/$defs/enum/PickupSoundGroup"
+              },
+              "_WorkerHolderUniqueId": {
+                "type": "string"
+              },
+              "_WorkerIndex": {
+                "type": "integer"
               },
               "_IsFoil": {
                 "type": "boolean"
@@ -218,6 +317,24 @@
               },
               "_MyPalette": {
                 "$ref": "#/$defs/typeCardPalette"
+              },
+              "_CitiesValue": {
+                "type": "integer"
+              },
+              "_WorkerAmount": {
+                "type": "integer"
+              },
+              "_EducatedWorkers": {
+                "type": "boolean"
+              },
+              "_IsDamaged": {
+                "type": "boolean"
+              },
+              "_DamageType": {
+                "$ref": "#/$defs/enum/CardDamageType"
+              },
+              "_IsOn": {
+                "type": "boolean"
               }
             }
           },
@@ -238,17 +355,38 @@
           },
           "then": {
             "properties": {
+              "_IsLandmark": {
+                "type": "boolean"
+              },
               "_OverrideResultDescription": {
                 "type": "boolean"
               },
+              "_HasMaxAmountOnBoard": {
+                "type": "boolean"
+              },
+              "_CombineResultCards": {
+                "type": "boolean"
+              },
+              "_MaxAmountOnBoard": {
+                "type": "integer"
+              },
               "_ResultDescriptionTerm": {
                 "type": "string"
+              },
+              "_IgnoreEnergyWorkerDemand": {
+                "type": "boolean"
               },
               "_CustomName": {
                 "type": "string"
               },
               "_PickupSoundGroup": {
                 "$ref": "#/$defs/enum/PickupSoundGroup"
+              },
+              "_WorkerHolderUniqueId": {
+                "type": "string"
+              },
+              "_WorkerIndex": {
+                "type": "integer"
               },
               "_IsFoil": {
                 "type": "boolean"
@@ -270,6 +408,24 @@
               },
               "_MyPalette": {
                 "$ref": "#/$defs/typeCardPalette"
+              },
+              "_CitiesValue": {
+                "type": "integer"
+              },
+              "_WorkerAmount": {
+                "type": "integer"
+              },
+              "_EducatedWorkers": {
+                "type": "boolean"
+              },
+              "_IsDamaged": {
+                "type": "boolean"
+              },
+              "_DamageType": {
+                "$ref": "#/$defs/enum/CardDamageType"
+              },
+              "_IsOn": {
+                "type": "boolean"
               }
             }
           },
@@ -290,17 +446,38 @@
           },
           "then": {
             "properties": {
+              "_IsLandmark": {
+                "type": "boolean"
+              },
               "_OverrideResultDescription": {
                 "type": "boolean"
               },
+              "_HasMaxAmountOnBoard": {
+                "type": "boolean"
+              },
+              "_CombineResultCards": {
+                "type": "boolean"
+              },
+              "_MaxAmountOnBoard": {
+                "type": "integer"
+              },
               "_ResultDescriptionTerm": {
                 "type": "string"
+              },
+              "_IgnoreEnergyWorkerDemand": {
+                "type": "boolean"
               },
               "_CustomName": {
                 "type": "string"
               },
               "_PickupSoundGroup": {
                 "$ref": "#/$defs/enum/PickupSoundGroup"
+              },
+              "_WorkerHolderUniqueId": {
+                "type": "string"
+              },
+              "_WorkerIndex": {
+                "type": "integer"
               },
               "_IsFoil": {
                 "type": "boolean"
@@ -322,6 +499,24 @@
               },
               "_MyPalette": {
                 "$ref": "#/$defs/typeCardPalette"
+              },
+              "_CitiesValue": {
+                "type": "integer"
+              },
+              "_WorkerAmount": {
+                "type": "integer"
+              },
+              "_EducatedWorkers": {
+                "type": "boolean"
+              },
+              "_IsDamaged": {
+                "type": "boolean"
+              },
+              "_DamageType": {
+                "$ref": "#/$defs/enum/CardDamageType"
+              },
+              "_IsOn": {
+                "type": "boolean"
               }
             }
           },
@@ -342,17 +537,38 @@
           },
           "then": {
             "properties": {
+              "_IsLandmark": {
+                "type": "boolean"
+              },
               "_OverrideResultDescription": {
                 "type": "boolean"
               },
+              "_HasMaxAmountOnBoard": {
+                "type": "boolean"
+              },
+              "_CombineResultCards": {
+                "type": "boolean"
+              },
+              "_MaxAmountOnBoard": {
+                "type": "integer"
+              },
               "_ResultDescriptionTerm": {
                 "type": "string"
+              },
+              "_IgnoreEnergyWorkerDemand": {
+                "type": "boolean"
               },
               "_CustomName": {
                 "type": "string"
               },
               "_PickupSoundGroup": {
                 "$ref": "#/$defs/enum/PickupSoundGroup"
+              },
+              "_WorkerHolderUniqueId": {
+                "type": "string"
+              },
+              "_WorkerIndex": {
+                "type": "integer"
               },
               "_IsFoil": {
                 "type": "boolean"
@@ -374,6 +590,24 @@
               },
               "_MyPalette": {
                 "$ref": "#/$defs/typeCardPalette"
+              },
+              "_CitiesValue": {
+                "type": "integer"
+              },
+              "_WorkerAmount": {
+                "type": "integer"
+              },
+              "_EducatedWorkers": {
+                "type": "boolean"
+              },
+              "_IsDamaged": {
+                "type": "boolean"
+              },
+              "_DamageType": {
+                "$ref": "#/$defs/enum/CardDamageType"
+              },
+              "_IsOn": {
+                "type": "boolean"
               }
             }
           },
@@ -394,17 +628,38 @@
           },
           "then": {
             "properties": {
+              "_IsLandmark": {
+                "type": "boolean"
+              },
               "_OverrideResultDescription": {
                 "type": "boolean"
               },
+              "_HasMaxAmountOnBoard": {
+                "type": "boolean"
+              },
+              "_CombineResultCards": {
+                "type": "boolean"
+              },
+              "_MaxAmountOnBoard": {
+                "type": "integer"
+              },
               "_ResultDescriptionTerm": {
                 "type": "string"
+              },
+              "_IgnoreEnergyWorkerDemand": {
+                "type": "boolean"
               },
               "_CustomName": {
                 "type": "string"
               },
               "_PickupSoundGroup": {
                 "$ref": "#/$defs/enum/PickupSoundGroup"
+              },
+              "_WorkerHolderUniqueId": {
+                "type": "string"
+              },
+              "_WorkerIndex": {
+                "type": "integer"
               },
               "_IsFoil": {
                 "type": "boolean"
@@ -426,6 +681,24 @@
               },
               "_MyPalette": {
                 "$ref": "#/$defs/typeCardPalette"
+              },
+              "_CitiesValue": {
+                "type": "integer"
+              },
+              "_WorkerAmount": {
+                "type": "integer"
+              },
+              "_EducatedWorkers": {
+                "type": "boolean"
+              },
+              "_IsDamaged": {
+                "type": "boolean"
+              },
+              "_DamageType": {
+                "$ref": "#/$defs/enum/CardDamageType"
+              },
+              "_IsOn": {
+                "type": "boolean"
               }
             }
           },
@@ -446,17 +719,38 @@
           },
           "then": {
             "properties": {
+              "_IsLandmark": {
+                "type": "boolean"
+              },
               "_OverrideResultDescription": {
                 "type": "boolean"
               },
+              "_HasMaxAmountOnBoard": {
+                "type": "boolean"
+              },
+              "_CombineResultCards": {
+                "type": "boolean"
+              },
+              "_MaxAmountOnBoard": {
+                "type": "integer"
+              },
               "_ResultDescriptionTerm": {
                 "type": "string"
+              },
+              "_IgnoreEnergyWorkerDemand": {
+                "type": "boolean"
               },
               "_CustomName": {
                 "type": "string"
               },
               "_PickupSoundGroup": {
                 "$ref": "#/$defs/enum/PickupSoundGroup"
+              },
+              "_WorkerHolderUniqueId": {
+                "type": "string"
+              },
+              "_WorkerIndex": {
+                "type": "integer"
               },
               "_IsFoil": {
                 "type": "boolean"
@@ -478,6 +772,24 @@
               },
               "_MyPalette": {
                 "$ref": "#/$defs/typeCardPalette"
+              },
+              "_CitiesValue": {
+                "type": "integer"
+              },
+              "_WorkerAmount": {
+                "type": "integer"
+              },
+              "_EducatedWorkers": {
+                "type": "boolean"
+              },
+              "_IsDamaged": {
+                "type": "boolean"
+              },
+              "_DamageType": {
+                "$ref": "#/$defs/enum/CardDamageType"
+              },
+              "_IsOn": {
+                "type": "boolean"
               }
             }
           },
@@ -498,17 +810,38 @@
           },
           "then": {
             "properties": {
+              "_IsLandmark": {
+                "type": "boolean"
+              },
               "_OverrideResultDescription": {
                 "type": "boolean"
               },
+              "_HasMaxAmountOnBoard": {
+                "type": "boolean"
+              },
+              "_CombineResultCards": {
+                "type": "boolean"
+              },
+              "_MaxAmountOnBoard": {
+                "type": "integer"
+              },
               "_ResultDescriptionTerm": {
                 "type": "string"
+              },
+              "_IgnoreEnergyWorkerDemand": {
+                "type": "boolean"
               },
               "_CustomName": {
                 "type": "string"
               },
               "_PickupSoundGroup": {
                 "$ref": "#/$defs/enum/PickupSoundGroup"
+              },
+              "_WorkerHolderUniqueId": {
+                "type": "string"
+              },
+              "_WorkerIndex": {
+                "type": "integer"
               },
               "_IsFoil": {
                 "type": "boolean"
@@ -530,6 +863,24 @@
               },
               "_MyPalette": {
                 "$ref": "#/$defs/typeCardPalette"
+              },
+              "_CitiesValue": {
+                "type": "integer"
+              },
+              "_WorkerAmount": {
+                "type": "integer"
+              },
+              "_EducatedWorkers": {
+                "type": "boolean"
+              },
+              "_IsDamaged": {
+                "type": "boolean"
+              },
+              "_DamageType": {
+                "$ref": "#/$defs/enum/CardDamageType"
+              },
+              "_IsOn": {
+                "type": "boolean"
               }
             }
           },
@@ -550,17 +901,38 @@
           },
           "then": {
             "properties": {
+              "_IsLandmark": {
+                "type": "boolean"
+              },
               "_OverrideResultDescription": {
                 "type": "boolean"
               },
+              "_HasMaxAmountOnBoard": {
+                "type": "boolean"
+              },
+              "_CombineResultCards": {
+                "type": "boolean"
+              },
+              "_MaxAmountOnBoard": {
+                "type": "integer"
+              },
               "_ResultDescriptionTerm": {
                 "type": "string"
+              },
+              "_IgnoreEnergyWorkerDemand": {
+                "type": "boolean"
               },
               "_CustomName": {
                 "type": "string"
               },
               "_PickupSoundGroup": {
                 "$ref": "#/$defs/enum/PickupSoundGroup"
+              },
+              "_WorkerHolderUniqueId": {
+                "type": "string"
+              },
+              "_WorkerIndex": {
+                "type": "integer"
               },
               "_IsFoil": {
                 "type": "boolean"
@@ -582,6 +954,24 @@
               },
               "_MyPalette": {
                 "$ref": "#/$defs/typeCardPalette"
+              },
+              "_CitiesValue": {
+                "type": "integer"
+              },
+              "_WorkerAmount": {
+                "type": "integer"
+              },
+              "_EducatedWorkers": {
+                "type": "boolean"
+              },
+              "_IsDamaged": {
+                "type": "boolean"
+              },
+              "_DamageType": {
+                "$ref": "#/$defs/enum/CardDamageType"
+              },
+              "_IsOn": {
+                "type": "boolean"
               }
             }
           },
@@ -614,17 +1004,38 @@
                   "$ref": "#/$defs/typeSubprint"
                 }
               },
+              "_IsLandmark": {
+                "type": "boolean"
+              },
               "_OverrideResultDescription": {
                 "type": "boolean"
               },
+              "_HasMaxAmountOnBoard": {
+                "type": "boolean"
+              },
+              "_CombineResultCards": {
+                "type": "boolean"
+              },
+              "_MaxAmountOnBoard": {
+                "type": "integer"
+              },
               "_ResultDescriptionTerm": {
                 "type": "string"
+              },
+              "_IgnoreEnergyWorkerDemand": {
+                "type": "boolean"
               },
               "_CustomName": {
                 "type": "string"
               },
               "_PickupSoundGroup": {
                 "$ref": "#/$defs/enum/PickupSoundGroup"
+              },
+              "_WorkerHolderUniqueId": {
+                "type": "string"
+              },
+              "_WorkerIndex": {
+                "type": "integer"
               },
               "_IsFoil": {
                 "type": "boolean"
@@ -646,6 +1057,24 @@
               },
               "_MyPalette": {
                 "$ref": "#/$defs/typeCardPalette"
+              },
+              "_CitiesValue": {
+                "type": "integer"
+              },
+              "_WorkerAmount": {
+                "type": "integer"
+              },
+              "_EducatedWorkers": {
+                "type": "boolean"
+              },
+              "_IsDamaged": {
+                "type": "boolean"
+              },
+              "_DamageType": {
+                "$ref": "#/$defs/enum/CardDamageType"
+              },
+              "_IsOn": {
+                "type": "boolean"
               }
             }
           },
@@ -681,17 +1110,38 @@
               "_CookingTime": {
                 "type": "number"
               },
+              "_IsLandmark": {
+                "type": "boolean"
+              },
               "_OverrideResultDescription": {
                 "type": "boolean"
               },
+              "_HasMaxAmountOnBoard": {
+                "type": "boolean"
+              },
+              "_CombineResultCards": {
+                "type": "boolean"
+              },
+              "_MaxAmountOnBoard": {
+                "type": "integer"
+              },
               "_ResultDescriptionTerm": {
                 "type": "string"
+              },
+              "_IgnoreEnergyWorkerDemand": {
+                "type": "boolean"
               },
               "_CustomName": {
                 "type": "string"
               },
               "_PickupSoundGroup": {
                 "$ref": "#/$defs/enum/PickupSoundGroup"
+              },
+              "_WorkerHolderUniqueId": {
+                "type": "string"
+              },
+              "_WorkerIndex": {
+                "type": "integer"
               },
               "_IsFoil": {
                 "type": "boolean"
@@ -713,6 +1163,206 @@
               },
               "_MyPalette": {
                 "$ref": "#/$defs/typeCardPalette"
+              },
+              "_CitiesValue": {
+                "type": "integer"
+              },
+              "_WorkerAmount": {
+                "type": "integer"
+              },
+              "_EducatedWorkers": {
+                "type": "boolean"
+              },
+              "_IsDamaged": {
+                "type": "boolean"
+              },
+              "_DamageType": {
+                "$ref": "#/$defs/enum/CardDamageType"
+              },
+              "_IsOn": {
+                "type": "boolean"
+              }
+            }
+          },
+          "required": [
+            "script"
+          ]
+        },
+        {
+          "if": {
+            "properties": {
+              "script": {
+                "const": "WorkerBlueprint"
+              }
+            },
+            "required": [
+              "script"
+            ]
+          },
+          "then": {
+            "properties": {
+              "_IsLandmark": {
+                "type": "boolean"
+              },
+              "_OverrideResultDescription": {
+                "type": "boolean"
+              },
+              "_HasMaxAmountOnBoard": {
+                "type": "boolean"
+              },
+              "_CombineResultCards": {
+                "type": "boolean"
+              },
+              "_MaxAmountOnBoard": {
+                "type": "integer"
+              },
+              "_ResultDescriptionTerm": {
+                "type": "string"
+              },
+              "_IgnoreEnergyWorkerDemand": {
+                "type": "boolean"
+              },
+              "_CustomName": {
+                "type": "string"
+              },
+              "_PickupSoundGroup": {
+                "$ref": "#/$defs/enum/PickupSoundGroup"
+              },
+              "_WorkerHolderUniqueId": {
+                "type": "string"
+              },
+              "_WorkerIndex": {
+                "type": "integer"
+              },
+              "_IsFoil": {
+                "type": "boolean"
+              },
+              "_IsShiny": {
+                "type": "boolean"
+              },
+              "_IsBuilding": {
+                "type": "boolean"
+              },
+              "_IsCookedFood": {
+                "type": "boolean"
+              },
+              "_CardUpdateType": {
+                "$ref": "#/$defs/enum/CardUpdateType"
+              },
+              "_HasUniquePalette": {
+                "type": "boolean"
+              },
+              "_MyPalette": {
+                "$ref": "#/$defs/typeCardPalette"
+              },
+              "_CitiesValue": {
+                "type": "integer"
+              },
+              "_WorkerAmount": {
+                "type": "integer"
+              },
+              "_EducatedWorkers": {
+                "type": "boolean"
+              },
+              "_IsDamaged": {
+                "type": "boolean"
+              },
+              "_DamageType": {
+                "$ref": "#/$defs/enum/CardDamageType"
+              },
+              "_IsOn": {
+                "type": "boolean"
+              }
+            }
+          },
+          "required": [
+            "script"
+          ]
+        },
+        {
+          "if": {
+            "properties": {
+              "script": {
+                "const": "ZjaveStacklandsPlus.Scripts.Blueprints.SuperBlueprintGrowth"
+              }
+            },
+            "required": [
+              "script"
+            ]
+          },
+          "then": {
+            "properties": {
+              "_IsLandmark": {
+                "type": "boolean"
+              },
+              "_OverrideResultDescription": {
+                "type": "boolean"
+              },
+              "_HasMaxAmountOnBoard": {
+                "type": "boolean"
+              },
+              "_CombineResultCards": {
+                "type": "boolean"
+              },
+              "_MaxAmountOnBoard": {
+                "type": "integer"
+              },
+              "_ResultDescriptionTerm": {
+                "type": "string"
+              },
+              "_IgnoreEnergyWorkerDemand": {
+                "type": "boolean"
+              },
+              "_CustomName": {
+                "type": "string"
+              },
+              "_PickupSoundGroup": {
+                "$ref": "#/$defs/enum/PickupSoundGroup"
+              },
+              "_WorkerHolderUniqueId": {
+                "type": "string"
+              },
+              "_WorkerIndex": {
+                "type": "integer"
+              },
+              "_IsFoil": {
+                "type": "boolean"
+              },
+              "_IsShiny": {
+                "type": "boolean"
+              },
+              "_IsBuilding": {
+                "type": "boolean"
+              },
+              "_IsCookedFood": {
+                "type": "boolean"
+              },
+              "_CardUpdateType": {
+                "$ref": "#/$defs/enum/CardUpdateType"
+              },
+              "_HasUniquePalette": {
+                "type": "boolean"
+              },
+              "_MyPalette": {
+                "$ref": "#/$defs/typeCardPalette"
+              },
+              "_CitiesValue": {
+                "type": "integer"
+              },
+              "_WorkerAmount": {
+                "type": "integer"
+              },
+              "_EducatedWorkers": {
+                "type": "boolean"
+              },
+              "_IsDamaged": {
+                "type": "boolean"
+              },
+              "_DamageType": {
+                "$ref": "#/$defs/enum/CardDamageType"
+              },
+              "_IsOn": {
+                "type": "boolean"
               }
             }
           },
@@ -991,6 +1641,12 @@
         "CardsToRemove": {
           "type": "string"
         },
+        "ResultPolution": {
+          "type": "integer"
+        },
+        "ResultWellbeing": {
+          "type": "integer"
+        },
         "ResultCard": {
           "$ref": "#/$defs/cardId"
         },
@@ -1026,6 +1682,7 @@
         "blueprint_coinchest",
         "blueprint_cookedmeat",
         "blueprint_farm",
+        "blueprint_filtered_crossroad",
         "blueprint_frittata",
         "blueprint_fruitsalad",
         "blueprint_garden",
@@ -1049,6 +1706,7 @@
         "blueprint_ironweapons",
         "blueprint_temple",
         "blueprint_warehouse",
+        "display_2000_dlc",
         "card_display_spirit_dlc",
         "bear",
         "demon",
@@ -1109,6 +1767,7 @@
         "campfire",
         "coin_chest",
         "farm",
+        "filtered_crossroad",
         "garden",
         "house",
         "iron_deposit",
@@ -1353,37 +2012,52 @@
         "wizard",
         "blueprint_breedingpen",
         "blueprint_conveyor",
+        "blueprint_crossroad",
         "blueprint_heavy_foundation",
         "blueprint_hotpot",
         "blueprint_lighthouse",
         "blueprint_resourcechest",
         "blueprint_resource_magnet",
+        "blueprint_road_builder",
         "blueprint_slaughterhouse",
         "blueprint_trash_can",
         "blueprint_university",
         "blueprint_wishing_well",
         "breeding_pen",
         "conveyor",
+        "crossroad",
         "heavy_foundation",
         "hotpot",
         "lighthouse",
         "resource_chest",
         "resource_magnet",
+        "road_builder",
         "slaughter_house",
         "trash_can",
         "university",
         "wishing_well",
+        "zjave_technical_research_center",
         "zjave_food_chest",
         "zjave_fruit_salad_workshop",
         "zjave_milkshake_workshop",
         "zjave_shed_workshop",
         "zjave_stick_workshop",
+        "zjave_super_farm",
+        "zjave_super_garden",
+        "zjave_super_greenhouse",
         "zjave_warehouse_workshop",
+        "zjave_blueprint_technical_research_center",
         "zjave_blueprint_food_chest",
         "zjave_blueprint_fruit_salad_workshop",
         "zjave_blueprint_milkshake_workshop",
         "zjave_blueprint_shed_workshop",
         "zjave_blueprint_stick_workshop",
+        "zjave_blueprint_farm_upgrade",
+        "zjave_blueprint_super_farm",
+        "zjave_blueprint_garden_upgrade",
+        "zjave_blueprint_super_garden_workshop",
+        "zjave_blueprint_super_greenhouse",
+        "zjave_blueprint_super_growth_workshop",
         "zjave_blueprint_warehouse_workshop"
       ]
     },
@@ -2217,7 +2891,6 @@
         "card_chainmail_armor_name",
         "card_club_description",
         "card_club_name",
-        "card_crab_scale_armor_description",
         "card_crab_scale_armor_name",
         "card_crossbow_description",
         "card_crossbow_name",
@@ -2595,6 +3268,100 @@
         "card_sawmill_status",
         "label_one_villager_needs_to_stay_island",
         "card_university_status",
+        "label_demand_coins_text",
+        "label_demand_garden_text",
+        "label_demand_olives_text",
+        "label_demand_beer_text",
+        "label_demand_fancy_dress_text",
+        "label_demand_royal_banquet_text",
+        "label_demand_wool_socks_text",
+        "label_demand_wine_text",
+        "label_demand_painting_text",
+        "label_missing_cards_more_text",
+        "label_animal_die",
+        "specialhit_sick_long",
+        "card_well_name",
+        "card_well_description",
+        "card_well_status_0",
+        "card_well_status_1",
+        "label_disable_paused_text",
+        "label_placeholder_search",
+        "label_conflict_very_effective",
+        "cutscene_happiness_food_text_0",
+        "cutscene_happiness_food_text_1",
+        "label_altar_cutscene_mainland",
+        "label_altar_run_board",
+        "label_altar_run_redo",
+        "board_island_name",
+        "board_main_name",
+        "board_forest_name",
+        "board_greed_name",
+        "board_death_name",
+        "board_happiness_name",
+        "label_altar_cutscene_good_luck",
+        "cutscene_happiness_middle_text_0",
+        "label_name_villager_title",
+        "credits_tumult",
+        "label_spirit_outro_0_greed",
+        "label_spirit_outro_0_death",
+        "label_spirit_outro_0_happiness",
+        "card_sad_event_description",
+        "card_sad_event_name",
+        "label_sad_event_appeared",
+        "label_greed_demand_failed_fight_peaceful",
+        "label_shaman_intro_peaceful",
+        "card_archer_name_young",
+        "card_archer_name_old",
+        "card_builder_name_young",
+        "card_builder_name_old",
+        "card_lumberjack_name_young",
+        "card_lumberjack_name_old",
+        "card_mage_name_young",
+        "card_mage_name_old",
+        "card_miner_name_young",
+        "card_miner_name_old",
+        "card_ninja_name_young",
+        "card_ninja_name_old",
+        "card_warrior_name_young",
+        "card_warrior_name_old",
+        "card_wizard_name_young",
+        "card_wizard_name_old",
+        "card_explorer_name_young",
+        "card_explorer_name_old",
+        "card_militia_name_young",
+        "card_militia_name_old",
+        "card_swordsman_name_young",
+        "card_swordsman_name_old",
+        "card_fisher_name_young",
+        "card_fisher_name_old",
+        "card_friendly_pirate_name_young",
+        "card_friendly_pirate_name_old",
+        "card_trained_monkey_name_young",
+        "card_trained_monkey_name_old",
+        "card_jester_name_young",
+        "card_jester_name_old",
+        "label_youtube_dlc_title",
+        "label_youtube_dlc_text",
+        "label_load_run",
+        "label_exit",
+        "card_chicken_name_old",
+        "card_cow_name_old",
+        "card_crab_name_old",
+        "card_horse_name_old",
+        "card_monkey_name_old",
+        "card_parrot_name_old",
+        "card_rabbit_name_old",
+        "card_sheep_name_old",
+        "cutscene_death_middle_text_3",
+        "cutscene_death_middle_text_4",
+        "label_greed_given",
+        "credits_betatesting",
+        "quest_happiness_read_book_text",
+        "label_music",
+        "label_click_this_pack",
+        "card_coin_chest_description_long",
+        "card_shell_chest_description_long",
+        "label_toggle_inventory",
         "card_altar_description",
         "card_altar_name",
         "card_angry_royal_description",
@@ -3169,100 +3936,6 @@
         "label_shaman_intro_title",
         "card_cursed_wand_name",
         "card_cursed_wand_description",
-        "label_demand_coins_text",
-        "label_demand_garden_text",
-        "label_demand_olives_text",
-        "label_demand_beer_text",
-        "label_demand_fancy_dress_text",
-        "label_demand_royal_banquet_text",
-        "label_demand_wool_socks_text",
-        "label_demand_wine_text",
-        "label_demand_painting_text",
-        "label_missing_cards_more_text",
-        "label_animal_die",
-        "specialhit_sick_long",
-        "card_well_name",
-        "card_well_description",
-        "card_well_status_0",
-        "card_well_status_1",
-        "label_disable_paused_text",
-        "label_placeholder_search",
-        "label_conflict_very_effective",
-        "cutscene_happiness_food_text_0",
-        "cutscene_happiness_food_text_1",
-        "label_altar_cutscene_mainland",
-        "label_altar_run_board",
-        "label_altar_run_redo",
-        "board_island_name",
-        "board_main_name",
-        "board_forest_name",
-        "board_greed_name",
-        "board_death_name",
-        "board_happiness_name",
-        "label_altar_cutscene_good_luck",
-        "cutscene_happiness_middle_text_0",
-        "label_name_villager_title",
-        "credits_tumult",
-        "label_spirit_outro_0_greed",
-        "label_spirit_outro_0_death",
-        "label_spirit_outro_0_happiness",
-        "card_sad_event_description",
-        "card_sad_event_name",
-        "label_sad_event_appeared",
-        "label_greed_demand_failed_fight_peaceful",
-        "label_shaman_intro_peaceful",
-        "card_archer_name_young",
-        "card_archer_name_old",
-        "card_builder_name_young",
-        "card_builder_name_old",
-        "card_lumberjack_name_young",
-        "card_lumberjack_name_old",
-        "card_mage_name_young",
-        "card_mage_name_old",
-        "card_miner_name_young",
-        "card_miner_name_old",
-        "card_ninja_name_young",
-        "card_ninja_name_old",
-        "card_warrior_name_young",
-        "card_warrior_name_old",
-        "card_wizard_name_young",
-        "card_wizard_name_old",
-        "card_explorer_name_young",
-        "card_explorer_name_old",
-        "card_militia_name_young",
-        "card_militia_name_old",
-        "card_swordsman_name_young",
-        "card_swordsman_name_old",
-        "card_fisher_name_young",
-        "card_fisher_name_old",
-        "card_friendly_pirate_name_young",
-        "card_friendly_pirate_name_old",
-        "card_trained_monkey_name_young",
-        "card_trained_monkey_name_old",
-        "card_jester_name_young",
-        "card_jester_name_old",
-        "label_youtube_dlc_title",
-        "label_youtube_dlc_text",
-        "label_load_run",
-        "label_exit",
-        "card_chicken_name_old",
-        "card_cow_name_old",
-        "card_crab_name_old",
-        "card_horse_name_old",
-        "card_monkey_name_old",
-        "card_parrot_name_old",
-        "card_rabbit_name_old",
-        "card_sheep_name_old",
-        "cutscene_death_middle_text_3",
-        "cutscene_death_middle_text_4",
-        "label_greed_given",
-        "credits_betatesting",
-        "quest_happiness_read_book_text",
-        "label_music",
-        "label_click_this_pack",
-        "card_coin_chest_description_long",
-        "card_shell_chest_description_long",
-        "label_toggle_inventory",
         "label_magic_description",
         "label_melee_description",
         "label_ranged_description",
@@ -3270,6 +3943,778 @@
         "label_debug_need_villagers",
         "label_restart_required",
         "label_restart",
+        "card_industrial_revolution_name",
+        "card_industrial_revolution_description",
+        "card_ore_deposit_name",
+        "card_ore_deposit_description",
+        "card_worker_name",
+        "card_educated_worker_name",
+        "card_worker_description",
+        "card_educated_worker_description",
+        "card_lumber_deposit_name",
+        "card_lumber_deposit_description",
+        "card_ore_deposit_status",
+        "card_lumber_deposit_status",
+        "card_farmland_name",
+        "card_farmland_description",
+        "card_farmland_status",
+        "card_muesli_name",
+        "card_muesli_description",
+        "pack_cities_ideas_text",
+        "pack_cities_basics_text",
+        "card_industrial_smelter_name",
+        "card_industrial_smelter_description",
+        "card_industrial_smelter_status_0",
+        "card_apartment_name",
+        "card_apartment_description",
+        "card_apartment_free_space",
+        "card_apartment_status_0",
+        "card_water_wheel_name",
+        "card_water_wheel_description",
+        "card_water_wheel_status_0",
+        "card_copper_ore_name",
+        "card_copper_ore_description",
+        "card_copper_bar_name",
+        "card_copper_bar_description",
+        "card_lightning_name",
+        "card_lightning_description",
+        "card_rain_name",
+        "card_rain_description",
+        "card_sunshine_name",
+        "card_sunshine_description",
+        "card_wind_name",
+        "card_wind_description",
+        "card_water_pump_name",
+        "card_water_pump_description",
+        "card_water_pump_status",
+        "card_water_pump_status_0",
+        "card_energy_status_0",
+        "cardtype_energy",
+        "label_debug_no_energy",
+        "statuseffect_no_energy_description",
+        "statuseffect_no_energy_lore",
+        "statuseffect_no_energy_name",
+        "pack_cities_intro_text",
+        "statuseffect_no_workers_description",
+        "statuseffect_no_workers_lore",
+        "statuseffect_no_workers_name",
+        "card_passive_energy_consumer_status",
+        "card_plastic_name",
+        "card_plastic_description",
+        "card_plastic_status_0",
+        "label_worker_inventory",
+        "label_wellbeing",
+        "card_gravel_deposit_name",
+        "card_gravel_deposit_description",
+        "card_gravel_deposit_status",
+        "card_water_deposit_name",
+        "card_water_deposit_description",
+        "card_water_deposit_status",
+        "card_cement_name",
+        "card_cement_description",
+        "card_cement_status_0",
+        "card_lumber_name",
+        "card_lumber_description",
+        "card_lumber_status_0",
+        "card_ten_dollar_name",
+        "card_ten_dollar_description",
+        "card_dollar_status_0",
+        "card_twenty_dollar_name",
+        "card_twenty_dollar_description",
+        "card_fifty_dollar_name",
+        "card_fifty_dollar_description",
+        "card_hundred_dollar_name",
+        "card_hundred_dollar_description",
+        "pack_cities_deposit_text",
+        "quest_cities_welcome_text",
+        "quest_cities_open_pack_text",
+        "quest_cities_make_shack_text",
+        "questgroup_cities_starter",
+        "label_wellbeing_infobox_miserable",
+        "label_wellbeing_infobox_unhappy",
+        "label_wellbeing_infobox_euphoric",
+        "label_wellbeing_infobox_happy",
+        "label_wellbeing_infobox_normal",
+        "label_wellbeing_infobox_gameover",
+        "card_worker_homeless_text",
+        "card_creditcard_name",
+        "card_creditcard_description",
+        "card_creditcard_status_0",
+        "questgroup_cities_automation",
+        "card_creditcard_description_long",
+        "card_pollution_name",
+        "card_pollution_description",
+        "quest_cities_make_treadmill_text",
+        "label_city_state_euphoric",
+        "label_city_state_happy",
+        "label_city_state_normal",
+        "label_city_state_unhappy",
+        "label_city_state_miserable",
+        "label_city_state_gameover",
+        "statuseffect_homeless_description",
+        "statuseffect_homeless_lore",
+        "statuseffect_homeless_name",
+        "card_lightning_status",
+        "card_rain_status",
+        "card_grain_name",
+        "card_grain_description",
+        "card_factory_name",
+        "card_factory_description",
+        "card_factory_status_0",
+        "card_muesli_status_0",
+        "quest_cities_get_farmland_text",
+        "pack_cities_weather_text",
+        "label_weather_report_text",
+        "label_weather_report_title",
+        "card_factory_parts_name",
+        "card_factory_parts_description",
+        "card_factory_parts_status_0",
+        "quest_cities_build_basic_factory_text",
+        "card_science_name",
+        "card_science_description",
+        "card_science_status_0",
+        "card_uranium_name",
+        "card_uranium_description",
+        "card_oil_name",
+        "card_oil_description",
+        "card_oil_rig_name",
+        "card_oil_rig_description",
+        "card_oil_rig_status_0",
+        "card_oil_rig_status_1",
+        "card_oil_power_plant_name",
+        "card_oil_power_plant_description",
+        "card_oil_power_plant_status_0",
+        "card_nuclear_power_plant_name",
+        "card_nuclear_power_plant_description",
+        "card_nuclear_power_plant_status_0",
+        "card_farmland_status_0",
+        "card_farmland_status_1",
+        "label_toggle_worker_space",
+        "label_worker",
+        "card_wind_turbine_name",
+        "card_wind_turbine_description",
+        "card_wind_turbine_status_0",
+        "card_electric_motor_name",
+        "card_electric_motor_description",
+        "card_electric_motor_status_0",
+        "card_city_hall_name",
+        "card_city_hall_description_old",
+        "card_city_hall_status_0",
+        "card_automatic_resources_name",
+        "card_automatic_resources_description",
+        "card_lumber_mill_name",
+        "card_lumber_mill_description",
+        "card_lumber_mill_status_0",
+        "card_lumber_mill_status",
+        "card_gravel_pit_name",
+        "card_gravel_pit_description",
+        "card_gravel_pit_status_0",
+        "card_gravel_pit_status",
+        "card_ore_mine_status",
+        "card_automatic_resources_rumor_name",
+        "card_automatic_resources_rumor_description",
+        "cutscene_cities_first_moon_title",
+        "cutscene_cities_first_moon_text_0",
+        "cutscene_cities_first_moon_text_1",
+        "label_end_of_moon_cities_gained",
+        "label_end_of_moon_cities_same",
+        "label_end_of_moon_cities_lost",
+        "label_end_of_moon_cities_wellbeing",
+        "label_dollar",
+        "label_dollar_infobox",
+        "label_requirement_take_card",
+        "label_requirement_take_dollars",
+        "label_requirement_take_food",
+        "label_requirement_has_housing",
+        "card_metal_scraps_name",
+        "card_metal_scraps_description",
+        "card_storage_container_name",
+        "card_storage_container_description",
+        "card_storage_container_status_0",
+        "card_treadmill_name",
+        "card_treadmill_description",
+        "card_treadmill_status_0",
+        "card_fancy_apartment_name",
+        "card_cinema_name",
+        "card_cinema_description",
+        "card_cinema_status_1",
+        "card_cinema_status_0",
+        "statuseffect_max_on_board_description",
+        "statuseffect_max_on_board_lore",
+        "statuseffect_max_on_board_name",
+        "pack_cities_ideas_2_text",
+        "quest_cities_automatic_resources_text",
+        "quest_cities_get_oil_text",
+        "quest_cities_refine_oil_text",
+        "quest_cities_industrial_smelter_text",
+        "card_tornado_name",
+        "card_tornado_description",
+        "card_wildfire_name",
+        "card_wildfire_description",
+        "card_recycling_center_name",
+        "card_recycling_center_description",
+        "card_recycling_center_status_0",
+        "card_recycling_center_status_1",
+        "card_landfill_name",
+        "card_landfill_description",
+        "card_landfill_description_long",
+        "card_landfill_status_0",
+        "label_requirement_has_pollution",
+        "cutscene_cities_landfill_overflow_title",
+        "cutscene_cities_landfill_overflow_text_0",
+        "cutscene_cities_landfill_overflow_text_1",
+        "card_overflowing_landfill_name",
+        "card_overflowing_landfill_description",
+        "card_storage_container_name_override",
+        "card_storage_container_description_long",
+        "cutscene_cities_disaster_title",
+        "cutscene_cities_disaster_text_0",
+        "cutscene_cities_disaster_text_1",
+        "cutscene_cities_disaster_text_2",
+        "card_academy_name",
+        "card_academy_status_0",
+        "card_academy_status",
+        "card_trash_name",
+        "card_trash_description",
+        "card_trash_status_1",
+        "label_requirement_on_active_board",
+        "label_requirement",
+        "statuseffect_no_educated_workers_description",
+        "statuseffect_no_educated_workers_lore",
+        "statuseffect_no_educated_workers_name",
+        "card_genius_name",
+        "card_genius_description",
+        "card_particle_collider_name",
+        "card_particle_collider_description",
+        "card_particle_collider_status_0",
+        "card_particle_collider_status_1",
+        "card_ufo_event_name",
+        "card_ufo_event_description",
+        "cutscene_cities_event_ufo_title",
+        "cutscene_cities_event_ufo_text_0",
+        "cutscene_cities_event_ufo_text_1",
+        "card_quantum_entangled_uranium_name",
+        "card_quantum_entangled_uranium_description",
+        "card_quantum_entangled_uranium_status_0",
+        "statuseffect_dissolving_description",
+        "statuseffect_dissolving_lore",
+        "statuseffect_dissolving_name",
+        "card_time_machine_name",
+        "card_time_machine_description",
+        "card_time_machine_status_0",
+        "label_cardopedia_cities",
+        "cardtype_event",
+        "cardtype_disaster",
+        "cardtype_weather",
+        "card_ufo_event_status_1",
+        "card_gravel_name",
+        "card_gravel_description",
+        "pack_cities_oil_text",
+        "label_air_title",
+        "label_foot_title",
+        "label_armour_title",
+        "label_air_description",
+        "label_foot_description",
+        "label_armour_description",
+        "label_air_lore",
+        "label_foot_lore",
+        "label_armour_lore",
+        "card_goblin_fighter_jet_name",
+        "card_goblin_fighter_jet_description",
+        "card_tank_name",
+        "card_tank_description",
+        "card_tank_status_0",
+        "card_fighter_jet_name",
+        "card_fighter_jet_description",
+        "card_fighter_jet_status_0",
+        "card_goblin_tank_name",
+        "card_goblin_tank_description",
+        "card_goblin_soldier_name",
+        "card_goblin_soldier_description",
+        "card_soldier_name",
+        "card_soldier_description",
+        "card_soldier_status_0",
+        "card_barrack_name",
+        "card_barrack_description",
+        "card_barrack_status_0",
+        "label_cities_game_over_title",
+        "label_cities_game_over_text",
+        "label_cities_game_over_text_1",
+        "card_toy_name",
+        "card_toy_description",
+        "card_toy_status_0",
+        "quest_cities_barrack_text",
+        "card_event_goblin_attack_name",
+        "card_event_goblin_attack_description",
+        "card_event_goblin_attack_status_1",
+        "questgroup_cities_freedom",
+        "questgroup_cities_power",
+        "quest_cities_soldier_text",
+        "quest_cities_tank_text",
+        "quest_cities_jet_text",
+        "questgroup_cities_mainquest",
+        "quest_cities_power_source_text",
+        "quest_cities_fancy_apartement_text",
+        "quest_cities_oil_power_text",
+        "quest_cities_landfill_text",
+        "quest_cities_particle_collider_text",
+        "quest_cities_remove_trash_text",
+        "quest_cities_harvest_grain_text",
+        "label_requirement_worker_amount_met",
+        "card_dollar_split",
+        "cutscene_cities_wellbeing_20_title",
+        "cutscene_cities_wellbeing_20_text",
+        "cutscene_cities_wellbeing_20_text_1",
+        "cutscene_cities_wellbeing_10_title",
+        "cutscene_cities_wellbeing_10_text",
+        "cutscene_cities_wellbeing_10_text_1",
+        "label_sellbox_cities_title",
+        "label_sellbox_cities_description",
+        "label_sell_cities",
+        "card_cinema_status_2",
+        "ideagroup_automation",
+        "ideagroup_power",
+        "card_cities_iron_mine_name",
+        "card_cities_iron_mine_description",
+        "card_cities_iron_mine_status_0",
+        "card_copper_mine_name",
+        "card_copper_mine_description",
+        "card_copper_mine_status_0",
+        "card_add_worker_name",
+        "card_add_worker_description",
+        "card_add_worker_status_0",
+        "card_cities_iron_mine_status_1",
+        "card_copper_mine_status_1",
+        "pack_cities_smeltables_text",
+        "card_art_gallery_name",
+        "card_art_gallery_description",
+        "card_art_gallery_status_0",
+        "card_art_gallery_status_1",
+        "quest_cities_art_gallery_text",
+        "label_blueprint_wellbeing",
+        "label_wellbeing_euphoric",
+        "label_wellbeing_happy",
+        "label_wellbeing_normal",
+        "label_wellbeing_unhappy",
+        "label_wellbeing_miserable",
+        "label_wellbeing_gameover",
+        "label_city_wellbeing",
+        "label_hover_status_wellbeing",
+        "label_city_advisor",
+        "label_update_title_cities",
+        "label_update_text_cities",
+        "label_update_text_cities_locked",
+        "label_menu_cities_title",
+        "label_menu_cities_title_locked",
+        "label_cities_dlc",
+        "card_robot_worker_name",
+        "card_robot_worker_status_0",
+        "label_requirement_take_dollars_on_top",
+        "card_ready_meal_name",
+        "card_ready_meal_description",
+        "card_ready_meal_status_0",
+        "card_landfill_status_1",
+        "card_landfill_status_2",
+        "card_collector_name",
+        "card_collector_description",
+        "card_collector_status_0",
+        "card_uranium_mine_name",
+        "card_uranium_mine_description",
+        "card_uranium_mine_status_0",
+        "card_uranium_mine_status_1",
+        "card_uranium_deposit_name",
+        "card_uranium_deposit_description",
+        "card_uranium_deposit_status_0",
+        "quest_cities_academy_text",
+        "label_goblin_take_land_title",
+        "label_goblin_take_land_text",
+        "label_goblin_take_land_text_1",
+        "label_goblin_conflict_title",
+        "label_goblin_conflict_text",
+        "card_radar_station_name",
+        "card_radar_station_description",
+        "card_radar_station_status_0",
+        "statuseffect_radar_description",
+        "statuseffect_radar_lore",
+        "statuseffect_radar_name",
+        "label_youtube_cities_dlc_title",
+        "label_youtube_cities_dlc_text",
+        "card_financial_crisis_name",
+        "card_financial_crisis_description",
+        "label_financial_crisis_start",
+        "label_financial_crisis_text",
+        "card_earthquake_name",
+        "card_earthquake_description",
+        "label_earthquake_start",
+        "label_cities_earthquake_text",
+        "label_cities_earthquake_text_1",
+        "label_cities_earthquake_title",
+        "label_damaged_card_cost",
+        "label_fire_card_cost",
+        "label_cities_wildfire_title",
+        "label_cities_wildfire_text",
+        "label_cities_wildfire_text_1",
+        "label_wildfire_start",
+        "statuseffect_on_fire_description",
+        "statuseffect_on_fire_lore",
+        "statuseffect_on_fire_name",
+        "statuseffect_damaged_description",
+        "statuseffect_damaged_lore",
+        "statuseffect_damaged_name",
+        "card_time_machine_status_1",
+        "card_city_advisor_name",
+        "card_city_advisor_description",
+        "label_debug_battery",
+        "label_info_worker_space_title",
+        "label_info_worker_space_text",
+        "label_info_worker_space_text_1",
+        "cutscene_cities_first_energy_title",
+        "cutscene_cities_first_energy_text_0",
+        "cutscene_cities_first_energy_text_1",
+        "cutscene_cities_first_energy_text_2",
+        "cutscene_cities_first_energy_text_3",
+        "cutscene_cities_first_energy_text_4",
+        "card_goblin_war_ship_name",
+        "card_goblin_war_ship_description",
+        "card_war_ship_name",
+        "card_war_ship_description",
+        "card_war_ship_status_0",
+        "card_goblin_attack_helicopter_name",
+        "card_goblin_attack_helicopter_description",
+        "card_attack_helicopter_name",
+        "card_attack_helicopter_description",
+        "card_attack_helicopter_status_0",
+        "card_sniper_name",
+        "card_sniper_description",
+        "card_sniper_status_0",
+        "card_goblin_sniper_name",
+        "card_goblin_sniper_description",
+        "pack_cities_arms_text",
+        "card_export_center_name",
+        "card_export_center_description",
+        "card_export_center_status_0",
+        "card_export_center_status_1",
+        "statuseffect_space_description",
+        "statuseffect_space_lore",
+        "statuseffect_space_name",
+        "card_metal_scraps_status_0",
+        "cutscene_cities_financial_crisis_title",
+        "cutscene_cities_financial_crisis_text",
+        "cutscene_cities_financial_crisis_text_1",
+        "quest_cities_build_mine_text",
+        "quest_cities_make_landfill_text",
+        "quest_cities_radar_station_text",
+        "label_requirement_has_pollution_landfill",
+        "card_food_warehouse_name",
+        "card_food_warehouse_description",
+        "card_food_warehouse_status_0",
+        "card_food_warehouse_description_long",
+        "card_food_warehouse_name_long",
+        "label_requirement_needs_healing",
+        "label_toggle_on_off",
+        "label_on_off",
+        "cutscene_cities_start_title",
+        "cutscene_cities_start_text_0",
+        "cutscene_cities_start_text_1",
+        "cutscene_cities_start_text_3",
+        "statuseffect_depleted_description",
+        "statuseffect_depleted_lore",
+        "statuseffect_depleted_name",
+        "card_rumor_genius_name",
+        "quest_cities_unlock_oil_text",
+        "card_pack_sale_name",
+        "card_pack_sale_text",
+        "card_festival_name",
+        "card_festival_description",
+        "card_festival_text",
+        "pack_cities_industry_text",
+        "card_stadium_name",
+        "card_stadium_status_0",
+        "card_stadium_status_1",
+        "card_display_2000_dlc_name",
+        "card_display_2000_dlc_description",
+        "card_rumor_quantum_entangled_uranium_description",
+        "card_energy_splitter_name",
+        "card_energy_splitter_description",
+        "card_energy_splitter_status_0",
+        "card_energy_combiner_name",
+        "card_energy_combiner_description",
+        "card_energy_combiner_status_0",
+        "label_high_voltage",
+        "label_low_voltage",
+        "label_energy_input",
+        "label_energy_output",
+        "label_connection_type_output",
+        "label_connection_type_input",
+        "label_connection_high_voltage",
+        "label_connection_low_voltage",
+        "card_robot_station_name",
+        "card_robot_station_description",
+        "card_robot_station_status_0",
+        "quest_cities_first_cable_text",
+        "quest_cities_5_low_power_text",
+        "quest_cities_10_low_power_text",
+        "quest_cities_high_power_text",
+        "quest_cities_5_high_power_text",
+        "quest_cities_lose_wellbeing_text",
+        "quest_cities_gain_wellbeing_text",
+        "quest_cities_gain_5_wellbeing_text",
+        "quest_cities_lose_5_wellbeing_text",
+        "quest_cities_40_wellbeing_text",
+        "quest_cities_max_wellbeing_text",
+        "quest_cities_6_workers_text",
+        "quest_cities_12_workers_text",
+        "quest_cities_6_educated_workers_text",
+        "quest_cities_genius_text",
+        "quest_cities_full_container_text",
+        "quest_cities_conveyor_text",
+        "quest_cities_collector_text",
+        "quest_cities_card_cap_text",
+        "card_festival_end_text",
+        "card_park_name",
+        "card_park_description",
+        "card_park_status_0",
+        "label_requirement_has_energy",
+        "cutscene_cities_first_landmark_title",
+        "cutscene_cities_first_landmark_text_0",
+        "cutscene_cities_first_landmark_text_1",
+        "card_themepark_name",
+        "card_themepark_description",
+        "card_themepark_status_0",
+        "label_blueprint_wellbeing_generation",
+        "label_blueprint_pollution_generation",
+        "card_villager_statue_name",
+        "card_villager_statue_description",
+        "card_villager_statue_status_0",
+        "card_hospital_name",
+        "card_hospital_description",
+        "card_hospital_status_0",
+        "card_airport_name",
+        "card_airport_description",
+        "card_airport_status_0",
+        "ideagroup_landmark",
+        "card_zoo_name",
+        "card_zoo_description",
+        "card_zoo_status_0",
+        "card_toy_factory_name",
+        "card_toy_factory_description",
+        "card_toy_factory_status_0",
+        "questgroup_cities_landmark",
+        "quest_cities_build_second_landmark_text",
+        "quest_cities_all_landmarks_text",
+        "cutscene_cities_festival_title",
+        "cutscene_cities_festival_text_0",
+        "cutscene_cities_pack_sale_title",
+        "cutscene_cities_pack_sale_text_0",
+        "card_steam_generator_name",
+        "card_steam_generator_description",
+        "card_steam_generator_status_0",
+        "cutscene_cities_wellbeing_30_text",
+        "cutscene_cities_wellbeing_30_text_1",
+        "label_goblin_info",
+        "card_laboratory_name",
+        "card_laboratory_description",
+        "card_laboratory_status_0",
+        "card_laboratory_status_1",
+        "label_damaged",
+        "label_on_fire",
+        "label_connector_info",
+        "label_take_time_machine",
+        "label_go_to_cities_mainland",
+        "label_go_to_mainland_cities",
+        "card_time_machine_name_real",
+        "card_time_machine_desctiption_real",
+        "label_recruiting_worker",
+        "card_shack_name",
+        "card_shack_description",
+        "card_shack_status_0",
+        "card_hydroponic_farm_name",
+        "card_hydroponic_farm_description",
+        "card_hydroponic_farm_status_0",
+        "label_requirement_take_card_negative",
+        "label_requirement_take_dollars_on_top_negative",
+        "label_requirement_take_dollars_negative",
+        "label_requirement_take_food_negative",
+        "label_requirement_has_housing_negative",
+        "label_requirement_has_energy_negative",
+        "label_requirement_worker_amount_met_negative",
+        "label_requirement_has_pollution_negative",
+        "label_requirement_needs_healing_negative",
+        "label_requirement_has_pollution_landfill_negative",
+        "label_requirement_on_active_board_negative",
+        "label_requirement_in_conflict",
+        "label_requirement_in_conflict_negative",
+        "label_at_end_moon",
+        "label_requirement_landmark_first_time",
+        "label_requirement_landmark_first_time_negative",
+        "quest_cities_city_park_text",
+        "quest_cities_30_wellbeing_text",
+        "quest_cities_20_wellbeing_text",
+        "quest_cities_50_wellbeing_text",
+        "quest_cities_disaster_text",
+        "quest_cities_get_bar_text",
+        "quest_cities_get_uranium_text",
+        "label_abandon_city",
+        "label_abandon_city_title",
+        "label_abandon_city_text",
+        "label_skip",
+        "card_metal_scraps_status_2",
+        "card_iron_bar_scraps_description",
+        "questgroup_cities_worker",
+        "quest_unlocked_all_cities_packs_text",
+        "quest_cities_build_themepark_text",
+        "card_bread_2000_name",
+        "card_bread_2000_description",
+        "card_bread_2000_status_0",
+        "label_energy_view",
+        "card_event_industrial_revolution_name",
+        "card_event_industrial_revolution_description",
+        "label_go_to_cities",
+        "label_go_to_city_title",
+        "label_go_to_city_text",
+        "label_cutscene_industrial_revolution_title",
+        "label_cutscene_industrial_revolution_text",
+        "label_cutscene_industrial_revolution_text_1",
+        "control_toggle_energy_view",
+        "card_slums_name",
+        "card_slums_description",
+        "card_slums_status_0",
+        "card_copper_deposit_name",
+        "card_copper_deposit_description",
+        "card_copper_deposit_status",
+        "card_iron_deposit_cities_name",
+        "card_iron_deposit_cities_description",
+        "card_iron_deposit_cities_status",
+        "card_solar_panel_name",
+        "card_solar_panel_description",
+        "card_solar_panel_status_0",
+        "card_spy_name",
+        "card_spy_description",
+        "label_landmark_fullname",
+        "card_drought_name",
+        "card_drought_description",
+        "label_drought_start",
+        "label_cities_drought_title",
+        "label_cities_drought_text",
+        "label_cities_drought_text_1",
+        "statuseffect_drought_description",
+        "statuseffect_drought_lore",
+        "statuseffect_drought_name",
+        "card_artwork_name",
+        "card_artwork_description",
+        "card_recycling_center_description_long",
+        "card_overflowing_recycling_center_name",
+        "card_overflowing_recycling_center_description",
+        "blueprint_citiesironbar_name",
+        "quest_cities_storage_text",
+        "blueprint_copper_bar_status",
+        "card_merch_name",
+        "card_merch_description",
+        "label_view_default",
+        "label_view_energy",
+        "label_view_sewage",
+        "label_view_transport",
+        "label_view_calamity",
+        "label_connection_sewer",
+        "label_connection_transport",
+        "card_septic_tank_name",
+        "card_septic_tank_description",
+        "card_septic_tank_status_0",
+        "label_requirement_has_sewer_connected",
+        "label_requirement_has_sewer_connected_negative",
+        "statuseffect_no_sewer_description",
+        "statuseffect_no_sewer_lore",
+        "statuseffect_no_sewer_name",
+        "card_water_treatment_plant_name",
+        "card_water_treatment_plant_description",
+        "card_water_treatment_plant_status_0",
+        "card_water_treatment_plant_status_1",
+        "card_food_warehouse_status_2",
+        "quest_cities_build_villager_statue_text",
+        "cardtype_landmarks",
+        "card_road_builder_name",
+        "card_road_builder_description",
+        "card_road_builder_status_0",
+        "card_fancy_apartment_status_0",
+        "quest_cities_time_machine_text",
+        "quest_cities_transport_text",
+        "quest_cities_transport_5_text",
+        "card_time_machine_status_2",
+        "card_alien_name",
+        "card_alien_description",
+        "card_alien_status_0",
+        "cutscene_cities_villager_timemachine_title",
+        "cutscene_cities_villager_timemachine_text_0",
+        "cutscene_cities_villager_timemachine_text_1",
+        "card_rumor_genius_description",
+        "card_robot_worker_description",
+        "card_academy_description",
+        "card_stadium_description",
+        "card_fossil_name",
+        "card_fossil_description",
+        "card_city_hall_description_long",
+        "card_city_hall_description",
+        "card_dino_name",
+        "card_dino_description",
+        "card_dino_status_0",
+        "label_cities_time_ending_title",
+        "label_cities_time_ending_text",
+        "label_cities_time_ending_text_1",
+        "label_cities_time_ending_text_2",
+        "label_cities_time_ending_text_3",
+        "label_cities_time_ending_text_4",
+        "label_cities_time_ending_text_5",
+        "card_robot_soldier_name",
+        "card_robot_soldier_description",
+        "card_robot_soldier_status_0",
+        "card_robot_genius_name",
+        "card_robot_genius_description",
+        "quest_cities_robot_society_text",
+        "quest_cities_green_energy_text",
+        "label_view_transport_default",
+        "questgroup_cities_misc",
+        "questgroup_cities_wellbeing",
+        "card_cities_cat_name",
+        "card_cities_cat_description",
+        "card_cities_dog_name",
+        "card_cities_dog_description",
+        "label_requirement_energy_workers",
+        "label_requirement_energy_workers_negative",
+        "cutscene_cities_particle_collider_title",
+        "cutscene_cities_particle_collider_text",
+        "cutscene_cities_particle_collider_switch",
+        "cutscene_cities_particle_collider_text_1",
+        "label_energy_view_infobox_old",
+        "quest_cities_pets_text",
+        "quest_cities_trex_text",
+        "quest_cities_aliens_text",
+        "label_dino_laboratory",
+        "label_start_dino",
+        "label_cancel_dino",
+        "card_filtered_junction_name",
+        "card_filtered_junction_name_long",
+        "card_filtered_junction_description",
+        "card_filtered_junction_status_0",
+        "card_filtered_crossroad_name",
+        "card_filtered_crossroad_name_long",
+        "card_filtered_crossroad_description",
+        "card_filtered_crossroad_status_0",
+        "card_crab_scale_armor_description",
+        "control_toggle_view",
+        "label_energy_view_infobox",
+        "card_fancy_apartment_description",
+        "card_transmission_tower_description",
+        "card_transmission_tower_name",
+        "card_transmission_tower_status_0",
+        "card_junction_name",
+        "card_junction_description",
+        "card_junction_status_0",
+        "card_crossroad_name",
+        "card_crossroad_description",
+        "card_crossroad_status_0",
+        "label_framerate_vsync",
+        "idea_resourcechest_status_2",
+        "card_pack_sale_description",
         "zjave_food_chest_name",
         "zjave_food_chest_description",
         "zjave_stick_workshop_name",
@@ -3286,7 +4731,28 @@
         "zjave_warehouse_workshop_status",
         "zjave_milkshake_workshop_name",
         "zjave_milkshake_workshop_description",
-        "zjave_milkshake_workshop_status"
+        "zjave_milkshake_workshop_status",
+        "zjave_super_garden_name",
+        "zjave_super_garden_description",
+        "zjave_super_garden_status",
+        "zjave_super_farm_name",
+        "zjave_super_farm_description",
+        "zjave_super_farm_status",
+        "zjave_super_greenhouse_name",
+        "zjave_super_greenhouse_description",
+        "zjave_super_greenhouse_status",
+        "zjave_super_growth_workshop_name",
+        "zjave_technical_research_center_name",
+        "zjave_technical_research_center_description",
+        "zjave_technical_research_center_status",
+        "zjave_destory_garden_total",
+        "zjave_destory_farm_total",
+        "zjave_destory_greenhouse_total",
+        "zjave_blueprint_garden_upgrade_name",
+        "zjave_blueprint_garden_upgrade_description",
+        "zjave_blueprint_farm_upgrade_name",
+        "zjave_blueprint_farm_upgrade_description",
+        "zjave_updating_status"
       ]
     },
     "enum": {
@@ -3301,7 +4767,11 @@
         "Fish",
         "Rumors",
         "Equipable",
-        "Spirits"
+        "Spirits",
+        "Weather",
+        "Disaster",
+        "Event",
+        "Landmarks"
       ],
       "BlueprintGroup": [
         "Basic",
@@ -3315,7 +4785,10 @@
         "Important",
         "Happiness",
         "Death",
-        "Greed"
+        "Greed",
+        "Power",
+        "Automation",
+        "Landmark"
       ],
       "EnemySetCardBag": [
         "BasicEnemy",
@@ -3324,7 +4797,9 @@
         "Island_AdvancedEnemy",
         "Forest_BasicEnemy",
         "Forest_AdvancedEnemy",
-        "Happiness_Enemy"
+        "Happiness_Enemy",
+        "Cities_BasicEnemy",
+        "Cities_AdvancedEnemy"
       ],
       "SetCardBagType": [
         "BasicResources",
@@ -3379,6 +4854,24 @@
         "Greed_RequiredBuildings",
         "Greed_BasicResources",
         "Greed_AdvancedResources",
+        "Cities_BasicResources",
+        "Cities_BasicIdeas",
+        "Cities_ResourceDeposits",
+        "Cities_Ideas",
+        "Cities_Basic_Smeltables",
+        "Cities_Basic_Deposits",
+        "Cities_Ideas_2",
+        "Cities_Disasters",
+        "Cities_RecyclingCenter",
+        "Cities_Ideas_3",
+        "Cities_BasicEnemy",
+        "Cities_AdvancedEnemy",
+        "Cities_Valuables",
+        "Cities_SmeltableIdea",
+        "Cities_AdvancedDeposits",
+        "Cities_Ideas_Army",
+        "Cities_Ideas_Industry",
+        "Cities_Events",
         "Happiness_Enemy"
       ],
       "PickupSoundGroup": [
@@ -3393,23 +4886,56 @@
         "Spirit",
         "Forest",
         "Order",
-        "Mod"
+        "Mod",
+        "Cities"
+      ],
+      "CardDamageType": [
+        "None",
+        "Fire",
+        "Damaged",
+        "Drought"
       ],
       "AttackType": [
         "None",
         "Melee",
         "Ranged",
-        "Magic"
+        "Magic",
+        "Foot",
+        "Armour",
+        "Air"
       ],
       "CurseType": [
         "Happiness",
         "Death",
         "Greed"
       ],
+      "CardEventType": [
+        "Tornado",
+        "FinancialCrisis",
+        "WildFire",
+        "EarthQuake",
+        "PackSale",
+        "Festival",
+        "Drought"
+      ],
+      "WorkerType": [
+        "Normal",
+        "Educated",
+        "Robot"
+      ],
       "EquipableType": [
         "Head",
         "Torso",
         "Weapon"
+      ],
+      "Location": [
+        "Mainland",
+        "Island",
+        "Forest",
+        "Happiness",
+        "Greed",
+        "Death",
+        "Cities"
       ]
     }
   }

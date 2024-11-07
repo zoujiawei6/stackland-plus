@@ -77,25 +77,37 @@ namespace ZjaveStacklandsPlus.Scripts.Workshops
     {
       return AnyChildMatchesPredicate((CardData cd) => cd.Id == Cards.garden)
         || AnyChildMatchesPredicate((CardData cd) => cd.Id == Cards.farm)
-        || AnyChildMatchesPredicate((CardData cd) => cd.Id == Cards.greenhouse)
-        || ChildrenMatchingPredicateCount((CardData cd) => cd.Id == Cards.iron_bar) >= 2 * synthesisQuantity
-        || ChildrenMatchingPredicateCount((CardData cd) => cd.Id == Cards.glass) >= 2 * synthesisQuantity;
+        || AnyChildMatchesPredicate((CardData cd) => cd.Id == Cards.greenhouse);
     }
 
-    public virtual bool AccordUpgrade()
+    public virtual bool AccordUpgrade(out string? cardId)
     {
-      return AnyChildMatchesPredicate((CardData cd) => cd.Id == SuperGarden.cardId)
-        || AnyChildMatchesPredicate((CardData cd) => cd.Id == SuperFarm.cardId);
+      int total = 2 * synthesisQuantity;
+      bool haveCard = false;
+      if (AnyChildMatchesPredicate((CardData cd) => cd.Id == SuperGarden.cardId))
+      {
+        haveCard = true;
+        cardId = SuperGarden.cardId;
+      }
+      else if (AnyChildMatchesPredicate((CardData cd) => cd.Id == SuperFarm.cardId))
+      {
+        haveCard = true;
+        cardId = SuperFarm.cardId;
+      }
+      else
+      {
+        cardId = null;
+        return false;
+      }
+      Debug.LogFormat("AccordUpgrade {0} {1} {2}", haveCard, cardId, total);
+      return haveCard
+        && ChildrenMatchingPredicateCount((CardData cd) => cd.Id == Cards.iron_bar) >= total
+        && ChildrenMatchingPredicateCount((CardData cd) => cd.Id == Cards.glass) >= total;
     }
 
     public override void UpdateCard()
     {
-      
-      if (AccordUpgrade())
-      {
-        MyGameCard.StartTimer(upgradeTime, CompleteMaking, SokLoc.Translate(statusId), GetActionId("CompleteMaking"));
-      }
-      if (AccordWithMaking())
+      if (AccordUpgrade(out string? cardId) || AccordWithMaking())
       {
         MyGameCard.StartTimer(workingTime, CompleteMaking, SokLoc.Translate(statusId), GetActionId("CompleteMaking"));
       }
@@ -142,8 +154,13 @@ namespace ZjaveStacklandsPlus.Scripts.Workshops
       CompleteSuperMaking(Cards.garden, SuperGarden.cardId);
       CompleteSuperMaking(Cards.farm, SuperFarm.cardId);
       CompleteSuperMaking(Cards.greenhouse, SuperGreenhouse.cardId);
-      CompleteUpgrade(SuperGarden.cardId, SuperFarm.cardId);
-      CompleteUpgrade(SuperFarm.cardId, SuperGreenhouse.cardId);
+      if (AccordUpgrade(out string? cardId) && cardId != null)
+      {
+        string resultCard = cardId == SuperGarden.cardId ? SuperFarm.cardId : SuperGreenhouse.cardId;
+        Debug.LogFormat("DDD CompleteUpgrade {0} {1}", cardId, resultCard);
+        CompleteUpgrade(cardId, resultCard);
+        return;
+      }
     }
 
     private void CompleteSuperMaking(string haveCard, string resultCard)
@@ -163,16 +180,15 @@ namespace ZjaveStacklandsPlus.Scripts.Workshops
     private void CompleteUpgrade(string haveCard, string resultCard)
     {
       int total = 2 * synthesisQuantity;
-      if (ChildrenMatchingPredicateCount((CardData cd) => cd.Id == Cards.iron_bar) < total
-        || ChildrenMatchingPredicateCount((CardData cd) => cd.Id == Cards.glass) < total)
-      {
-        return;
-      }
-      DestroyCardByIdFormWorkshop(haveCard, total);
-      DestroyCount(haveCard, total);
+      DestroyCardByIdFormWorkshop(Cards.iron_bar, total);
+      DestroyCardByIdFormWorkshop(Cards.glass, total);
+      DestroyCardByIdFormWorkshop(haveCard, 1);
       Complete(resultCard);
     }
 
+    /// <summary>
+    /// 当消耗的生长类卡牌达到指定数量时（如6个），完成一个超级生产类卡牌
+    /// </summary>
     private void CompleteSuperMaking(string resultCard, string equalResultCard, int count)
     {
       if (resultCard == equalResultCard && count != 0 && count % synthesisQuantity == 0)
@@ -190,6 +206,7 @@ namespace ZjaveStacklandsPlus.Scripts.Workshops
 
     public virtual void DestroyCardByIdFormWorkshop(string cardId, int count)
     {
+      Debug.LogFormat("DestroyCardByIdFormWorkshop {0} {1}", cardId, count);
       MyGameCard.GetRootCard().CardData.DestroyChildrenMatchingPredicateAndRestack((CardData c) => c.Id == cardId, count);
     }
   }

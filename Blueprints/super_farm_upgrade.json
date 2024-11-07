@@ -1,0 +1,14 @@
+{
+    "$schema": "../schemas/blueprint.schema.json",
+    "id": "zjave_blueprint_farm_upgrade",
+    "nameTerm": "zjave_blueprint_farm_upgrade_name",
+    "group": "Important",
+    "subprints": [
+        {
+            "RequiredCards": "zjave_technical_research_center, zjave_super_farm, iron_bar, iron_bar, iron_bar, iron_bar, iron_bar, iron_bar, iron_bar, iron_bar, iron_bar, iron_bar, iron_bar, iron_bar, glass, glass, glass, glass, glass, glass, glass, glass, glass, glass, glass, glass",
+            "ResultCard": "zjave_super_greenhouse",
+            "Time": 30,
+            "StatusTerm": "zjave_updating_status"
+        }
+    ]
+}
