@@ -4,6 +4,8 @@ namespace ZjaveStacklandsPlus.Scripts
 {
   class FoodChest : ResourceChest
   {
+    public static string cardId = "zjave_food_chest";
+    public static string blueprintId = "zjave_blueprint_food_chest";
     protected override bool CanHaveCard(CardData otherCard)
     {
       // if代码或许有先后顺序的问题，因此重写方法也保证这个顺序

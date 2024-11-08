@@ -2,6 +2,7 @@
 using System.Reflection;
 using UnityEngine;
 using ZjaveStacklandsPlus.Scripts;
+using ZjaveStacklandsPlus.Scripts.Workshops;
 
 namespace ZjaveStacklandsPlus
 {
@@ -33,7 +34,14 @@ namespace ZjaveStacklandsPlus
         {
             Logger.Log("Ready!");
 
-            AddCardToSetCardBag(SetCardBagType.BasicBuildingIdea, "zjave_blueprint_food_chest", 1);
+            AddCardToSetCardBag(SetCardBagType.BasicBuildingIdea, FoodChest.blueprintId, 1);
+            AddCardToSetCardBag(SetCardBagType.AdvancedBuildingIdea, SuperFarm.blueprintId, 1);
+            AddCardToSetCardBag(SetCardBagType.AdvancedBuildingIdea, SuperGarden.blueprintId, 1);
+            AddCardToSetCardBag(SetCardBagType.AdvancedBuildingIdea, SuperGreenhouse.blueprintId, 1);
+            AddCardToSetCardBag(SetCardBagType.AdvancedBuildingIdea, "zjave_blueprint_garden_upgrade", 1);
+            AddCardToSetCardBag(SetCardBagType.AdvancedBuildingIdea, "zjave_blueprint_farm_upgrade", 1);
+            AddCardToSetCardBag(SetCardBagType.AdvancedBuildingIdea, "zjave_blueprint_super_growth_workshop", 1);
+            AddCardToSetCardBag(SetCardBagType.AdvancedBuildingIdea, TechnicalResearchCenter.blueprintId, 1);
             // 获取当前程序集中的所有类型
             Type[] allTypes = Assembly.GetExecutingAssembly().GetTypes();
             AddCardsToSetBasicBuildingIdeaCardBag(allTypes);
@@ -47,7 +55,7 @@ namespace ZjaveStacklandsPlus
             // 筛选出 ZjaveStacklandsPlus 命名空间下，继承自 ZjaveWorkshop 的类型
             var workshopTypes = allTypes.Where(t =>
                 t.IsClass &&                     // 需要是类
-                t.Namespace == "ZjaveStacklandsPlus" &&  // 限定在指定命名空间
+                t.Namespace.StartsWith("ZjaveStacklandsPlus") &&  // 限定在指定命名空间
                 t.IsSubclassOf(typeof(ZjaveWorkshop))   // 继承自 ZjaveWorkshop
             );
 
@@ -61,7 +69,8 @@ namespace ZjaveStacklandsPlus
                     try
                     {
                         var blueprintId = fieldInfo.GetValue(null) as string; // 静态字段，无需实例化类，传递 null
-                        AddCardToSetCardBag(SetCardBagType.BasicBuildingIdea, blueprintId, 1);
+                        Debug.LogFormat("blueprintId: {0}", blueprintId);
+                        AddCardToSetCardBag(SetCardBagType.BasicIdea, blueprintId, 1);
                     } catch (Exception e) {
                         Logger.Log(e.ToString());
                     }
