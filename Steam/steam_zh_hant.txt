@@ -1,9 +1,52 @@
-Language: English/语言:简体中文/語言：繁體中文
+[h1] Stackland Plus [/h1]
 
-提供了一些新的卡牌：
+新卡牌：食物箱；木棍工坊、棚屋工坊、倉庫工坊；水果沙拉作坊、奶昔作坊； 一次性種植多顆植物的超級花園、超級農場、超級溫室。
 
-1. 能存储食物的箱子。
-2. 制作水果沙拉、奶昔的作坊，它们不需要工人进行生产。
-3. 生产木棍、建造棚屋、仓库的工坊，它们都需要放置工人卡牌才能生产。
+[hr][/hr]
 
-为Mod提供翻译：https://docs.google.com/spreadsheets/d/1y8gX4RXLmBSlPuslm2VQ52LOpDLZgcWI_LKRpxwh82k/edit?usp=sharing
+本Mod旨在以[b]提供新卡牌的管道[/b]優化遊戲中的重複操作，並儘量做到不改動遊戲原本的邏輯。
+
+[hr][/hr]
+
+[h2]新卡牌：食物箱[/h2]
+
+能存儲食物的箱子
+
+[h2]新卡牌：食物類作坊[/h2]
+
+製作水果沙拉、奶昔的作坊，它們不需要人就能進行生產
+
+[h2]新卡牌：建築類工坊[/h2]
+
+生產木棍、建造棚屋、倉庫的工坊，它們都需要放置人類類型卡牌才能生產。
+
+[h3]新卡牌：超級種植技術[/h3]
+
+提供了超級花園、超級農場、超級溫室，一次性生產多顆植物。
+
+[h3]新卡牌：研發中心[/h3]
+
+用於合成超級花園、超級農場、超級溫室； 用於將超級花園陞級成超級農場，將超級農場陞級成超級溫室。 [/h2]
+
+[h2]國際化[/h2]
+
+[list]
+[*][url= https://docs.google.com/spreadsheets/d/1y8gX4RXLmBSlPuslm2VQ52LOpDLZgcWI_LKRpxwh82k/edit?usp=sharing ] Contribution Text Translation [/url]
+[*][url= https://docs.google.com/spreadsheets/d/1y8gX4RXLmBSlPuslm2VQ52LOpDLZgcWI_LKRpxwh82k/edit?usp=sharing ]貢獻文字翻譯[/url]
+[*][url= https://docs.google.com/spreadsheets/d/1y8gX4RXLmBSlPuslm2VQ52LOpDLZgcWI_LKRpxwh82k/edit?usp=sharing ]貢獻文字翻譯[/url]
+[*][url= https://docs.google.com/spreadsheets/d/1y8gX4RXLmBSlPuslm2VQ52LOpDLZgcWI_LKRpxwh82k/edit?usp=sharing ] Bijdrage Tekstvertaling [/url]
+[*][url= https://docs.google.com/spreadsheets/d/1y8gX4RXLmBSlPuslm2VQ52LOpDLZgcWI_LKRpxwh82k/edit?usp=sharing ] Traduction de Texte de Contribution [/url]
+[*][url= https://docs.google.com/spreadsheets/d/1y8gX4RXLmBSlPuslm2VQ52LOpDLZgcWI_LKRpxwh82k/edit?usp=sharing ] Traduzione del Testo di Contributo [/url]
+[*][url= https://docs.google.com/spreadsheets/d/1y8gX4RXLmBSlPuslm2VQ52LOpDLZgcWI_LKRpxwh82k/edit?usp=sharing ] Beitragstextübersetzung [/url]
+[*][url= https://docs.google.com/spreadsheets/d/1y8gX4RXLmBSlPuslm2VQ52LOpDLZgcWI_LKRpxwh82k/edit?usp=sharing ] Traducción de Texto de Contribución [/url]
+[*][url= https://docs.google.com/spreadsheets/d/1y8gX4RXLmBSlPuslm2VQ52LOpDLZgcWI_LKRpxwh82k/edit?usp=sharing ] Tradução de Texto de Contribuição [/url]
+[*][url= https://docs.google.com/spreadsheets/d/1y8gX4RXLmBSlPuslm2VQ52LOpDLZgcWI_LKRpxwh82k/edit?usp=sharing ] Tłumaczenie Tekstu Wkładu [/url]
+[*][url= https://docs.google.com/spreadsheets/d/1y8gX4RXLmBSlPuslm2VQ52LOpDLZgcWI_LKRpxwh82k/edit?usp=sharing ]貢獻テキストの翻訳[/url]
+[*][url= https://docs.google.com/spreadsheets/d/1y8gX4RXLmBSlPuslm2VQ52LOpDLZgcWI_LKRpxwh82k/edit?usp=sharing ]기여텍스트번역[/url]
+[*][url= https://docs.google.com/spreadsheets/d/1y8gX4RXLmBSlPuslm2VQ52LOpDLZgcWI_LKRpxwh82k/edit?usp=sharing ]Перекладтекстувнеску[/url]
+[*][url= https://docs.google.com/spreadsheets/d/1y8gX4RXLmBSlPuslm2VQ52LOpDLZgcWI_LKRpxwh82k/edit?usp=sharing ]Переводтекставклада[/url]
+[/list]
+
+[h2]開源[/h2]
+
+[url= https://github.com/zoujiawei6/stackland-plus ] Github [/url]
