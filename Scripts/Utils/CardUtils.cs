@@ -18,6 +18,18 @@ namespace ZjaveStacklandsPlus.Scripts.Utils
       return list[0];
     }
 
+    public static int GetFoodCount()
+    {
+      int foodCount = 0;
+      List<Food> cards = WorldManager.instance.GetCards<Food>();
+      foreach (Food item in cards)
+      {
+        foodCount += item.FoodValue;
+      }
+
+      return foodCount;
+    }
+
     public static bool IsFoodById(string cardId) {
       switch (cardId) {
         case "apple":
