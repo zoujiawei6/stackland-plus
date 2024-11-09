@@ -70,7 +70,14 @@ namespace ZjaveStacklandsPlus
                     {
                         var blueprintId = fieldInfo.GetValue(null) as string; // 静态字段，无需实例化类，传递 null
                         Debug.LogFormat("blueprintId: {0}", blueprintId);
-                        AddCardToSetCardBag(SetCardBagType.BasicIdea, blueprintId, 1);
+                        if (blueprintId != null)
+                        {
+                            AddCardToSetCardBag(SetCardBagType.BasicIdea, blueprintId, 1);
+                        }
+                        else
+                        {
+                            Debug.LogErrorFormat("Failed to get blueprintId for type: {0}", type.Name);
+                        }
                     } catch (Exception e) {
                         Logger.Log(e.ToString());
                     }

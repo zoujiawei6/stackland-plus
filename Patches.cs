@@ -67,7 +67,7 @@ namespace ZjaveStacklandsPlus
           }
           else if (differ < 0)
           {
-            Debug.LogFormat("弹出食物缺口食物 {0} {1}", food.FoodValue, shortage);
+            Debug.LogFormat("弹出食物箱里的食物 {0} {1}", food.FoodValue, shortage);
             // 否则弹出食物的缺口数量的食物值，换算成卡牌时需要向上取整食物才够
             int require = Mathf.Max(1, (int)Mathf.Ceil(shortage / food.FoodValue));
             item.RemoveResources(require);
