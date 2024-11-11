@@ -5,7 +5,7 @@
     "group": "Building",
     "subprints": [
         {
-            "RequiredCards": "apple, berry, wood, wood, stone, stone, villager",
+            "RequiredCards": "apple, berry, wood, wood, stone, stone, archer|baby|builder|explorer|fisher|friendly_pirate|jester|lumberjack|mage|merchant|militia|miner|ninja|royal|swordsman|villager|warrior|wizard|worker",
             "ResultCard": "zjave_fruit_salad_workshop",
             "Time": 30,
             "StatusTerm": "zjave_fruit_salad_workshop_status"

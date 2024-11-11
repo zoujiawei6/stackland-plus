@@ -5,7 +5,7 @@
     "group": "Building",
     "subprints": [
         {
-            "RequiredCards": "wood, wood, stone, stone, brick, brick, plank, plank, iron_bar, iron_bar, villager",
+            "RequiredCards": "wood, wood, stone, stone, brick, brick, plank, plank, iron_bar, iron_bar, archer|baby|builder|explorer|fisher|friendly_pirate|jester|lumberjack|mage|merchant|militia|miner|ninja|royal|swordsman|villager|warrior|wizard|worker",
             "ResultCard": "zjave_technical_research_center",
             "Time": 90,
             "StatusTerm": "zjave_technical_research_center_status"
