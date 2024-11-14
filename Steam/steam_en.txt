@@ -12,6 +12,10 @@ This Mod aims to optimize repetitive actions in the game by [b] providing new ca
 
 A box that can store food.
 
+[h2]New Card: Wooden Pile[/h2]
+
+Use two wooden sticks and have a villager craft a wooden pile. It can be used to tie up an animal. In the early stages, we are no longer helpless against animals.
+
 [h2]New Card: Food Workshop[/h2]
 
 A workshop that produces fruit salad and milkshake.
