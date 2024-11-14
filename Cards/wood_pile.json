@@ -1,0 +1,11 @@
+{
+    "$schema": "../schemas/card.schema.json",
+    "id": "zjave_wood_pile",
+    "nameTerm": "zjave_wood_pile_name",
+    "descriptionTerm": "zjave_wood_pile_description",
+    "icon": "stick",
+    "value": 5,
+    "type": "Structures",
+    "script": "ZjaveStacklandsPlus.Scripts.WoodPile",
+    "_IsBuilding": true
+}

@@ -1,0 +1,14 @@
+{
+    "$schema": "../schemas/blueprint.schema.json",
+    "id": "zjave_blueprint_wood_pile",
+    "nameTerm": "zjave_wood_pile_name",
+    "group": "Building",
+    "subprints": [
+        {
+            "RequiredCards": "stick, stick, villager|archer|baby|builder|explorer|fisher|friendly_pirate|jester|lumberjack|mage|merchant|militia|miner|ninja|royal|swordsman|warrior|wizard|worker",
+            "ResultCard": "zjave_wood_pile",
+            "Time": 10,
+            "StatusTerm": "zjave_wood_pile_status"
+        }
+    ]
+}

@@ -5,7 +5,7 @@
     "group": "Building",
     "subprints": [
         {
-            "RequiredCards": "wood, wood, stone, stone, milk, berry, archer|baby|builder|explorer|fisher|friendly_pirate|jester|lumberjack|mage|merchant|militia|miner|ninja|royal|swordsman|villager|warrior|wizard|worker",
+            "RequiredCards": "wood, wood, stone, stone, milk, berry, villager|archer|baby|builder|explorer|fisher|friendly_pirate|jester|lumberjack|mage|merchant|militia|miner|ninja|royal|swordsman|warrior|wizard|worker",
             "ResultCard": "zjave_milkshake_workshop",
             "Time": 30,
             "StatusTerm": "zjave_milkshake_workshop_status"

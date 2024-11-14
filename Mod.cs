@@ -35,6 +35,7 @@ namespace ZjaveStacklandsPlus
             Logger.Log("Ready!");
 
             AddCardToSetCardBag(SetCardBagType.BasicBuildingIdea, FoodChest.blueprintId, 1);
+            AddCardToSetCardBag(SetCardBagType.BasicBuildingIdea, WoodPile.blueprintId, 1);
             AddCardToSetCardBag(SetCardBagType.AdvancedBuildingIdea, SuperFarm.blueprintId, 1);
             AddCardToSetCardBag(SetCardBagType.AdvancedBuildingIdea, SuperGarden.blueprintId, 1);
             AddCardToSetCardBag(SetCardBagType.AdvancedBuildingIdea, SuperGreenhouse.blueprintId, 1);
