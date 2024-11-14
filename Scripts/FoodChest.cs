@@ -15,6 +15,11 @@ namespace ZjaveStacklandsPlus.Scripts
     public static string cardId = "zjave_food_chest";
     public static string blueprintId = "zjave_blueprint_food_chest";
 
+    public FoodChest() {
+      EnergyConnectors.Add(new CardConnectorData { EnergyConnectionType = CardDirection.input, EnergyConnectionStrength = ConnectionType.Transport, EnergyConnectionAmount = 3 });
+      EnergyConnectors.Add(new CardConnectorData { EnergyConnectionType = CardDirection.output, EnergyConnectionStrength = ConnectionType.Transport, EnergyConnectionAmount = 3 });
+    }
+
     protected override bool CanHaveCard(CardData otherCard)
     {
       // if代码或许有先后顺序的问题，因此重写方法也保证这个顺序

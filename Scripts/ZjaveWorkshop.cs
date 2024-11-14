@@ -9,13 +9,32 @@ namespace ZjaveStacklandsPlus.Scripts
   /// <param name="workingTime">制作所需时间</param>
   /// <param name="resultCard">工坊制作出的卡片</param>
   /// <param name="haveCards">制作所需的材料卡片，及其所需数量列表</param>
-  public class ZjaveWorkshop(string ingredient, string resultCard, float workingTime, Dictionary<string, int> haveCards) : CardData
+  public class ZjaveWorkshop : CardData
   {
-    protected string cardStatus = string.Format("zjave_{0}_workshop_status", ingredient);
-    public string ingredient = ingredient;
-    public string resultCard = resultCard;
-    public float workingTime = workingTime;
-    protected Dictionary<string, int> haveCards = haveCards;
+    protected string cardStatus;
+    public string ingredient;
+    public string resultCard;
+    public float workingTime;
+    protected Dictionary<string, int> haveCards;
+
+    /// <summary>
+    /// 工坊顶层类
+    /// </summary>
+    /// <param name="ingredient">工坊关键字，用于创建卡片id</param>
+    /// <param name="workingTime">制作所需时间</param>
+    /// <param name="resultCard">工坊制作出的卡片</param>
+    /// <param name="haveCards">制作所需的材料卡片，及其所需数量列表</param>
+    public ZjaveWorkshop(string ingredient, string resultCard, float workingTime, Dictionary<string, int> haveCards) {
+      this.ingredient = ingredient;
+      this.resultCard = resultCard;
+      this.workingTime = workingTime;
+      this.haveCards = haveCards;
+      this.cardStatus = string.Format("zjave_{0}_workshop_status", ingredient);
+
+      EnergyConnectors.Add(new CardConnectorData { EnergyConnectionType = CardDirection.input, EnergyConnectionStrength = ConnectionType.Transport, EnergyConnectionAmount = 3 });
+      EnergyConnectors.Add(new CardConnectorData { EnergyConnectionType = CardDirection.output, EnergyConnectionStrength = ConnectionType.Transport, EnergyConnectionAmount = 3 });
+    }
+    
 
     /// <summary>
     /// 判断传入的卡片是否是人类
