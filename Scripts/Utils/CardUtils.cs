@@ -2,17 +2,21 @@ namespace ZjaveStacklandsPlus.Scripts.Utils
 {
   class CardUtils
   {
-    public static List<CardData> GetChildrenById(CardData? cardData, string? cardId) {
-      if (cardData == null || cardId == null || cardId.Length == 0) {
+    public static List<CardData> GetChildrenById(CardData? cardData, string? cardId)
+    {
+      if (cardData == null || cardId == null || cardId.Length == 0)
+      {
         return [];
       }
       List<CardData> list = cardData.ChildrenMatchingPredicate((CardData c) => c.Id == cardId);
       return list;
     }
 
-    public static CardData? GetFirstChildrenById(CardData? cardData, string? cardId) {
+    public static CardData? GetFirstChildrenById(CardData? cardData, string? cardId)
+    {
       List<CardData> list = GetChildrenById(cardData, cardId);
-      if (list.Count == 0) {
+      if (list.Count == 0)
+      {
         return null;
       }
       return list[0];
@@ -30,8 +34,10 @@ namespace ZjaveStacklandsPlus.Scripts.Utils
       return foodCount;
     }
 
-    public static bool IsFoodById(string cardId) {
-      switch (cardId) {
+    public static bool IsFoodById(string cardId)
+    {
+      switch (cardId)
+      {
         case "apple":
         case "banana":
         case "beer":
@@ -86,6 +92,34 @@ namespace ZjaveStacklandsPlus.Scripts.Utils
         default:
           return false;
       }
+    }
+
+    /// <summary>
+    /// 找到蓝图的子输出
+    /// </summary>
+    /// <param name="cardId"></param>
+    /// <param name="RequiredCards"></param>
+    /// <returns></returns>
+    public static Subprint? FindMatchingPrint(string cardId, string[] RequiredCards)
+    {
+      foreach (Blueprint blueprintPrefab in WorldManager.instance.BlueprintPrefabs)
+      {
+        if (blueprintPrefab.CardId != cardId)
+        {
+          continue;
+        }
+
+        List<Subprint> Subprints = blueprintPrefab.Subprints;
+        foreach (Subprint subprint in Subprints)
+        {
+          if (subprint.RequiredCards.SequenceEqual(RequiredCards))
+          {
+            return subprint;
+          }
+        }
+      }
+
+      return null;
     }
   }
 }
