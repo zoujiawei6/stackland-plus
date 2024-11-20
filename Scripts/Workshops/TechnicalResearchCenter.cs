@@ -80,6 +80,12 @@ namespace ZjaveStacklandsPlus.Scripts.Workshops
         || AnyChildMatchesPredicate((CardData cd) => cd.Id == Cards.greenhouse);
     }
 
+    /// <summary>
+    /// 判断是否符合升级条件（将超级花园升级成超级农场，或将超级农场升级成超级温室）。
+    /// 升级条件要求铁块和玻璃个十二个，且有超级农场或超级温室卡片放置在研发中心上。
+    /// </summary>
+    /// <param name="cardId"></param>
+    /// <returns></returns>
     public virtual bool AccordUpgrade(out string? cardId)
     {
       int total = 2 * synthesisQuantity;

@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace ZjaveStacklandsPlus.Scripts.Utils
 {
   class CardUtils
@@ -104,6 +106,9 @@ namespace ZjaveStacklandsPlus.Scripts.Utils
     {
       foreach (Blueprint blueprintPrefab in WorldManager.instance.BlueprintPrefabs)
       {
+        // TODO 测试代码
+        Debug.LogFormat("FindMatchingPrint {0}", blueprintPrefab.Id);
+        Debug.LogFormat("FindMatchingPrint {0}", blueprintPrefab.Icon);
         if (blueprintPrefab.CardId != cardId)
         {
           continue;
@@ -112,6 +117,8 @@ namespace ZjaveStacklandsPlus.Scripts.Utils
         List<Subprint> Subprints = blueprintPrefab.Subprints;
         foreach (Subprint subprint in Subprints)
         {
+          Debug.LogFormat("FindMatchingPrint {0}", string.Join(",", subprint.RequiredCards));
+          Debug.LogFormat("FindMatchingPrint {0}", string.Join(",", subprint.ResultCard));
           if (subprint.RequiredCards.SequenceEqual(RequiredCards))
           {
             return subprint;
@@ -121,5 +128,51 @@ namespace ZjaveStacklandsPlus.Scripts.Utils
 
       return null;
     }
+
+    public static CardData FindChildrenById(CardData cardData, string cardId) {
+      List<CardData> cardDatas = cardData.ChildrenMatchingPredicate((CardData cd) => cd.Id == cardId);
+      return cardDatas.First();
+    }
+
+    public static List<BaseVillager> FindVillager(CardData cardData) {
+      List<CardData> cardDatas = cardData.ChildrenMatchingPredicate((CardData cd) => cd is BaseVillager);
+      return cardDatas
+        .Select(cd => (cd as BaseVillager)!)
+        .ToList();
+    }
+
+    public static float? GetWorkTime(CardData cardData, string resultCardId, string toolCardId, string producerCardId, List<BaseVillager>? baseVillagers) {
+      baseVillagers ??= FindVillager(cardData);
+      // TODO 测试一下能不能找铁矿石的生产蓝图的子输出
+      Subprint? subprint = FindMatchingPrint(resultCardId, [toolCardId, producerCardId]);
+      // 铁矿石的生产时间
+      BaseVillager miner = baseVillagers.Find(bv => bv.Id == producerCardId);
+      CardData mine = FindChildrenById(cardData, toolCardId);
+      // TODO 测试用，实际情况下必定能找到蓝图
+      if (miner == null || mine == null || subprint == null) {
+        Debug.LogFormat("没有找到铁矿石的生产蓝图 {0} {1} {2}", miner, mine, subprint);
+        return null;
+      }
+      // 获取矿工的生产系数
+      // 详见 InitActionTimeBases，目前来说，本类只支持铁矿参与自动化
+      float timeFactor = miner.GetActionTimeModifier("finish_blueprint", mine);
+      float subprintTime = subprint.Time;
+      float workingTime = subprintTime * timeFactor;
+      return workingTime;
+    }
+
+    public static float GetIronOreWorkingTimeByMiner(CardData cardData, List<BaseVillager>? baseVillagers) {
+      return GetWorkTime(cardData, Cards.iron_ore, Cards.miner, Cards.mine, baseVillagers) ?? 45;
+    }
+
+    public static float GetWoodWorkingTimeByLumberjack(CardData cardData, List<BaseVillager>? baseVillagers) {
+      return GetWorkTime(cardData, Cards.wood, Cards.lumberjack, Cards.lumber, baseVillagers) ?? 15;
+    }
+
+    public static float GetIronBarWorkingTime() {
+      Subprint? subprint = FindMatchingPrint(Cards.iron_bar, [Cards.smelter, Cards.iron_ore, Cards.wood]);
+      return subprint?.Time ?? 10;
+    }
   }
+
 }
