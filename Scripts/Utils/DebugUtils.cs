@@ -14,13 +14,23 @@ namespace ZjaveStacklandsPlus.Scripts.Utils
       for (int i = 0; i < Subprints.Count; i++)
       {
         Subprint print = Subprints[i];
-        Debug.LogFormat("--------------------------");
-        Debug.LogFormat("ExtraResultCard {0}", string.Join(",", print.ExtraResultCards));
-        Debug.LogFormat("RequiredCards {0}", string.Join(",", print.RequiredCards));
-        Debug.LogFormat("ResultCard {0}", print.ResultCard);
-        Debug.LogFormat("SubprintIndex {0}", print.SubprintIndex);
-        Debug.LogFormat("====================================================");
+        LogSubprint(print);
       }
+    }
+
+    public static void LogSubprint(Subprint? print)
+    {
+      if (print == null)
+      {
+        Debug.LogFormat("Subprint is null");
+        return;
+      }
+      Debug.LogFormat("--------------------------");
+      Debug.LogFormat("ExtraResultCard {0}", string.Join(",", print.ExtraResultCards));
+      Debug.LogFormat("RequiredCards {0}", string.Join(",", print.RequiredCards));
+      Debug.LogFormat("ResultCard {0}", print.ResultCard);
+      Debug.LogFormat("SubprintIndex {0}", print.SubprintIndex);
+      Debug.LogFormat("====================================================");
     }
   }
 }

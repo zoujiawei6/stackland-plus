@@ -1,0 +1,14 @@
+{
+    "$schema": "../schemas/blueprint.schema.json",
+    "id": "zjave_blueprint_iron_bar_workshop",
+    "nameTerm": "zjave_iron_bar_workshop_name",
+    "group": "Building",
+    "subprints": [
+        {
+            "RequiredCards": "iron_bar, iron_bar, iron_bar, iron_bar, iron_bar, villager|archer|baby|builder|explorer|fisher|friendly_pirate|jester|lumberjack|mage|merchant|militia|miner|ninja|royal|swordsman|warrior|wizard|worker",
+            "ResultCard": "zjave_iron_bar_workshop",
+            "Time": 30,
+            "StatusTerm": "zjave_iron_bar_workshop_status"
+        }
+    ]
+}

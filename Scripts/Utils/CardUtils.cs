@@ -107,8 +107,7 @@ namespace ZjaveStacklandsPlus.Scripts.Utils
       foreach (Blueprint blueprintPrefab in WorldManager.instance.BlueprintPrefabs)
       {
         // TODO 测试代码
-        Debug.LogFormat("FindMatchingPrint {0}", blueprintPrefab.Id);
-        Debug.LogFormat("FindMatchingPrint {0}", blueprintPrefab.Icon);
+        DebugUtils.LogBlueprint(blueprintPrefab);
         if (blueprintPrefab.CardId != cardId)
         {
           continue;
@@ -117,8 +116,7 @@ namespace ZjaveStacklandsPlus.Scripts.Utils
         List<Subprint> Subprints = blueprintPrefab.Subprints;
         foreach (Subprint subprint in Subprints)
         {
-          Debug.LogFormat("FindMatchingPrint {0}", string.Join(",", subprint.RequiredCards));
-          Debug.LogFormat("FindMatchingPrint {0}", string.Join(",", subprint.ResultCard));
+          DebugUtils.LogSubprints(Subprints);
           if (subprint.RequiredCards.SequenceEqual(RequiredCards))
           {
             return subprint;
@@ -145,6 +143,7 @@ namespace ZjaveStacklandsPlus.Scripts.Utils
       baseVillagers ??= FindVillager(cardData);
       // TODO 测试一下能不能找铁矿石的生产蓝图的子输出
       Subprint? subprint = FindMatchingPrint(resultCardId, [toolCardId, producerCardId]);
+      DebugUtils.LogSubprint(subprint);
       // 铁矿石的生产时间
       BaseVillager miner = baseVillagers.Find(bv => bv.Id == producerCardId);
       CardData mine = FindChildrenById(cardData, toolCardId);

@@ -5,11 +5,11 @@ namespace ZjaveStacklandsPlus.Scripts.Workshops
 {
   /// <summary>
   /// </summary>
-  public class IconBarWorkshop : CardData
+  public class IronBarWorkshop : CardData
   {
-    public static string cardId = "zjave_icon_bar_workshop";
-    public static string statusId = "zjave_icon_bar_workshop_status";
-    public static string blueprintId = "zjave_blueprint_icon_bar_workshop";
+    public static string cardId = "zjave_iron_bar_workshop";
+    public static string statusId = "zjave_iron_bar_workshop_status";
+    public static string blueprintId = "zjave_blueprint_iron_bar_workshop";
 
     /// <summary>
     /// 能放置到当前卡片上的卡牌类型
@@ -25,7 +25,8 @@ namespace ZjaveStacklandsPlus.Scripts.Workshops
         ;
     }
 
-    public virtual List<BaseVillager> FindVillager() {
+    public virtual List<BaseVillager> FindVillager()
+    {
       List<CardData> cardDatas = ChildrenMatchingPredicate((CardData cd) => cd is BaseVillager);
       return cardDatas
         .Select(cd => (cd as BaseVillager)!)
@@ -61,7 +62,8 @@ namespace ZjaveStacklandsPlus.Scripts.Workshops
       base.UpdateCard();
     }
 
-    public virtual void CancelTimer() {
+    public virtual void CancelTimer()
+    {
       MyGameCard.CancelTimer(GetActionId("CompleteMaking"));
     }
 
