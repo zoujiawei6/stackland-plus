@@ -21,6 +21,35 @@ namespace ZjaveStacklandsPlus
             // TODO 发布时设为false
             Debug.unityLogger.logEnabled = true;
             Harmony.PatchAll(typeof(Patches));
+
+            /*
+            使用 Harmony 的泛型类动态处理所有派生类
+            创建一个动态方法，针对所有继承自 CardData 的类，Patch CanHaveCard 方法。
+
+            使用 Reflection 动态扫描程序集并 Patch。
+            */
+            // 获取所有派生类
+            var derivedTypes = AppDomain.CurrentDomain.GetAssemblies()
+                .SelectMany(assembly => assembly.GetTypes())
+                .Where(type => type.IsSubclassOf(typeof(CardData)) && !type.IsAbstract);
+
+            foreach (var type in derivedTypes)
+            {
+                try
+                {
+                    var method = AccessTools.Method(type, "CanHaveCard");
+                    if (method != null)
+                    {
+                        var postfix = typeof(Patches.BuildingCanHaveCardPatch).GetMethod(nameof(Patches.BuildingCanHaveCardPatch.CanHaveCard));
+                        Harmony.Patch(method, postfix: new HarmonyMethod(postfix));
+                        // Debug.Log($"Patched {type.Name}.CanHaveCard");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.LogError($"Failed to patch {type.Name}: {ex.Message}");
+                }
+            }
         }
 
         /**
@@ -53,10 +82,13 @@ namespace ZjaveStacklandsPlus
         /// 获取命名空间中的所有继承了ZjaveWorkshop的类，并通过反射获取静态字段 blueprintId，
         /// 将其通过 AddCardToSetCardBag 方法添加到 CardBag
         /// </summary>
-        private void AddCardsToSetBasicBuildingIdeaCardBag(Type[] allTypes) {
+        private void AddCardsToSetBasicBuildingIdeaCardBag(Type[] allTypes)
+        {
             // 筛选出 ZjaveStacklandsPlus 命名空间下，继承自 ZjaveWorkshop 的类型
             var workshopTypes = allTypes.Where(t =>
-                t.IsClass &&                     // 需要是类
+                t != null &&
+                t.IsClass && // 需要是类
+                t.Namespace != null &&
                 t.Namespace.StartsWith("ZjaveStacklandsPlus") &&  // 限定在指定命名空间
                 t.IsSubclassOf(typeof(ZjaveWorkshop))   // 继承自 ZjaveWorkshop
             );
@@ -70,23 +102,25 @@ namespace ZjaveStacklandsPlus
                 {
                     try
                     {
-                        var blueprintId = fieldInfo.GetValue(null) as string; // 静态字段，无需实例化类，传递 null
+                        object blueprintId = fieldInfo.GetValue(null); // 静态字段，无需实例化类，传递 null
                         Debug.LogFormat("blueprintId: {0}", blueprintId);
-                        if (blueprintId != null)
+                        if (blueprintId != null && blueprintId is string)
                         {
-                            AddCardToSetCardBag(SetCardBagType.BasicIdea, blueprintId, 1);
+                            AddCardToSetCardBag(SetCardBagType.BasicIdea, blueprintId.ToString(), 1);
                         }
                         else
                         {
-                            Debug.LogErrorFormat("Failed to get blueprintId for type: {0}", type.Name);
+                            Debug.LogErrorFormat("Failed to get blueprintId for type: {0}", type?.Name);
                         }
-                    } catch (Exception e) {
+                    }
+                    catch (Exception e)
+                    {
                         Logger.Log(e.ToString());
                     }
                 }
             }
         }
-        
+
         private void AddCardToSetCardBag(SetCardBagType setCardBagType, string? cardId, int chance)
         {
             WorldManager.instance.GameDataLoader.AddCardToSetCardBag(setCardBagType, cardId, chance);

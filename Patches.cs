@@ -1,4 +1,5 @@
 using System.Reflection;
+using System.Reflection.Emit;
 using HarmonyLib;
 using UnityEngine;
 using ZjaveStacklandsPlus.Scripts;
@@ -73,22 +74,23 @@ namespace ZjaveStacklandsPlus
     /// </summary>
     /// <param name="__instance"></param>
     /// <param name="__result"></param>
-    [HarmonyPatch(typeof(Building), "CanHaveCard")]
+    [HarmonyPatch(typeof(CardData), "CanHaveCard")]
     [HarmonyPostfix]
     public static void BuildingCanHaveCard(CardData __instance, ref bool __result)
     {
       try
       {
-        GameCard Parent = __instance.MyGameCard.Parent;
-        if (!(Parent != null && Parent.CardData != null)) {
+        GameCard LastParent = __instance.MyGameCard.LastParent;
+        if (!(LastParent != null && LastParent.CardData != null)) {
           return;
         }
+        Debug.LogFormat("BuildingCanHaveCard 111 {0} {1}", __instance.Id, __instance.MyGameCard.LastParent.name);
         // 铁块产线上的指定类型的卡片可以相互堆叠
-        if (Parent.CardData.Id == IronBarWorkshop.cardId && 
+        if (LastParent.CardData.Id == IronBarWorkshop.cardId && 
           (IronBarWorkshop.CanHaveCardIds.Contains(__instance.Id) 
           || IronBarWorkshop.CanHaveCardTypes.Contains(__instance.MyCardType)))
         {
-          Debug.LogFormat("IronBarWorkshop BuildingCanHaveCard {0} {1}", __instance.Id, __instance.MyGameCard.Parent.name);
+          // Debug.LogFormat("IronBarWorkshop BuildingCanHaveCard {0} {1}", __instance.Id, __instance.MyGameCard.Parent.name);
           __result = true;
         }
       }
@@ -96,6 +98,18 @@ namespace ZjaveStacklandsPlus
       {
         Debug.LogErrorFormat("BuildingCanHaveCard Exception {0}", e.Message);
       }
+    }
+
+    [HarmonyPatch(typeof(CardData))]
+    [HarmonyPatch("CanHaveCard")]
+    public static class BuildingCanHaveCardPatch
+    {
+        [HarmonyPostfix]
+        public static void CanHaveCard(CardData __instance, CardData otherCard, ref bool __result)
+        {
+          // 在每次调用时打印日志或添加其他逻辑
+          BuildingCanHaveCard(__instance, ref __result);
+        }
     }
 
     /// <summary>
@@ -109,6 +123,5 @@ namespace ZjaveStacklandsPlus
     {
       BuildingCanHaveCard(__instance, ref __result);
     }
-
   }
 }
