@@ -43,6 +43,7 @@ namespace ZjaveStacklandsPlus
             AddCardToSetCardBag(SetCardBagType.AdvancedBuildingIdea, "zjave_blueprint_farm_upgrade", 1);
             AddCardToSetCardBag(SetCardBagType.AdvancedBuildingIdea, "zjave_blueprint_super_growth_workshop", 1);
             AddCardToSetCardBag(SetCardBagType.AdvancedBuildingIdea, TechnicalResearchCenter.blueprintId, 1);
+            AddCardToSetCardBag(SetCardBagType.AdvancedBuildingIdea, IronBarWorkshop.blueprintId, 1);
             // 获取当前程序集中的所有类型
             Type[] allTypes = Assembly.GetExecutingAssembly().GetTypes();
             AddCardsToSetBasicBuildingIdeaCardBag(allTypes);

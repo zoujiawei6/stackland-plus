@@ -1,7 +1,9 @@
+using System.Reflection;
 using HarmonyLib;
 using UnityEngine;
 using ZjaveStacklandsPlus.Scripts;
 using ZjaveStacklandsPlus.Scripts.Utils;
+using ZjaveStacklandsPlus.Scripts.Workshops;
 
 namespace ZjaveStacklandsPlus
 {
@@ -78,6 +80,32 @@ namespace ZjaveStacklandsPlus
       catch (Exception e)
       {
         Debug.LogErrorFormat("统计食物前弹出食物出错 {0}", e);
+      }
+    }
+
+    // [HarmonyPatch(typeof(Smelter), "CanHaveCard")]
+    // [HarmonyPostfix]
+    // public static void CanHaveCard2(CardData __instance, ref bool __result)
+    // {
+    //   GameCard Parent = __instance.MyGameCard.Parent;
+    //   Debug.LogFormat("221 CanHaveCard2 {0}", __instance.Id);
+    //   if (Parent != null && Parent.CardData != null && Parent.CardData.Id == IronBarWorkshop.cardId)
+    //   {
+    //     Debug.LogFormat("222 CanHaveCard2 {0} {1}", __instance.Id, __instance.MyGameCard.Parent.name);
+    //     __result = true;
+    //   }
+    // }
+
+    [HarmonyPatch(typeof(CardData), "CanHaveCard")]
+    [HarmonyPostfix]
+    public static void CanHaveCard1(CardData __instance, ref bool __result)
+    {
+      GameCard Parent = __instance.MyGameCard.Parent;
+      Debug.LogFormat("221 CanHaveCard1 {0}", __instance.Id);
+      if (Parent != null && Parent.CardData != null && Parent.CardData.Id == IronBarWorkshop.cardId)
+      {
+        Debug.LogFormat("222 CanHaveCard1 {0} {1}", __instance.Id, __instance.MyGameCard.Parent.name);
+        __result = true;
       }
     }
 

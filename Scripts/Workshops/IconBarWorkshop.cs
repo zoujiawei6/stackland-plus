@@ -18,6 +18,7 @@ namespace ZjaveStacklandsPlus.Scripts.Workshops
     /// <returns></returns>
     protected override bool CanHaveCard(CardData otherCard)
     {
+      // Debug.LogFormat("CanHaveCard {0}", otherCard.Id);
       return otherCard.Id == Cards.lumbercamp
         || otherCard.Id == Cards.mine
         || otherCard.Id == Cards.smelter

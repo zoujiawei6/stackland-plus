@@ -6,7 +6,7 @@
     "icon": "iron_bar",
     "value": 5,
     "type": "Structures",
-    "script": "ZjaveStacklandsPlus.Scripts.IronBarWorkshop",
+    "script": "ZjaveStacklandsPlus.Scripts.Workshops.IronBarWorkshop",
     "_IsBuilding": true,
     "_HasUniquePalette": true,
     "_MyPalette": {
