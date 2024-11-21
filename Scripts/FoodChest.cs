@@ -70,6 +70,27 @@ namespace ZjaveStacklandsPlus.Scripts
       }
     }
 
+    public virtual int FoodValueCount
+    {
+      get {
+        try
+        {
+          int total = 0;
+          foreach (var item in FoodValueList)
+          {
+            int foodValue = int.Parse(item);
+            total += foodValue;
+          }
+          return total;
+        }
+        catch (Exception e)
+        {
+          Debug.LogErrorFormat("无法解析食物值 {0} {1}", FoodValues, e);
+          return 0;
+        }
+      }
+    }
+
     public virtual Sprite GetSpecialIcon()
     {
       SpecialIcon ??= SpriteManager.instance.FootFightIcon;

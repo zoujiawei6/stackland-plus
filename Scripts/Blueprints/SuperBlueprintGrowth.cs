@@ -1,3 +1,4 @@
+using HarmonyLib;
 using ZjaveStacklandsPlus.Scripts.Workshops;
 
 namespace ZjaveStacklandsPlus.Scripts.Blueprints
@@ -44,15 +45,16 @@ namespace ZjaveStacklandsPlus.Scripts.Blueprints
         RequiredCard2 = superCardId;
       }
       // Debug.LogFormat("RequiredCards = {0}", string.Join(", ", print.RequiredCards));
+      // 这里遵从原卡片的顺序（先果实卡，再建筑卡），能避免很多的问题
       print.RequiredCards = [
         RequiredCard1,
         RequiredCard2,
-        RequiredCard1,
-        RequiredCard1,
-        RequiredCard1,
-        RequiredCard1,
-        RequiredCard1,
       ];
+      // 本来要生成5个RequiredCard1，但因为上面已经写了一个了，所以少生成一个
+      for (int i = 1; i < TechnicalResearchCenter.synthesisQuantity; i++)
+      {
+        print.RequiredCards = print.RequiredCards.AddToArray(RequiredCard1);
+      }
       if (print.ExtraResultCards.Length == 0)
       {
         return;

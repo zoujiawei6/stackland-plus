@@ -10,6 +10,14 @@ namespace ZjaveStacklandsPlus.Scripts.Workshops
     public static string cardId = "zjave_iron_bar_workshop";
     public static string statusId = "zjave_iron_bar_workshop_status";
     public static string blueprintId = "zjave_blueprint_iron_bar_workshop";
+    public static string[] CanHaveCardIds = [
+      Cards.lumbercamp,
+      Cards.mine,
+      Cards.smelter
+    ];
+    public static CardType[] CanHaveCardTypes = [
+      CardType.Humans
+    ];
 
     /// <summary>
     /// 能放置到当前卡片上的卡牌类型
@@ -19,10 +27,8 @@ namespace ZjaveStacklandsPlus.Scripts.Workshops
     protected override bool CanHaveCard(CardData otherCard)
     {
       // Debug.LogFormat("CanHaveCard {0}", otherCard.Id);
-      return otherCard.Id == Cards.lumbercamp
-        || otherCard.Id == Cards.mine
-        || otherCard.Id == Cards.smelter
-        || otherCard.MyCardType == CardType.Humans
+      return CanHaveCardIds.Contains(otherCard.Id)
+        || CanHaveCardTypes.Contains(otherCard.MyCardType)
         ;
     }
 

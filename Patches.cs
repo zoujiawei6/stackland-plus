@@ -7,27 +7,12 @@ using ZjaveStacklandsPlus.Scripts.Workshops;
 
 namespace ZjaveStacklandsPlus
 {
+  /// <summary>
+  /// 这是一个切面类，用于在游戏的某段函数前后插入指定的代码。
+  /// 请遵循尽量不改动游戏原有逻辑的原则，且当前类必须捕获处理异常。
+  /// </summary>
   class Patches
   {
-
-    // [HarmonyPatch(typeof(ResourceChest), nameof(ResourceChest.UpdateCard))]
-    // [HarmonyPostfix]
-    // public static void PostUpdateCard(ResourceChest __instance)
-    // {
-    //   var foodChests = UnityEngine.Object.FindObjectsOfType<FoodChest>();
-    //   foreach (var foodChest in foodChests)
-    //   {
-    //     foodChest.SpecialIcon = __instance.SpecialIcon;
-    //   }
-    // }
-
-    // [HarmonyPatch(typeof(CardData), nameof(CardData.FinishBlueprint))]
-    // [HarmonyPostfix]
-    // public static void PostUpdateCard(CardData __instance)
-    // {
-    //   Debug.LogFormat("222 finish blueprint {0}", __instance.MyGameCard.TimerBlueprintId);
-    // }
-
     /// <summary>
     /// 在统计食物前弹出食物箱里的食物
     /// </summary>
@@ -61,7 +46,7 @@ namespace ZjaveStacklandsPlus
           if (differ >= 0)
           {
             // 箱子里的食物不够弥补或恰好弥补缺口时，弹出箱子里的全部食物
-            Debug.LogFormat("弹出食物箱里的食物 {0} {1}", food.FoodValue, item.ResourceCount);
+            Debug.LogFormat("弹出食物箱里的食物1 {0} {1}", food.FoodValue, item.ResourceCount);
             item.RemoveResources(item.ResourceCount);
             shortage = differ;
             item.Clicked();
@@ -69,7 +54,7 @@ namespace ZjaveStacklandsPlus
           }
           else if (differ < 0)
           {
-            Debug.LogFormat("弹出食物箱里的食物 {0} {1}", food.FoodValue, shortage);
+            Debug.LogFormat("弹出食物箱里的食物2 {0} {1}", food.FoodValue, shortage);
             // 否则弹出食物的缺口数量的食物值，换算成卡牌时需要向上取整食物才够
             int require = Mathf.Max(1, (int)Mathf.Ceil(shortage / food.FoodValue));
             item.RemoveResources(require);
@@ -83,30 +68,46 @@ namespace ZjaveStacklandsPlus
       }
     }
 
-    // [HarmonyPatch(typeof(Smelter), "CanHaveCard")]
-    // [HarmonyPostfix]
-    // public static void CanHaveCard2(CardData __instance, ref bool __result)
-    // {
-    //   GameCard Parent = __instance.MyGameCard.Parent;
-    //   Debug.LogFormat("221 CanHaveCard2 {0}", __instance.Id);
-    //   if (Parent != null && Parent.CardData != null && Parent.CardData.Id == IronBarWorkshop.cardId)
-    //   {
-    //     Debug.LogFormat("222 CanHaveCard2 {0} {1}", __instance.Id, __instance.MyGameCard.Parent.name);
-    //     __result = true;
-    //   }
-    // }
-
-    [HarmonyPatch(typeof(CardData), "CanHaveCard")]
+    /// <summary>
+    /// 允许产线所需建筑在产线卡牌上相互叠放
+    /// </summary>
+    /// <param name="__instance"></param>
+    /// <param name="__result"></param>
+    [HarmonyPatch(typeof(Building), "CanHaveCard")]
     [HarmonyPostfix]
-    public static void CanHaveCard1(CardData __instance, ref bool __result)
+    public static void BuildingCanHaveCard(CardData __instance, ref bool __result)
     {
-      GameCard Parent = __instance.MyGameCard.Parent;
-      Debug.LogFormat("221 CanHaveCard1 {0}", __instance.Id);
-      if (Parent != null && Parent.CardData != null && Parent.CardData.Id == IronBarWorkshop.cardId)
+      try
       {
-        Debug.LogFormat("222 CanHaveCard1 {0} {1}", __instance.Id, __instance.MyGameCard.Parent.name);
-        __result = true;
+        GameCard Parent = __instance.MyGameCard.Parent;
+        if (!(Parent != null && Parent.CardData != null)) {
+          return;
+        }
+        // 铁块产线上的指定类型的卡片可以相互堆叠
+        if (Parent.CardData.Id == IronBarWorkshop.cardId && 
+          (IronBarWorkshop.CanHaveCardIds.Contains(__instance.Id) 
+          || IronBarWorkshop.CanHaveCardTypes.Contains(__instance.MyCardType)))
+        {
+          Debug.LogFormat("IronBarWorkshop BuildingCanHaveCard {0} {1}", __instance.Id, __instance.MyGameCard.Parent.name);
+          __result = true;
+        }
       }
+      catch (Exception e)
+      {
+        Debug.LogErrorFormat("BuildingCanHaveCard Exception {0}", e.Message);
+      }
+    }
+
+    /// <summary>
+    /// 允许具有装备栏的村民在产线上相互叠放
+    /// </summary>
+    /// <param name="__instance"></param>
+    /// <param name="__result"></param>
+    [HarmonyPatch(typeof(Equipable), "CanHaveCard")]
+    [HarmonyPostfix]
+    public static void EquipableCanHaveCard(CardData __instance, ref bool __result)
+    {
+      BuildingCanHaveCard(__instance, ref __result);
     }
 
   }

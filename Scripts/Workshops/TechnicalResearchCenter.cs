@@ -18,6 +18,10 @@ namespace ZjaveStacklandsPlus.Scripts.Workshops
     public static float workingTime = 10;
     // 从超级花园升级超级农场和从超级农场升级超级温室所需时间
     public static float upgradeTime = 30;
+    /// <summary>
+    /// 合成超级卡牌索性的基础卡片数量，如合成超级农场需6张农场卡牌
+    /// 具体倍数生产是在SuperBlueprintGrowth的ToSuperRequiredCard函数里RequiredCard1的数量决定的（数量就是倍数）
+    /// </summary>
     public static int synthesisQuantity = 6;
 
     [ExtraData("DestroyGardenCount")]
