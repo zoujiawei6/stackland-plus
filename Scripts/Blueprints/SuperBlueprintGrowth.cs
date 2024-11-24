@@ -62,5 +62,45 @@ namespace ZjaveStacklandsPlus.Scripts.Blueprints
       print.ExtraResultCards = [.. print.ExtraResultCards, .. print.ExtraResultCards];
     }
 
+    public override void BlueprintComplete(GameCard rootCard, List<GameCard> involvedCards, Subprint print)
+    {
+      base.BlueprintComplete(rootCard, involvedCards, print);
+      if (rootCard.CardData is HeavyFoundation && rootCard.Child != null)
+      {
+        rootCard = rootCard.Child;
+      }
+      if (rootCard.CardData.Id == SuperGreenhouse.cardId)
+      {
+        GreenhouseBlueprintComplete(rootCard, involvedCards, print);
+      }
+    }
+
+    public virtual void GreenhouseBlueprintComplete(GameCard rootCard, List<GameCard> involvedCards, Subprint print)
+    {
+      // 1. 查看函数：BlueprintGrowth.BlueprintComplete
+      // 2. 查看函数：BlueprintGrowth.PopulateSubprints
+      // 3. RequiredCards = new string[2] { growable.ToGrow, text }
+      // 那么可以证明 RequiredCards[0] == growable.ToGrow
+      int growTotal = 0;
+      GameCard gameCard = rootCard;
+      for (int i = 0; i < TechnicalResearchCenter.synthesisQuantity; i++)
+      {
+        CardData cardData = allResultCards.FirstOrDefault((CardData c) => Subprints.Any((Subprint x) => x.RequiredCards[0] == c.Id));
+        if (cardData != null)
+        {
+          cardData.MyGameCard.BounceTarget = gameCard;
+          cardData.MyGameCard.Velocity = null;
+          cardData.MyGameCard.SetParent(gameCard);
+          allResultCards.Remove(cardData);
+          gameCard = cardData.MyGameCard;
+        }
+        growTotal++;
+      }
+      if (growTotal > 0)
+      {
+        WorldManager.instance.Restack(allResultCards.Select((CardData x) => x.MyGameCard).ToList());
+        WorldManager.instance.StackSendCheckTarget(rootCard, allResultCards[0].MyGameCard, rootCard.CardData.OutputDir, rootCard);
+      }
+    }
   }
 }
