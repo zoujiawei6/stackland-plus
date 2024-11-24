@@ -99,7 +99,6 @@ namespace ZjaveStacklandsPlus.Scripts.Workshops
         cardId = null;
         return false;
       }
-      Debug.LogFormat("AccordUpgrade {0} {1} {2}", haveCard, cardId, total);
       return haveCard
         && ChildrenMatchingPredicateCount((CardData cd) => cd.Id == Cards.iron_bar) >= total
         && ChildrenMatchingPredicateCount((CardData cd) => cd.Id == Cards.glass) >= total;
@@ -157,7 +156,7 @@ namespace ZjaveStacklandsPlus.Scripts.Workshops
       if (AccordUpgrade(out string? cardId) && cardId != null)
       {
         string resultCard = cardId == SuperGarden.cardId ? SuperFarm.cardId : SuperGreenhouse.cardId;
-        Debug.LogFormat("DDD CompleteUpgrade {0} {1}", cardId, resultCard);
+        Debug.LogFormat("CompleteUpgrade {0} {1}", cardId, resultCard);
         CompleteUpgrade(cardId, resultCard);
         return;
       }
